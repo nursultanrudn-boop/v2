@@ -1,0 +1,1645 @@
+/*
+  ГРАДАЦИЯ 2 — CSS
+  Токены и вёрстка под макет «Desktop» (главная), десктопная ширина.
+
+  Шрифты как в Figma:
+  - Montserrat — заголовок «Привет, я Султан» (Google Fonts).
+  - PT Root UI — основной текст и UI (в макете PT Root UI VF; в вёрстке те же Regular/Medium/Bold через отдельные начертания).
+  Если нужен именно один файл .woff2 VF с paratype.ru — положите его в fonts/ и добавьте @font-face ниже.
+
+  PT Root UI подключаем здесь, без local(): у CDN-листа cdnfonts перед url стоит local('PT Root UI'),
+  из‑за этого при установленном в ОС шрифте браузер берёт одно начертание и Bold (700) не подгружается.
+*/
+
+@font-face {
+  font-family: "PT Root UI";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://fonts.cdnfonts.com/s/17770/PT Root UI_Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "PT Root UI";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("https://fonts.cdnfonts.com/s/17770/PT Root UI_Medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: "PT Root UI";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("https://fonts.cdnfonts.com/s/17770/PT Root UI_Bold.woff") format("woff");
+}
+
+/* ========== БЛОК: переменные из макета Figma ========== */
+:root {
+  --bg-page: #ffffff;
+  /* Figma: BG / Accent — фон плашек дока и акцентные белые поверхности */
+  --bg-accent: #ffffff;
+  --fg-primary: #0a0c0f;
+  --fg-secondary: #435165;
+  --fg-tertiary: #54657d;
+  --fg-gray-transparent-quaternary: rgba(175, 186, 202, 0.10);
+  --brand-primary: #2e85ff;
+  --brand-surface: #f0f9ff;
+  --brand-tertiary: #1c64d9;
+  --bg-surface-secondary: #f7f8fa;
+  --stroke-divider: rgba(130, 147, 171, 0.2);
+  --shadow-dock:
+    0 0 16px rgba(39, 51, 75, 0.1),
+    0 4px 8px rgba(39, 51, 75, 0.07);
+  --content-width: 988px;
+  --content-top: 180px;
+  --content-side: 32px;
+  --content-bottom: 48px;
+  --avatar-size: 150px;
+  --font-heading: "Montserrat", sans-serif;
+  --font-body: "PT Root UI", sans-serif;
+  /* Progressive blur под доком (стек слоёв, как на hatoyan.com) */
+  --dock-progressive-blur-height: 60px;
+  --dock-progressive-extra-padding: 40px;
+  --z-dock-progressive-blur: 9;
+  /* Панель дока и фиксированные подписи — над слоем блюра */
+  --z-dock-chrome: 11;
+}
+
+/* ========== БЛОК: плавные переходы между страницами ========== */
+/*
+  MPA View Transitions (Chrome 126+, Edge 126+, Firefox 130+).
+  Браузер захватывает снимки старой и новой страницы и плавно
+  перетекает между ними — без белых вспышек.
+*/
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root) {
+  animation: vt-fade-out 0.12s ease-out both;
+}
+
+::view-transition-new(root) {
+  animation: vt-fade-in 0.14s ease-out both;
+}
+
+/* На страницах кейсов отключаем root-transition, чтобы убрать рывки на тяжёлом контенте */
+html.page-case::view-transition-old(root),
+html.page-case::view-transition-new(root) {
+  animation: none;
+}
+
+@keyframes vt-fade-out {
+  from { opacity: 1; }
+  to   { opacity: 0.94; }
+}
+
+@keyframes vt-fade-in {
+  from { opacity: 0.94; }
+  to   { opacity: 1; }
+}
+
+/* ========== БЛОК: сброс и база ========== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+  scrollbar-gutter: stable;
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative; /* якорь для position: absolute угловых подписей на мобильном/планшете */
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg-page);
+  color: var(--fg-primary);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 32px;
+  /* Запас снизу под панель + progressive blur (класс вешает main.js) */
+  padding-bottom: 120px;
+}
+
+body.has-dock-progressive-blur {
+  padding-bottom: calc(120px + var(--dock-progressive-extra-padding));
+}
+
+/* ========== БЛОК: угловые подписи (фиксированные на десктопе) ========== */
+.corner-label {
+  position: fixed;
+  z-index: var(--z-dock-chrome);
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 400;
+  pointer-events: none;
+}
+
+.corner-label--tl {
+  top: 32px;
+  left: 32px;
+  max-width: 120px;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--fg-tertiary);
+}
+
+.corner-label--tr {
+  top: 32px;
+  right: 32px;
+  max-width: 100px;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--fg-tertiary);
+  text-align: right;
+}
+
+.corner-label--bl {
+  bottom: 32px;
+  left: 32px;
+  max-width: 140px;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--fg-secondary);
+}
+
+/* ========== БЛОК: блок «ТГ канал» справа снизу ========== */
+.tg-block {
+  position: fixed;
+  z-index: var(--z-dock-chrome);
+  right: 32px;
+  bottom: 32px;
+  width: 119px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.tg-block__caption {
+  margin: 0;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+  color: var(--fg-tertiary);
+  text-align: right;
+  text-transform: uppercase;
+  max-width: 100px;
+}
+
+.tg-block__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  color: var(--brand-tertiary);
+  text-decoration: none;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.tg-block__link:hover {
+  text-decoration: underline;
+}
+
+/* ========== БЛОК: главная — «код» + спотлайт (только десктоп, см. @media ниже) ========== */
+/* Вкл/выкл эффекта: js/home-code-spotlight.js → ENABLE_HOME_CODE_SPOTLIGHT */
+.home-code-spotlight {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  /* точные px под область указателя выставляет JS (clientWidth/Height ≈ clientX/Y при вертикальном скролле) */
+  z-index: 0;
+  pointer-events: none;
+  /* не обрезать маску у краёв вьюпорта — иначе круг «не доезжает» до угловых подписей */
+  overflow: visible;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.home-code-spotlight__canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  vertical-align: top;
+  pointer-events: none;
+}
+
+body.home-code-spotlight--on .home-code-spotlight.home-code-spotlight--ready {
+  opacity: 1;
+}
+
+/* Пустое место в .main-area (отступы) — слой скрыт, как за пределами «круга» спотлайта */
+body.home-code-spotlight--on.home-code-spotlight--main-empty .home-code-spotlight.home-code-spotlight--ready {
+  opacity: 0;
+}
+
+@media (min-width: 1025px) {
+  .home-code-spotlight.home-code-spotlight--ready {
+    /* центр круга в % от слоя — совпадает с курсором у краёв (px + gutter/zoom даёт сдвиг) */
+    mask-image: radial-gradient(
+      circle 240px at var(--home-spot-x-pct, 50%) var(--home-spot-y-pct, 50%),
+      #000 0%,
+      transparent 72%
+    );
+    mask-repeat: no-repeat;
+    -webkit-mask-image: radial-gradient(
+      circle 240px at var(--home-spot-x-pct, 50%) var(--home-spot-y-pct, 50%),
+      #000 0%,
+      transparent 72%
+    );
+    -webkit-mask-repeat: no-repeat;
+  }
+
+  .main-area {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+@media (max-width: 1024px), (prefers-reduced-motion: reduce) {
+  .home-code-spotlight {
+    display: none !important;
+  }
+}
+
+/* ========== БЛОК: основной контент по центру ========== */
+.main-area {
+  width: 100%;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: var(--content-top) var(--content-side) var(--content-bottom);
+}
+
+/* Поочередное появление блоков в контенте страницы */
+@keyframes content-stagger-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.main-area > * {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: content-stagger-in 0.78s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.main-area > *:nth-child(1) { animation-delay: 0.04s; }
+.main-area > *:nth-child(2) { animation-delay: 0.14s; }
+.main-area > *:nth-child(3) { animation-delay: 0.24s; }
+.main-area > *:nth-child(4) { animation-delay: 0.34s; }
+.main-area > *:nth-child(5) { animation-delay: 0.44s; }
+.main-area > *:nth-child(6) { animation-delay: 0.54s; }
+
+/* Главная: вместо блока intro анимируем абзацы по очереди */
+.page-home .main-area > .intro {
+  opacity: 1;
+  transform: translateY(0);
+  animation: none;
+}
+
+.page-home .main-area > .intro p {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: content-stagger-in 0.78s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.page-home .main-area > .intro p:nth-child(1) { animation-delay: 0.14s; }
+.page-home .main-area > .intro p:nth-child(2) { animation-delay: 0.24s; }
+.page-home .main-area > .intro p:nth-child(3) { animation-delay: 0.34s; }
+.page-home .main-area > .intro p:nth-child(4) { animation-delay: 0.44s; }
+
+.profile-head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  margin-bottom: 16px;
+}
+
+/* Аватар: круглая обрезка; под PNG с прозрачностью — фон страницы, не серый плейсхолдер */
+.avatar {
+  flex-shrink: 0;
+}
+
+.avatar img {
+  display: block;
+  width: var(--avatar-size);
+  height: auto;
+}
+
+/* Заголовок: Montserrat SemiBold — главная «Привет, я Султан», страница «Кейсы» */
+.profile-head__title {
+  margin: 0;
+  margin-top: -8px;
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  color: #000000;
+}
+
+/* Текстовый блок: межстрочный 32px, цвет основного текста */
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 840px;
+}
+
+.intro p {
+  margin: 0;
+}
+
+/*
+  Жирные вставки по макету (PT Root UI Bold).
+  Отдельный класс + !important: у части браузеров <strong> с подгружаемым PT Root UI
+  не переключался на настоящий Bold без явного правила.
+*/
+.intro__bold,
+.intro__bold b {
+  font-family: var(--font-body);
+  font-weight: 700 !important;
+  font-style: normal;
+  color: var(--fg-primary);
+}
+
+/* Заголовок внутренних страниц (Кейсы, Обо мне) */
+.page-title {
+  margin: 0 0 16px;
+}
+
+.page-lead {
+  margin: 0;
+  max-width: 840px;
+}
+
+/* ========== БЛОК: progressive blur под панелью (стек слоёв) ========== */
+.dock-progressive-bottom {
+  position: fixed;
+  z-index: var(--z-dock-progressive-blur);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: var(--dock-progressive-blur-height);
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.dock-progressive-blur-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.01);
+  mask-size: 100% 100%;
+  -webkit-mask-size: 100% 100%;
+}
+
+/* Progressive blur: только на десктопе; на узком экране или при Reduce motion не показываем */
+@media (max-width: 1024px), (prefers-reduced-motion: reduce) {
+  .dock-progressive-bottom {
+    display: none;
+  }
+
+  body.has-dock-progressive-blur {
+    padding-bottom: 120px;
+  }
+}
+
+/* ========== БЛОК: нижняя панель навигации (пилюля) ========== */
+.dock-wrap {
+  position: fixed;
+  z-index: var(--z-dock-chrome);
+  left: 0;
+  right: 0;
+  bottom: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  pointer-events: none; /* кликабельны только дочерние элементы */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dock-wrap > * {
+  pointer-events: auto;
+}
+
+.dock-wrap--intro {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: dock-rise-in 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.38s forwards;
+}
+
+@keyframes dock-rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dock-wrap {
+    opacity: 1;
+    transform: translateY(0);
+    animation: none;
+  }
+
+  .dock-wrap--intro {
+    opacity: 1;
+    transform: translateY(0);
+    animation: none;
+  }
+
+  .main-area > *,
+  .page-home .main-area > .intro p {
+    opacity: 1;
+    transform: translateY(0);
+    animation: none;
+  }
+
+  .page-case .case-sidebar__link,
+  .page-case .case-back-mobile {
+    opacity: 1;
+    transform: translateY(0);
+    animation: none;
+  }
+}
+
+.dock {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  /* Figma: BG / Accent — белый фон панели (непрозрачный) */
+  background: var(--bg-accent);
+  border: 1px solid var(--stroke-divider);
+  border-radius: 12px;
+  box-shadow: var(--shadow-dock);
+}
+
+/* ── Button/Primary: кнопки-разделы в панели управления ─────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0;
+  min-height: 48px;
+  padding: 4px 32px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 550;
+  line-height: 16px;
+  color: var(--fg-secondary);
+  text-decoration: none;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-primary:hover {
+  background: var(--fg-gray-transparent-quaternary);
+}
+
+/* Активная вкладка: фон + цвет акцента */
+.btn-primary.is-active {
+  background: var(--brand-surface);
+  color: var(--brand-primary);
+}
+
+/* Иконка и подпись внутри btn-primary — всегда видны */
+.btn-primary__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.btn-primary__icon svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.dock__icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  min-height: 40px;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Button/Text — Hover */
+.dock__icon-btn:hover {
+  background: var(--fg-gray-transparent-quaternary);
+}
+
+.dock__icon-btn img {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+/* ========== БЛОК: страница кейсов ========== */
+/* Заголовок «Кейсы» (cases.html): Montserrat, как у названий карточек */
+.main-area > .profile-head__title.page-title {
+  font-family: var(--font-heading);
+}
+
+.cases-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 24px; /* 16px page-title margin-bottom + 24px = 40px total itemSpacing из Figma */
+}
+
+.case-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.case-card__image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 920 / 552;
+  background: var(--bg-surface-secondary);
+  border-radius: 24px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.case-card__image picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.case-card__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.case-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.case-card__text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.case-card__date {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  color: var(--fg-tertiary);
+}
+
+.case-card__title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  color: var(--fg-primary);
+}
+
+.case-card__desc {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--fg-secondary);
+}
+
+/* Индивидуальные ширины описаний на десктопе */
+.case-card:nth-child(1) .case-card__desc { max-width: 490px; }
+.case-card:nth-child(2) .case-card__desc { max-width: 680px; }
+.case-card:nth-child(3) .case-card__desc { max-width: 460px; }
+.case-card:nth-child(4) .case-card__desc { max-width: 628px; }
+
+/* Button/Secondary */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  padding: 6px 12px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 450;
+  line-height: 20px;
+  color: var(--fg-secondary);
+  text-decoration: none;
+  background: var(--bg-page);
+  border: 1px solid #9aa8bc;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-secondary:hover {
+  background: var(--fg-gray-transparent-quaternary);
+}
+
+/* ========== БЛОК: страница кейса ========== */
+
+/* Герой-изображение */
+.case-hero {
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  background: var(--bg-surface-secondary);
+  aspect-ratio: 920 / 552;
+}
+
+.case-hero img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Инфо-блок: заголовок + 3 текстовые секции */
+.case-info {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+}
+
+.case-info__title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  color: var(--fg-primary);
+}
+
+/*
+  Каждая секция открывается 40px сверху (paddingTop Figma);
+  itemSpacing 16px — между заголовком и списком.
+*/
+.case-section {
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.case-section__label {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  color: var(--fg-primary);
+}
+
+/* itemSpacing 4px между пунктами */
+.case-section__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.case-section__list li {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--fg-secondary);
+}
+
+/* Витрина дизайна: gap 40px между группами */
+.case-design {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  margin-top: 40px;
+}
+
+/* Группа «До» / «После»: gap 8px между меткой и изображениями */
+.case-design__group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Метки «До» / «После»: 12px/16px, weight 500, --fg-secondary */
+.case-design__label {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: var(--fg-tertiary);
+}
+
+.case-design__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Пара «До + После» внутри витрины: 16px между группами внутри пары, 48px между парами (задаётся .case-design gap) */
+.case-design__pair {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Фотографии кейса без фона — полная ширина контент-блока */
+.case-photos {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.case-photos__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
+/* Уменьшаем нагрузку при входе в кейс: тяжёлые медиа-блоки рендерятся по мере прокрутки */
+.case-design,
+.case-photos {
+  content-visibility: auto;
+  contain-intrinsic-size: 1000px;
+}
+
+
+/* Быстрые кнопки навигации кейса (фиксированные, только на широком экране).
+   Выровнены по левому краю — той же вертикальной полосе, что угловые подписи. */
+.case-sidebar {
+  display: none; /* скрыта до media query */
+  position: fixed;
+  top: 180px;
+  left: 32px;
+  width: 106px;
+  flex-direction: column;
+  gap: 0;
+  z-index: 5;
+}
+
+.case-sidebar__link {
+  display: block;
+  padding: 4px 0;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--brand-primary);
+  text-decoration: none;
+  border-radius: 4px;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+/* Плавное поочередное появление пунктов навигации на страницах кейсов */
+@keyframes case-nav-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-case .case-sidebar__link {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: case-nav-in 0.78s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.page-case .case-sidebar__link:nth-child(1) { animation-delay: 0.12s; }
+.page-case .case-sidebar__link:nth-child(2) { animation-delay: 0.20s; }
+.page-case .case-sidebar__link:nth-child(3) { animation-delay: 0.28s; }
+.page-case .case-sidebar__link:nth-child(4) { animation-delay: 0.36s; }
+
+.case-sidebar__link:hover {
+  color: var(--brand-tertiary);
+}
+
+/* Иконка (16px) + gap (4px) = 20px — на столько сдвигаем весь блок,
+   чтобы текст «Назад» совпал с левым краем якорных ссылок */
+.case-sidebar {
+  padding-left: 20px;
+}
+
+.case-sidebar__back {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: -20px; /* выдвигаем иконку в зарезервированное пространство */
+}
+
+.case-sidebar__back img {
+  display: block;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+/* Показываем сайдбар только когда есть достаточно места слева от контента:
+   920px + 2*(42px gap + 106px nav) = 1216px → порог 1220px */
+@media (min-width: 1220px) {
+  .case-sidebar {
+    display: flex;
+  }
+}
+
+/* ========== БЛОК: страница «Обо мне» ========== */
+
+/* Дополнительные токены */
+:root {
+  /* --stroke-card — тот же Strokes/divider/secondary из Figma: rgba(130,147,171,0.2) */
+  --stroke-card: var(--stroke-divider);
+  /* Stroke/divider/primary из Figma */
+  --stroke-divider-primary: #9aa8bc;
+  --tag-gray-bg: var(--fg-gray-transparent-quaternary);
+  --tag-green-bg: #edffee;
+  --tag-green-stroke: #3dd155;
+  --status-active: #1ac43c;
+}
+
+/* ── Тег-пилюля ─────────────────────────────────────────────────────────── */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 6px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 450;
+  line-height: 20px;
+  color: var(--fg-secondary);
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.tag--gray { background: var(--tag-gray-bg); }
+
+.tag--green {
+  background: var(--tag-green-bg);
+}
+
+/* Строка тегов (gap 4px) */
+.tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+/* ── Карточка-контейнер (bg + рамка + радиус) ───────────────────────────── */
+.info-card {
+  background: var(--bg-surface-secondary);
+  border: 1px solid var(--stroke-card);
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+}
+
+a.info-card {
+  transition: border-color 0.15s;
+  cursor: pointer;
+}
+
+a.info-card:hover {
+  border-color: var(--brand-primary);
+}
+
+/* Круглый логотип 44×44 */
+.card-logo {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--bg-surface-secondary);
+}
+
+.card-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── Обёртка всего контента страницы «Обо мне» ──────────────────────────── */
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* ── Героя-блок (фото + текст) ──────────────────────────────────────────── */
+.about-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.about-hero__photo {
+  width: 256px;
+  height: 314px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: var(--bg-surface-secondary);
+  box-shadow: var(--shadow-dock);
+  flex-shrink: 0;
+}
+
+.about-hero__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-hero__text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.about-hero__header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.about-hero__title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  color: var(--fg-primary);
+}
+
+.about-hero__desc {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.about-hero__desc-label { color: var(--fg-tertiary); }
+
+.about-hero__status { color: var(--status-active); }
+
+/* Тонкий вертикальный разделитель */
+.about-divider {
+  display: inline-block;
+  width: 1px;
+  height: 12px;
+  background: var(--stroke-divider-primary);
+  flex-shrink: 0;
+  margin: 0 4px;
+}
+
+.about-hero__bio {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 32px;
+  color: var(--fg-primary);
+}
+
+/* ── Секция с заголовком (Плагин, Опыт, Образование) ───────────────────── */
+.about-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-section__title {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  color: var(--fg-primary);
+}
+
+/* ── Ряд карточек (2 колонки) ───────────────────────────────────────────── */
+.cards-row {
+  display: flex;
+  gap: 8px;
+}
+
+/* ── Карточка «Логотип + название + теги» (плагины, опыт работы) ─────────── */
+.logo-card {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+}
+
+.logo-card__top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Растягиваем текстовую часть в ряду с логотипом */
+.logo-card__top > .logo-card__name,
+.logo-card__top > .logo-card__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.logo-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.logo-card__name {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  color: var(--fg-primary);
+}
+
+/* Ссылка «ТГ канал» в плагин-карточках */
+.logo-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 450;
+  line-height: 24px;
+  color: var(--brand-tertiary);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.logo-card__link:hover { text-decoration: underline; }
+
+/* Иконка-кнопка открытия (только иконка, без текста) */
+.logo-card__icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.logo-card__icon-btn:hover {
+  background: transparent;
+}
+
+.logo-card__icon-btn img { display: block; }
+
+
+/* ── Блок образования ─────────────────────────────────────────────────────── */
+.edu-content {
+  display: flex;
+  gap: 20px;
+}
+
+/* Левая колонка образования: заголовок + карточки университета */
+.edu-left {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Два карточки университета рядом */
+.edu-university {
+  display: flex;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+
+.edu-card {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 24px;
+}
+
+.edu-card__header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.edu-card__name {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--fg-primary);
+}
+
+.edu-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+/* Info Box: объединяет направления + даты, отступ 60px (под логотип) */
+.info-box {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  padding-left: 60px;
+}
+
+/* Направления (Академическая степень / Факультет / Направление) */
+.edu-directions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.edu-direction {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.edu-direction__label {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  color: var(--fg-tertiary);
+}
+
+.edu-direction__value {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--fg-primary);
+}
+
+/* Строка дат: дата слева, срок справа — на полную ширину */
+.edu-dates {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* На десктопе выравниваем строку дат по нижнему краю карточек */
+@media (min-width: 769px) {
+  .edu-card .info-box {
+    flex: 1;
+  }
+
+  .edu-card .edu-dates {
+    margin-top: auto;
+  }
+}
+
+.edu-date {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--fg-tertiary);
+}
+
+/* Блок «Курсы» (правая колонка) */
+.edu-courses {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 230px;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+
+.courses-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.course-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 24px;
+  flex: 1;
+}
+
+.course-card__name {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--fg-primary);
+}
+
+/* ── Адаптив about (≤ 1024px) ──────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .edu-card__name { font-size: 14px; }
+}
+
+/* Секция образования не нуждается в gap — заголовок внутри колонок */
+.about-section--edu { gap: 0; }
+
+/* ── Адаптив about (≤ 768px) ────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Единый апдейт типографики: весь текст 16px -> 18px на мобилке */
+  .btn-secondary,
+  .case-card__desc,
+  .case-section__label,
+  .case-section__list li,
+  .case-design__label,
+  .logo-card__name,
+  .logo-card__link,
+  .edu-card__name,
+  .course-card__name,
+  .case-back-mobile,
+  .about-hero__bio,
+  .intro p,
+  .intro__bold,
+  .intro__bold b,
+  .contacts-bio {
+    font-size: 18px;
+  }
+
+  /* Страница кейсов: дата и название карточки (мобайл) */
+  .case-card__date {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  /* Список кейсов: названия карточек на мобиле без изменений (24px) */
+  .case-card__title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  /* Обо мне: заголовки секций (h2/h3) */
+  .about-section__title {
+    font-size: 22px;
+    line-height: 30px;
+  }
+
+  .about-section,
+  .about-section--edu {
+    gap: 16px;
+  }
+
+  .cards-row,
+  .edu-content,
+  .edu-university,
+  .edu-left {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .about-section--edu,
+  .edu-left,
+  .edu-courses {
+    gap: 16px;
+  }
+
+  .edu-content {
+    gap: 16px;
+  }
+
+  .edu-courses {
+    width: 100%;
+  }
+
+  .logo-card__tags--indented {
+    padding-left: 0;
+  }
+
+  .about-hero__bio {
+    line-height: 26px;
+  }
+
+  .intro p,
+  .intro__bold,
+  .intro__bold b {
+    line-height: 26px;
+  }
+}
+
+/* ========== БЛОК: страница контактов ========== */
+
+/* Секция «Контакты»: заголовок + список */
+.contacts-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Заголовок — Montserrat SemiBold 20/32, как в Figma */
+.contacts-section__title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  color: var(--fg-primary);
+}
+
+/* Биотекст под контактами */
+.contacts-bio {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 32px;
+  color: var(--fg-secondary);
+}
+
+.contacts-bio b {
+  font-weight: 700;
+}
+
+/* Отступ 40px между секцией контактов и биотекстом */
+.page-contacts .main-area {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-bottom: 48px;
+}
+
+.contacts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contacts-list__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  color: var(--fg-secondary);
+  text-decoration: none;
+}
+
+.contacts-list__item:hover {
+  color: var(--brand-primary);
+}
+
+.contacts-list__icon {
+  flex-shrink: 0;
+  display: block;
+}
+
+.contacts-list__label {
+  flex: 1;
+}
+
+/* Иконка открытия скрыта на десктопе, видна на планшете и телефоне */
+.contacts-list__open {
+  display: none;
+  flex-shrink: 0;
+}
+
+
+/* ========== БЛОК: планшет + телефон (≤ 1024px) ========== */
+@media (max-width: 1024px) {
+  /* Сбрасываем фиксированные ширины описаний кейсов */
+  .case-card:nth-child(n) .case-card__desc { max-width: none; }
+
+  /* Угловые подписи прокручиваются вместе со страницей (не фиксированы) */
+  .corner-label--tl,
+  .corner-label--tr {
+    position: absolute;
+  }
+
+  /* Панель в одну строку без переноса */
+  .dock-wrap {
+    flex-wrap: nowrap;
+  }
+
+  /* ── Страница контактов по макету Figma (узел 121:2127 Tablet) ── */
+
+  /* Обёртка страницы контактов: сужаем контент до 456px (как в Figma) */
+  .page-contacts .main-area {
+    max-width: calc(456px + 64px); /* 456px контент + 32px*2 padding */
+  }
+
+  /* Список: только отступ между карточками, без общего фона */
+  .contacts-list {
+    gap: 8px;
+    padding: 0;
+    background: none;
+    border-radius: 0;
+  }
+
+  /* Каждая карточка — своя серая плашка с иконкой по центру */
+  .contacts-list__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    min-height: 80px;
+    width: 100%;
+    background: var(--bg-surface-secondary);
+    border-radius: 12px;
+    text-decoration: none;
+  }
+
+  .contacts-list__item:hover {
+    background: var(--fg-gray-transparent-quaternary);
+  }
+
+  /* Текст и стрелка скрыты — только иконка */
+  .contacts-list__label,
+  .contacts-list__open {
+    display: none;
+  }
+
+  /* Явно фиксируем размер иконки как в Figma */
+  .contacts-list__icon {
+    width: 24px;
+    height: 24px;
+  }
+
+}
+
+/* ========== БЛОК: кнопка «Назад» на кейсах — только мобильная версия ========== */
+.case-back-mobile {
+  display: none;
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: var(--z-dock-chrome);
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--bg-page);
+  border: none;
+  border-radius: 12px;
+  box-shadow: var(--shadow-dock);
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: var(--brand-primary);
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.case-back-mobile img {
+  display: block;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.page-case .case-back-mobile {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: case-nav-in 0.78s cubic-bezier(0.22, 1, 0.36, 1) 0.12s forwards;
+}
+
+/* ========== БЛОК: только телефон (≤ 768px) ========== */
+@media (max-width: 768px) {
+  /* Убираем подпись «По самочувствию на 2001 г» и блок ТГ-канала */
+  .corner-label--bl,
+  .tg-block {
+    display: none;
+  }
+
+  /* Уменьшаем отступы под маленький экран */
+  .corner-label--tl {
+    top: 16px;
+    left: 16px;
+  }
+
+  .corner-label--tr {
+    top: 16px;
+    right: 16px;
+  }
+
+  /* На кейс-страницах: показываем кнопку «Назад» и скрываем угловую подпись */
+  .has-case-back .corner-label--tl {
+    display: none;
+  }
+
+  .has-case-back .case-back-mobile {
+    display: inline-flex;
+  }
+
+  /* Страница кейса: уменьшаем отступы и padding дизайн-блока */
+  .case-section {
+    padding-top: 32px;
+  }
+
+  .case-design {
+    gap: 32px;
+  }
+
+  /* Блоки, скрытые на мобиле */
+  .hide-mobile {
+    display: none;
+  }
+}
+
+/* Блок виден только на мобиле — скрыт на планшете и десктопе */
+.hide-desktop {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hide-desktop {
+    display: flex;
+  }
+}
+
+/* ========== БЛОК: страница контактов — мобильные правки (≤ 768px) ========== */
+@media (max-width: 768px) {
+  /* Мобайл-фрейм в Figma: контент начинается на 16px от краёв и 162px сверху */
+  .page-contacts .main-area {
+    max-width: none;
+    padding-top: 160px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .contacts-bio {
+    line-height: 26px;
+  }
+
+  .btn-secondary {
+    padding: 12px 16px;
+  }
+}

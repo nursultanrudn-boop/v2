@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html lang="ru" class="page-case">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Редизайн раздела карта процессов — Султан</title>
+    <link rel="icon" href="favicon.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="has-case-back">
+    <!-- Десктоп: текстура «код» + спотлайт (js/home-code-spotlight.js) -->
+    <div class="home-code-spotlight" hidden aria-hidden="true">
+      <canvas class="home-code-spotlight__canvas"></canvas>
+    </div>
+
+    <!-- ========== БЛОК: угловые подписи + ТГ-канал ========== -->
+    <p class="corner-label corner-label--tl">Финалист хакатона ЛЦТ 2025</p>
+    <p class="corner-label corner-label--tr">База в РФ, москва</p>
+    <p class="corner-label corner-label--bl">По самочувствию&nbsp;<br />на 2001&nbsp;г</p>
+
+    <aside class="tg-block" aria-label="Ссылка на Telegram">
+      <p class="tg-block__caption">Веду TG-канал<br>о дизайне</p>
+      <a class="tg-block__link" href="https://t.me/+oJEyvayTjcMzNTk6" target="_blank" rel="noopener noreferrer">
+        ТГ канал
+</a>
+    </aside>
+
+    <!-- ========== БЛОК: боковая навигация по кейсу ========== -->
+    <nav class="case-sidebar" aria-label="Быстрые кнопки навигации">
+      <a href="cases.html" class="case-sidebar__link case-sidebar__back">
+        <img src="images/icons/icon-undo.svg" alt="" width="16" height="16" />
+        Назад
+      </a>
+      <a href="#section-task" class="case-sidebar__link">Задача</a>
+      <a href="#section-did" class="case-sidebar__link">Что я сделал</a>
+      <a href="#section-result" class="case-sidebar__link">Результат</a>
+    </nav>
+
+    <a href="cases.html" class="case-back-mobile" aria-label="Назад к кейсам">
+      <img src="images/icons/icon-undo.svg" alt="" width="16" height="16" />
+      Назад
+    </a>
+
+    <main class="main-area">
+
+      <!-- ========== БЛОК: герой-изображение ========== -->
+      <div class="case-hero">
+        <img
+          src="images/cases/process-map/case-pm-hero-full.png"
+          alt="Редизайн раздела карта процессов — интерфейс"
+          width="1840"
+          height="1104"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </div>
+
+      <!-- ========== БЛОК: инфо-секция ========== -->
+      <div class="case-info">
+        <h1 class="case-info__title">Редизайн раздела карта процессов</h1>
+
+        <section id="section-task" class="case-section">
+          <h2 class="case-section__label">Задача</h2>
+          <ul class="case-section__list">
+            <li>— Снизить когнитивную нагрузку при&nbsp;работе со&nbsp;сложными схемами</li>
+            <li>— Повысить скорость выполнения ключевых сценариев (создание и&nbsp;редактирование процессов)</li>
+            <li>— Сделать интерфейс масштабируемым для&nbsp;роста функциональности</li>
+            <li>— Унифицировать UX и&nbsp;привести его к&nbsp;единой дизайн-системе</li>
+          </ul>
+        </section>
+
+        <section id="section-did" class="case-section">
+          <h2 class="case-section__label">Что я сделал</h2>
+          <ul class="case-section__list">
+            <li>— Провёл аудит текущего UX и&nbsp;выявил ключевые проблемы: перегруженность интерфейса, сложность навигации и&nbsp;высокий порог входа</li>
+            <li>— Сформулировал гипотезы, на&nbsp;основе них самостоятельно провёл качественное исследование UX</li>
+            <li>— Подготовил подробные спецификации и&nbsp;взаимодействовал с&nbsp;разработкой на&nbsp;всех этапах реализации</li>
+            <li>— Обновил пользовательский интерфейс страниц в&nbsp;соответствии с&nbsp;обновлённой дизайн-системой</li>
+            <li>— Инициировал и&nbsp;внедрил паттерн «панели элементов» для&nbsp;работы с&nbsp;элементами — решение было реализовано в&nbsp;продукте раньше аналогичных паттернов в&nbsp;индустрии</li>
+          </ul>
+        </section>
+
+        <section id="section-result" class="case-section">
+          <h2 class="case-section__label">Результат</h2>
+          <ul class="case-section__list">
+            <li>— <b>Упростил пользовательский интерфейс:</b> избавился от&nbsp;перегруженной структуры и&nbsp;сфокусировал внимание пользователя на&nbsp;рабочей области</li>
+            <li>— <b>Снизил когнитивную нагрузку</b> за&nbsp;счёт перехода к&nbsp;контекстным действиям и&nbsp;упрощённой навигации</li>
+            <li>— <b>Ускорил работу с&nbsp;процессами:</b> ключевые действия стали выполняться быстрее за&nbsp;счёт нового UX взаимодействия</li>
+            <li>— <b>Повысил удобство редактирования схем</b> благодаря&nbsp;внедрению «панели элементов»</li>
+            <li>— <b>Сделал интерфейс масштабируемым</b> — новая структура позволяет проще добавлять функциональность</li>
+            <li>— <b>Привёл интерфейс к&nbsp;единой дизайн-системе</b>, что&nbsp;улучшило консистентность продукта</li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- ========== БЛОК: витрина дизайна ========== -->
+      <div class="case-design">
+
+        <div class="case-design__group">
+          <span class="case-design__label">До</span>
+          <img
+            class="case-design__img"
+            src="images/cases/process-map/case-pm-before.png"
+            alt="Интерфейс до редизайна"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+        <div class="case-design__group">
+          <span class="case-design__label">После</span>
+          <img
+            class="case-design__img"
+            src="images/cases/process-map/case-pm-after-1.png"
+            alt="После редизайна — вид 1"
+            loading="lazy"
+            decoding="async"
+          />
+          <img
+            class="case-design__img"
+            src="images/cases/process-map/case-pm-after-2.png"
+            alt="После редизайна — вид 2"
+            loading="lazy"
+            decoding="async"
+          />
+          <img
+            class="case-design__img"
+            src="images/cases/process-map/case-pm-after-3.png"
+            alt="После редизайна — вид 3"
+            loading="lazy"
+            decoding="async"
+          />
+          <img
+            class="case-design__img"
+            src="images/cases/process-map/case-pm-after-4.png"
+            alt="После редизайна — вид 4"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+      </div>
+
+    </main>
+
+    <!-- ========== БЛОК: нижняя панель — рендерится через js/main.js ========== -->
+    <div id="dock-root"></div>
+
+    <script src="js/main.js" defer></script>
+    <script src="js/home-code-spotlight.js" defer></script>
+  </body>
+</html>
