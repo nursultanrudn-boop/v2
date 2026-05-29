@@ -1643,3 +1643,16 @@ a.info-card:hover {
     padding: 12px 16px;
   }
 }
+
+/* ========== БЛОК: ротатор приветствий ========== */
+.greeting-rotator {
+  display: inline;
+}
+
+.greeting-rotator__word {
+  display: inline;
+}
+
+.greeting-scramble-char {
+  opacity: 0.35;
+}
