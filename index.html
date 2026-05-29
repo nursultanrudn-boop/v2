@@ -1,44 +1,41 @@
-﻿<!DOCTYPE html>
-<!--
-  Главная страница портфолио — вёрстка десктопного макета Figma (узел Desktop).
-  Стили: css/styles.css  |  Скрипты: js/main.js
--->
+<!DOCTYPE html>
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Портфолио — Султан</title>
     <link rel="icon" href="favicon.png" type="image/png" />
-    <!-- Шрифты: Montserrat (Google) + PT Root UI (@font-face в css/styles.css, файлы с cdnfonts) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body class="page-home">
-    <!-- Десктоп: текстура «код» + спотлайт у курсора (js/home-code-spotlight.js) -->
+    <!-- Десктоп: текстура «код» + спотлайт у курсора -->
     <div class="home-code-spotlight" hidden aria-hidden="true">
       <canvas class="home-code-spotlight__canvas"></canvas>
     </div>
 
-    <!-- ========== БЛОК: угловые подписи + ТГ-канал ========== -->
-    <p class="corner-label corner-label--tl">Финалист хакатона ЛЦТ 2025</p>
-    <p class="corner-label corner-label--tr">База в РФ, москва</p>
-    <p class="corner-label corner-label--bl">По самочувствию&nbsp;<br />на 2001&nbsp;г</p>
+    <!-- ========== БЛОК: угловые подписи ========== -->
+    <p class="corner-label corner-label--tl corner-label--green">Активно<br>ищу работу</p>
+    <p class="corner-label corner-label--tr">Ментор<br>Duo Sapiens</p>
+    <p class="corner-label corner-label--bl">Местоположение<br>РФ, Москва</p>
 
+    <!-- ТГ-канал -->
     <aside class="tg-block" aria-label="Ссылка на Telegram">
-      <p class="tg-block__caption">Веду TG-канал<br>о дизайне</p>
+      <p class="tg-block__caption">Веду ТГ-канал<br>о дизайне</p>
       <a class="tg-block__link" href="https://t.me/+oJEyvayTjcMzNTk6" target="_blank" rel="noopener noreferrer">
         ТГ канал
-</a>
+      </a>
     </aside>
 
-    <!-- ========== БЛОК: центральный контент ========== -->
+    <!-- ========== БЛОК: основной контент ========== -->
     <main class="main-area">
+
+      <!-- Аватар + заголовок -->
       <header class="profile-head">
         <div class="avatar">
           <img
@@ -50,43 +47,233 @@
         <h1 class="profile-head__title"><span class="greeting-rotator"><span class="greeting-rotator__word">Привет</span></span>, я Султан</h1>
       </header>
 
+      <!-- Вступительный текст -->
       <div class="intro">
-        <p>Я проектирую продукты, которые делают сложные системы простыми.</p>
-        <p>
-          <b class="intro__bold">За 3 года в B2B и стартапах</b> я запускал внутренние инструменты с нуля и проектировал системы, <b class="intro__bold">которыми
-            пользуются более 4000 сотрудников каждую рабочую неделю.</b>
-        </p>
-        <p>
-          <span
-            >Я глубоко погружаюсь в UX и внимателен к деталям, но при этом думаю как продуктовый дизайнер:
-          </span>
-          <strong class="intro__bold"><b>внедряю метрики CSAT, CES и NPS,</b></strong>
-          <span> чтобы учитывать пользовательский опыт в принятии решений.</span>
-        </p>
-        <p>
-          <strong class="intro__bold">Ищу команду в крупной продуктовой компании,</strong>
-          <span>где можно работать с масштабом и расти как продуктовый дизайнер.</span>
-        </p>
+        <p>Берусь за сложные системы и делаю их простыми. За плечами <b class="intro__bold">магистратура по ML и опыт разработки,</b> поэтому говорю с инженерами на одном языке.</p>
+        <p><b class="intro__bold">За 3 года в B2B и агентстве спроектировал инструменты с нуля,</b> сегодня ими <b class="intro__bold">пользуются 4000+ сотрудников еженедельно.</b> Через качественные исследования сокращал путь пользователя: меньше шагов, меньше ошибок, быстрее первый результат.</p>
+        <p><b class="intro__bold">Выстраиваю систему метрик CSAT, CES и NPS,</b> чтобы impact от дизайна был измеримым.</p>
+        <p><b class="intro__bold">Готов к задачам с большим масштабом.</b> Ищу продуктовую компанию, где дизайн влияет на бизнес-результат.</p>
       </div>
+
+      <!-- ========== Кейсы ========== -->
+      <section class="home-section" aria-labelledby="section-cases">
+        <p class="home-section__title" id="section-cases">Кейсы</p>
+        <ul class="home-list cases-body" role="list">
+
+          <li class="home-list__item">
+            <a class="case-row" href="case-process-map.html">
+              <span class="case-row__tag">B2B</span>
+              <span class="case-row__name">Раздел «Карта процессов»</span>
+              <span class="case-row__slide">
+                <span class="case-row__platform">Web</span>
+                <span class="case-row__arrow" aria-hidden="true">↗</span>
+              </span>
+            </a>
+          </li>
+
+          <li class="home-list__item">
+            <a class="case-row" href="case-lct-hackathon.html">
+              <span class="case-row__tag">B2C</span>
+              <span class="case-row__name">Хакатон ЛЦТ</span>
+              <span class="case-row__slide">
+                <span class="case-row__platform">Mobile</span>
+                <span class="case-row__arrow" aria-hidden="true">↗</span>
+              </span>
+            </a>
+          </li>
+
+          <li class="home-list__item">
+            <a class="case-row" href="case-notation-settings.html">
+              <span class="case-row__tag">B2B</span>
+              <span class="case-row__name">Раздел настройки нотации</span>
+              <span class="case-row__slide">
+                <span class="case-row__platform">Web</span>
+                <span class="case-row__arrow" aria-hidden="true">↗</span>
+              </span>
+            </a>
+          </li>
+
+          <li class="home-list__item">
+            <a class="case-row" href="case-licenses.html">
+              <span class="case-row__tag">B2B</span>
+              <span class="case-row__name">Раздел лицензии и права</span>
+              <span class="case-row__slide">
+                <span class="case-row__platform">Web</span>
+                <span class="case-row__arrow" aria-hidden="true">↗</span>
+              </span>
+            </a>
+          </li>
+
+        </ul>
+      </section>
+
+      <!-- ========== Работа ========== -->
+      <section class="home-section" aria-labelledby="section-work">
+        <p class="home-section__title" id="section-work">Работа</p>
+        <ul class="home-list" role="list">
+
+          <li class="home-list__item home-list__item--sep">
+            <div class="work-row">
+              <span class="work-row__chevron" aria-hidden="true">›</span>
+              <div class="work-row__logo">
+                <img src="images/about/logo-pix.png" alt="" aria-hidden="true" />
+              </div>
+              <span class="work-row__name">PIX Robotics</span>
+              <span class="work-row__date">Ноя 2024 — Сейчас</span>
+            </div>
+          </li>
+
+          <li class="home-list__item">
+            <div class="work-row">
+              <span class="work-row__chevron" aria-hidden="true">›</span>
+              <div class="work-row__logo">
+                <img src="images/about/logo-slysno.png" alt="" aria-hidden="true" />
+              </div>
+              <span class="work-row__name">Медиа агентство «СЛЫШНО»</span>
+              <span class="work-row__date">Ноя 2022 — Май 2024</span>
+            </div>
+          </li>
+
+        </ul>
+      </section>
+
+      <!-- ========== Образование ========== -->
+      <section class="home-section" aria-labelledby="section-edu">
+        <p class="home-section__title" id="section-edu">Образование</p>
+        <ul class="home-list" role="list">
+
+          <li class="home-list__item home-list__item--sep">
+            <div class="edu-row">
+              <div class="edu-row__logo">
+                <img src="images/about/logo-rudn.png" alt="" aria-hidden="true" />
+              </div>
+              <div class="edu-row__body">
+                <div class="edu-row__header">
+                  <span class="edu-row__name">Фундаментальная информатика</span>
+                  <span class="edu-row__date">2022 – 2024</span>
+                </div>
+                <span class="edu-row__inst">РУДН, магистратура</span>
+              </div>
+            </div>
+          </li>
+
+          <li class="home-list__item">
+            <div class="edu-row">
+              <div class="edu-row__logo">
+                <img src="images/about/logo-rudn.png" alt="" aria-hidden="true" />
+              </div>
+              <div class="edu-row__body">
+                <div class="edu-row__header">
+                  <span class="edu-row__name">Прикладная информатика</span>
+                  <span class="edu-row__date">2018 – 2022</span>
+                </div>
+                <span class="edu-row__inst">РУДН, бакалавриат</span>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+      </section>
+
+      <!-- ========== Курсы ========== -->
+      <section class="home-section" aria-labelledby="section-courses">
+        <p class="home-section__title" id="section-courses">Курсы</p>
+        <ul class="home-list" role="list">
+
+          <li class="home-list__item home-list__item--sep">
+            <div class="course-row">
+              <div class="course-row__logo course-row__logo--dark" aria-hidden="true">C</div>
+              <span class="course-row__name">Дизайн-системы: погружение</span>
+              <span class="course-row__provider">Contented</span>
+              <span class="course-row__year">2024</span>
+            </div>
+          </li>
+
+          <li class="home-list__item home-list__item--sep">
+            <div class="course-row">
+              <div class="course-row__logo course-row__logo--gray" aria-hidden="true">U</div>
+              <span class="course-row__name">UX/UI дизайнер с нуля</span>
+              <span class="course-row__provider">UPROCK</span>
+              <span class="course-row__year">2020</span>
+            </div>
+          </li>
+
+          <li class="home-list__item">
+            <div class="course-row">
+              <div class="course-row__logo course-row__logo--outline" aria-hidden="true">Y</div>
+              <span class="course-row__name">UX/UI designer</span>
+              <span class="course-row__provider">Yudaev.school</span>
+              <span class="course-row__year">2019</span>
+            </div>
+          </li>
+
+        </ul>
+      </section>
+
     </main>
 
-    <div class="dock-wrap">
-      <nav class="dock" aria-label="Разделы сайта">
-        <a class="btn-primary is-active" href="index.html" aria-current="page">
-          <span class="btn-primary__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.6191 4.02454C11.4316 3.39296 12.5695 3.39276 13.3818 4.02454L20.5605 9.60853C20.743 9.75058 20.8505 9.96906 20.8506 10.2003V18.6007C20.8505 19.8431 19.8429 20.8504 18.6006 20.8507H5.40039C4.15782 20.8507 3.1505 19.8433 3.15039 18.6007V10.2003C3.15046 9.9691 3.25701 9.75058 3.43945 9.60853L10.6191 4.02454ZM12.4609 5.20911C12.1902 4.99853 11.8109 4.99867 11.54 5.20911L4.65039 10.5665V18.6007C4.6505 19.0148 4.98624 19.3507 5.40039 19.3507H8.55078V14.4005C8.5508 13.1579 9.55815 12.1505 10.8008 12.1505H13.2002C14.4426 12.1507 15.4502 13.158 15.4502 14.4005V19.3507H18.6006C19.0145 19.3504 19.3505 19.0146 19.3506 18.6007V10.5665L12.4609 5.20911ZM10.8008 13.6505C10.3866 13.6505 10.0508 13.9863 10.0508 14.4005V19.3507H13.9502V14.4005C13.9502 13.9865 13.6142 13.6507 13.2002 13.6505H10.8008Z" fill="currentColor"/></svg></span>
-          <span class="btn-primary__label">Главная</span>
+    <!-- ========== БЛОК: нижняя панель (контакты + резюме) ========== -->
+    <div class="dock-wrap dock-wrap--home">
+
+      <nav class="dock" aria-label="Соцсети и контакты">
+        <!-- LinkedIn -->
+        <a
+          class="dock__icon-btn"
+          href="https://www.linkedin.com/in/nursultan-gadzhiev-b75b5a3a6/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+        >
+          <img src="images/icons/icon-linkedin.svg" width="20" height="20" alt="" aria-hidden="true" />
         </a>
-        <a class="btn-primary" href="cases.html">
-          <span class="btn-primary__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.5 2.24609C20.7425 2.24609 21.7498 3.25362 21.75 4.49609V19.4961C21.75 20.7387 20.7426 21.7461 19.5 21.7461H4.5C3.25736 21.7461 2.25 20.7387 2.25 19.4961V4.49609C2.2502 3.25362 3.25748 2.24609 4.5 2.24609H19.5ZM3.75 14.5859V19.4961C3.75 19.9103 4.08579 20.2461 4.5 20.2461H19.5C19.9142 20.2461 20.25 19.9103 20.25 19.4961V14.5566L16.5 10.8066L13.7549 13.5508L16.3359 16.7773C16.5946 17.1007 16.542 17.5732 16.2188 17.832C15.8953 18.0908 15.4228 18.0383 15.1641 17.7148L12.1641 13.9648V13.9639L8.91504 10.0654L3.75 14.5859ZM4.5 3.74609C4.08591 3.74609 3.7502 4.08205 3.75 4.49609V12.5928L8.12109 8.76855L8.22266 8.68848C8.71295 8.34141 9.38533 8.39423 9.81543 8.81348L9.9043 8.90918L12.7998 12.3848L15.6162 9.56934L15.7109 9.4834C16.1691 9.10983 16.8309 9.10983 17.2891 9.4834L17.3838 9.56934L20.25 12.4355V4.49609C20.2498 4.08205 19.9141 3.74609 19.5 3.74609H4.5Z" fill="currentColor"/></svg></span>
-          <span class="btn-primary__label">Работы</span>
+
+        <span class="dock__divider" aria-hidden="true"></span>
+
+        <!-- Email -->
+        <a
+          class="dock__icon-btn"
+          href="mailto:nursultan.rudn@gmail.com"
+          aria-label="Написать на почту"
+        >
+          <img src="images/icons/icon-mail.svg" width="20" height="20" alt="" aria-hidden="true" />
+        </a>
+
+        <span class="dock__divider" aria-hidden="true"></span>
+
+        <!-- Telegram -->
+        <a
+          class="dock__icon-btn"
+          href="https://t.me/Haci_111"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Telegram"
+        >
+          <img src="images/icons/icon-telegram.svg" width="20" height="20" alt="" aria-hidden="true" />
         </a>
       </nav>
-      <nav class="dock" aria-label="Контакты">
-        <a class="btn-primary" href="contacts.html">
-          <span class="btn-primary__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.83502 4.23108C7.92727 3.7346 9.07508 4.34314 9.53326 5.27893L10.7794 7.82483C11.1698 8.62239 11.0547 9.57594 10.4854 10.2574L9.57623 11.3453C9.39204 11.5658 9.37398 11.8094 9.4483 11.9664C9.79712 12.7024 10.3 13.2542 11.5421 13.986C11.7514 14.1093 12.0354 14.104 12.2725 13.944L13.8155 12.903C14.4546 12.4717 15.2704 12.3984 15.9766 12.7076L18.5919 13.8522C19.6035 14.2952 20.2336 15.4909 19.7364 16.6178C19.1182 18.0185 18.27 19.0086 17.2393 19.6002C16.2077 20.1923 15.0597 20.3462 13.9131 20.1949C11.6531 19.8967 9.3215 18.4069 7.4942 16.528C5.66301 14.6449 4.21846 12.2485 3.84479 9.98498C3.65637 8.84332 3.73521 7.69843 4.21881 6.67541C4.70708 5.64258 5.57502 4.80389 6.83502 4.23108ZM8.18561 5.93908C8.01305 5.58656 7.66997 5.49943 7.45612 5.59631C6.47522 6.04223 5.89141 6.6453 5.57428 7.31604C5.25251 7.99671 5.17197 8.81795 5.32428 9.74084C5.63228 11.6063 6.87226 13.7369 8.5694 15.4821C10.2704 17.2311 12.3109 18.4713 14.1094 18.7086C14.9922 18.8251 15.7962 18.698 16.4922 18.2985C17.189 17.8985 17.8453 17.1861 18.3633 16.0123C18.4752 15.7587 18.3608 15.3885 17.9903 15.2262L15.3751 14.0817C15.1397 13.9786 14.8674 14.0034 14.6544 14.1471L13.1114 15.1881C12.4311 15.6469 11.5244 15.7173 10.7803 15.2789C9.37677 14.452 8.61121 13.7027 8.09283 12.609C7.72104 11.8245 7.9412 10.9635 8.42487 10.3844L9.33405 9.29553C9.52369 9.06846 9.56261 8.75075 9.43268 8.48498L8.18561 5.93908Z" fill="currentColor"/></svg></span>
-          <span class="btn-primary__label">Контакты</span>
-        </a>
-      </nav>
+
+      <!-- Резюме -->
+      <div class="dock">
+      <a
+        class="btn-resume"
+        href="https://drive.google.com/file/d/1LmTlOFXBsoBo7CV6uEQRUcZARY7g2i0g/view?usp=sharing"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g clip-path="url(#clip0_341_759)">
+            <path d="M10.6663 2C11.1765 1.99997 11.6674 2.19488 12.0385 2.54486C12.4097 2.89483 12.6331 3.3734 12.663 3.88267L12.6663 4V10.6667H13.1663C13.5977 10.6667 13.953 10.9947 13.9957 11.4147L13.9997 11.5V12.6667C13.9997 13.1768 13.8048 13.6677 13.4548 14.0388C13.1048 14.41 12.6263 14.6334 12.117 14.6633L11.9997 14.6667H5.33301C4.82287 14.6667 4.332 14.4718 3.96083 14.1218C3.58967 13.7718 3.36627 13.2933 3.33634 12.784L3.33301 12.6667V6H2.16634C1.96004 6.00009 1.76103 5.92366 1.60783 5.78548C1.45463 5.64731 1.35813 5.45722 1.33701 5.252L1.33301 5.16667V4C1.33298 3.48986 1.52789 2.99899 1.87786 2.62783C2.22784 2.25666 2.70641 2.03326 3.21567 2.00333L3.33301 2H10.6663ZM12.6663 12H6.66634V12.6667C6.66634 12.9 6.62634 13.1247 6.55301 13.3333H11.9997C12.1765 13.3333 12.3461 13.2631 12.4711 13.1381C12.5961 13.013 12.6663 12.8435 12.6663 12.6667V12ZM7.99967 8H6.66634C6.49642 8.00019 6.33299 8.06525 6.20943 8.1819C6.08587 8.29855 6.01152 8.45797 6.00156 8.6276C5.9916 8.79722 6.04679 8.96425 6.15585 9.09456C6.26491 9.22486 6.41961 9.3086 6.58834 9.32867L6.66634 9.33333H7.99967C8.16959 9.33315 8.33303 9.26808 8.45659 9.15143C8.58014 9.03479 8.6545 8.87536 8.66446 8.70574C8.67441 8.53611 8.61923 8.36908 8.51017 8.23878C8.4011 8.10848 8.2464 8.02474 8.07767 8.00467L7.99967 8ZM9.33301 5.33333H6.66634C6.48953 5.33333 6.31996 5.40357 6.19494 5.5286C6.06991 5.65362 5.99967 5.82319 5.99967 6C5.99967 6.17681 6.06991 6.34638 6.19494 6.4714C6.31996 6.59643 6.48953 6.66667 6.66634 6.66667H9.33301C9.50982 6.66667 9.67939 6.59643 9.80441 6.4714C9.92944 6.34638 9.99967 6.17681 9.99967 6C9.99967 5.82319 9.92944 5.65362 9.80441 5.5286C9.67939 5.40357 9.50982 5.33333 9.33301 5.33333ZM3.33301 3.33333C3.1562 3.33333 2.98663 3.40357 2.8616 3.5286C2.73658 3.65362 2.66634 3.82319 2.66634 4V4.66667H3.33301V3.33333Z" fill="white"/>
+          </g>
+          <defs>
+            <clipPath id="clip0_341_759">
+              <rect width="16" height="16" fill="white"/>
+            </clipPath>
+          </defs>
+        </svg>
+        Резюме
+      </a>
+      </div>
+
     </div>
 
     <script src="js/main.js" defer></script>
