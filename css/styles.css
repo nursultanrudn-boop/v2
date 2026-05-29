@@ -1971,7 +1971,7 @@ a.info-card:hover {
 
 @media (max-width: 768px) {
   .dock-wrap--home {
-    bottom: 0;
+    bottom: 16px;
   }
 }
 
