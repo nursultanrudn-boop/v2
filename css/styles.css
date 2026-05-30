@@ -1153,9 +1153,10 @@ a.info-card:hover {
   gap: 20px;
 }
 
-/* Два карточки университета рядом */
+/* Карточки университета стопкой */
 .edu-university {
   display: flex;
+  flex-direction: column;
   gap: 8px;
   flex: 1;
   min-width: 0;
@@ -1165,15 +1166,15 @@ a.info-card:hover {
   flex: 1;
   min-width: 0;
   display: flex;
-  flex-direction: column;
-  gap: 28px;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
   padding: 24px;
 }
 
-.edu-card__header {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+.edu-card .card-logo {
+  border-radius: 0;
+  background: none;
 }
 
 .edu-card__name {
@@ -1182,78 +1183,19 @@ a.info-card:hover {
   font-weight: 700;
   line-height: 24px;
   color: var(--fg-primary);
-}
-
-.edu-card__body {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
   flex: 1;
+  min-width: 0;
 }
 
-/* Info Box: объединяет направления + даты, отступ 60px (под логотип) */
-.info-box {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  width: 100%;
-  padding-left: 60px;
-}
-
-/* Направления (Академическая степень / Факультет / Направление) */
-.edu-directions {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.edu-direction {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.edu-direction__label {
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 16px;
-  color: var(--fg-tertiary);
-}
-
-.edu-direction__value {
-  font-family: var(--font-body);
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px;
-  color: var(--fg-primary);
-}
-
-/* Строка дат: дата слева, срок справа — на полную ширину */
-.edu-dates {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
-
-/* На десктопе выравниваем строку дат по нижнему краю карточек */
-@media (min-width: 769px) {
-  .edu-card .info-box {
-    flex: 1;
-  }
-
-  .edu-card .edu-dates {
-    margin-top: auto;
-  }
-}
-
-.edu-date {
+.edu-meta__org,
+.edu-meta__sep,
+.edu-meta__dates {
   font-family: var(--font-body);
   font-size: 12px;
   font-weight: 400;
   line-height: 16px;
   color: var(--fg-tertiary);
+  white-space: nowrap;
 }
 
 /* Блок «Курсы» (правая колонка) */
@@ -1361,6 +1303,24 @@ a.info-card:hover {
 
   .edu-courses {
     width: 100%;
+  }
+
+  .edu-card {
+    flex-wrap: wrap;
+    gap: 4px 16px;
+    padding: 16px;
+  }
+
+  .edu-meta__org {
+    padding-left: 60px;
+  }
+
+  .edu-meta__sep {
+    display: none;
+  }
+
+  .edu-meta__dates {
+    padding-left: 60px;
   }
 
   .about-hero__bio {
@@ -1811,7 +1771,7 @@ a.info-card:hover {
 /* ========== БЛОК: строка образования ========== */
 .edu-row {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 8px;
 }
 
@@ -1821,7 +1781,6 @@ a.info-card:hover {
   height: 24px;
   border-radius: 50%;
   overflow: hidden;
-  margin-top: 3px;
 }
 
 .edu-row__logo img {
@@ -1831,45 +1790,32 @@ a.info-card:hover {
   object-fit: cover;
 }
 
-.edu-row__body {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  min-width: 0;
-}
-
-.edu-row__header {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 8px;
-}
-
 .edu-row__name {
   font-family: var(--font-body);
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
   color: var(--fg-primary);
+  flex: 1;
+  min-width: 0;
+}
+
+.edu-row__inst,
+.edu-row__sep,
+.edu-row__date {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 400;
+  white-space: nowrap;
+  color: var(--fg-tertiary);
 }
 
 .edu-row__date {
   flex-shrink: 0;
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 16px;
-  color: var(--fg-tertiary);
-  white-space: nowrap;
 }
 
 .edu-row__inst {
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 400;
   line-height: 16px;
-  color: var(--fg-tertiary);
 }
 
 /* ========== БЛОК: строка курса ========== */
@@ -2006,9 +1952,24 @@ a.info-card:hover {
     font-size: 11px;
   }
 
-  .edu-row__header {
-    flex-direction: column;
-    gap: 0;
+  .edu-row {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 2px 8px;
+  }
+
+  .edu-row__date {
+    order: 2;
+  }
+
+  .edu-row__inst {
+    order: 3;
+    width: 100%;
+    padding-left: 32px;
+  }
+
+  .edu-row__sep {
+    display: none;
   }
 
   .course-row {
