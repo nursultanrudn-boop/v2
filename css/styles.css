@@ -1521,6 +1521,26 @@ body.home-code-spotlight--on.home-code-spotlight--main-empty .home-code-spotligh
 
 /* ========== АДАПТИВ: мобильный для секций главной (≤ 768px) ========== */
 @media (max-width: 768px) {
+  .case-row {
+    height: 40px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .case-row__name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .case-row__platform {
+    font-weight: 400;
+  }
+
+  .case-row__arrow {
+    font-variant-emoji: text;
+  }
+
   .case-row__name,
   .work-row__name,
   .edu-row__name,
