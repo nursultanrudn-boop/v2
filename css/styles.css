@@ -1542,11 +1542,7 @@ body.home-code-spotlight--on.home-code-spotlight--main-empty .home-code-spotligh
   }
 
   .case-row__slide {
-    flex-direction: row;
-    height: auto;
-    overflow: visible;
-    align-items: center;
-    gap: 4px;
+    display: none;
   }
 
   .case-row__platform {
