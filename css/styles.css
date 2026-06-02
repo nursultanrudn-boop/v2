@@ -1290,11 +1290,19 @@ body.home-code-spotlight--on.home-code-spotlight--main-empty .home-code-spotligh
 }
 
 .case-row__arrow {
-  display: block;
-  font-size: 16px;
-  line-height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 16px;
+  flex-shrink: 0;
   color: #949494;
   transition: transform 0.12s ease-out;
+}
+
+.case-row__arrow svg {
+  display: block;
+  width: 12px;
+  height: 12px;
 }
 
 .case-row:hover .case-row__platform,
@@ -1522,9 +1530,9 @@ body.home-code-spotlight--on.home-code-spotlight--main-empty .home-code-spotligh
 /* ========== АДАПТИВ: мобильный для секций главной (≤ 768px) ========== */
 @media (max-width: 768px) {
   .case-row {
-    height: 40px;
-    padding-top: 0;
-    padding-bottom: 0;
+    height: auto;
+    padding-top: 9px;
+    padding-bottom: 9px;
   }
 
   .case-row__name {
@@ -1533,12 +1541,21 @@ body.home-code-spotlight--on.home-code-spotlight--main-empty .home-code-spotligh
     text-overflow: ellipsis;
   }
 
+  .case-row__slide {
+    flex-direction: row;
+    height: auto;
+    overflow: visible;
+    align-items: center;
+    gap: 4px;
+  }
+
   .case-row__platform {
     font-weight: 400;
   }
 
-  .case-row__arrow {
-    font-variant-emoji: text;
+  .case-row:hover .case-row__platform,
+  .case-row:hover .case-row__arrow {
+    transform: none;
   }
 
   .case-row__name,
