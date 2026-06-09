@@ -7,7 +7,6 @@ export default defineConfig({
       input: [
         "index.html",
         "cases.html",
-        "about.html",
         "contacts.html",
         "case-notation-settings.html",
         "case-process-map.html",
