@@ -102,12 +102,8 @@ body {
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
-  /* Запас снизу под панель + progressive blur (класс вешает main.js) */
-  padding-bottom: 120px;
-}
-
-body.has-dock-progressive-blur {
-  padding-bottom: calc(120px + var(--dock-progressive-extra-padding));
+  /* Запас снизу под панель */
+  padding-bottom: 88px;
 }
 
 /* ========== БЛОК: угловые подписи (фиксированные на десктопе) ========== */
@@ -266,44 +262,49 @@ body.home-code-spotlight--on.home-code-spotlight--main-empty .home-code-spotligh
 @keyframes content-stagger-in {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(20px);
+    filter: blur(6px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0px);
   }
 }
 
 .main-area > * {
   opacity: 0;
-  transform: translateY(12px);
-  animation: content-stagger-in 0.78s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  transform: translateY(20px);
+  filter: blur(6px);
+  animation: content-stagger-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-.main-area > *:nth-child(1) { animation-delay: 0.04s; }
-.main-area > *:nth-child(2) { animation-delay: 0.14s; }
-.main-area > *:nth-child(3) { animation-delay: 0.24s; }
-.main-area > *:nth-child(4) { animation-delay: 0.34s; }
-.main-area > *:nth-child(5) { animation-delay: 0.44s; }
-.main-area > *:nth-child(6) { animation-delay: 0.54s; }
+.main-area > *:nth-child(1) { animation-delay: 0.1s; }
+.main-area > *:nth-child(2) { animation-delay: 0.2s; }
+.main-area > *:nth-child(3) { animation-delay: 0.3s; }
+.main-area > *:nth-child(4) { animation-delay: 0.4s; }
+.main-area > *:nth-child(5) { animation-delay: 0.5s; }
+.main-area > *:nth-child(6) { animation-delay: 0.6s; }
 
 /* Главная: вместо блока intro анимируем абзацы по очереди */
 .page-home .main-area > .intro {
   opacity: 1;
   transform: translateY(0);
+  filter: blur(0);
   animation: none;
 }
 
 .page-home .main-area > .intro p {
   opacity: 0;
-  transform: translateY(12px);
-  animation: content-stagger-in 0.78s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  transform: translateY(20px);
+  filter: blur(6px);
+  animation: content-stagger-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-.page-home .main-area > .intro p:nth-child(1) { animation-delay: 0.14s; }
-.page-home .main-area > .intro p:nth-child(2) { animation-delay: 0.24s; }
-.page-home .main-area > .intro p:nth-child(3) { animation-delay: 0.34s; }
-.page-home .main-area > .intro p:nth-child(4) { animation-delay: 0.44s; }
+.page-home .main-area > .intro p:nth-child(1) { animation-delay: 0.2s; }
+.page-home .main-area > .intro p:nth-child(2) { animation-delay: 0.3s; }
+.page-home .main-area > .intro p:nth-child(3) { animation-delay: 0.4s; }
+.page-home .main-area > .intro p:nth-child(4) { animation-delay: 0.5s; }
 
 .profile-head {
   display: flex;
@@ -389,8 +390,7 @@ body.home-code-spotlight--on.home-code-spotlight--main-empty .home-code-spotligh
   -webkit-mask-size: 100% 100%;
 }
 
-/* На главной странице blur убран */
-.page-home .dock-progressive-bottom {
+.dock-progressive-bottom {
   display: none;
 }
 
@@ -401,7 +401,7 @@ body.home-code-spotlight--on.home-code-spotlight--main-empty .home-code-spotligh
   }
 
   body.has-dock-progressive-blur {
-    padding-bottom: 120px;
+    padding-bottom: 88px;
   }
 }
 
@@ -435,10 +435,12 @@ body.home-code-spotlight--on.home-code-spotlight--main-empty .home-code-spotligh
   from {
     opacity: 0;
     transform: translateY(24px);
+    filter: blur(6px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0px);
   }
 }
 
@@ -449,9 +451,11 @@ body.home-code-spotlight--on.home-code-spotlight--main-empty .home-code-spotligh
     animation: none;
   }
 
-  .dock-wrap--intro {
+  .dock-wrap--intro,
+  .page-home .dock-wrap--home {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0);
     animation: none;
   }
 
@@ -459,6 +463,7 @@ body.home-code-spotlight--on.home-code-spotlight--main-empty .home-code-spotligh
   .page-home .main-area > .intro p {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0);
     animation: none;
   }
 
@@ -1194,6 +1199,42 @@ body.home-code-spotlight--on.home-code-spotlight--main-empty .home-code-spotligh
   color: var(--status-active) !important;
 }
 
+/* ========== БЛОК: строка «Активно ищу работу / Ментор Duo Sapiens» ========== */
+.profile-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: calc(-1 * var(--content-top) + 32px);
+  margin-bottom: calc(var(--content-top) - 32px - 16px);
+}
+
+.profile-meta__status,
+.profile-meta__mentor {
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+  color: var(--fg-tertiary);
+}
+
+.profile-meta__status {
+  color: var(--status-active);
+}
+
+.profile-meta__mentor {
+  text-align: right;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile-meta {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+    animation: none;
+  }
+}
+
 /* ========== БЛОК: секции главной (Кейсы / Работа / Образование / Курсы) ========== */
 .home-section {
   margin-top: 40px;
@@ -1499,6 +1540,13 @@ body.home-code-spotlight--on.home-code-spotlight--main-empty .home-code-spotligh
 /* Контейнер дока главной: без wrap, всегда одна строка */
 .dock-wrap--home {
   flex-wrap: nowrap;
+}
+
+.page-home .dock-wrap--home {
+  opacity: 0;
+  transform: translateY(24px);
+  filter: blur(6px);
+  animation: dock-rise-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.55s forwards;
 }
 
 @media (max-width: 768px) {
