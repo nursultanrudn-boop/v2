@@ -46,7 +46,6 @@
       "pre",
       "code",
       "article",
-      ".contacts-list__item",
       ".case-hero",
       ".case-design__img",
       ".profile-head",

@@ -895,8 +895,7 @@ body.home-code-spotlight--on.home-code-spotlight--main-empty .home-code-spotligh
   .case-section__label,
   .case-section__list li,
   .case-design__label,
-  .case-back-mobile,
-  .contacts-bio {
+  .case-back-mobile {
     font-size: 18px;
   }
 
@@ -919,85 +918,6 @@ body.home-code-spotlight--on.home-code-spotlight--main-empty .home-code-spotligh
   }
 }
 
-/* ========== БЛОК: страница контактов ========== */
-
-/* Секция «Контакты»: заголовок + список */
-.contacts-section {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-/* Заголовок — Montserrat SemiBold 20/32, как в Figma */
-.contacts-section__title {
-  margin: 0;
-  font-family: var(--font-heading);
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 32px;
-  color: var(--fg-primary);
-}
-
-/* Биотекст под контактами */
-.contacts-bio {
-  margin: 0;
-  font-family: var(--font-body);
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 32px;
-  color: var(--fg-secondary);
-}
-
-.contacts-bio b {
-  font-weight: 700;
-}
-
-/* Отступ 40px между секцией контактов и биотекстом */
-.page-contacts .main-area {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  padding-bottom: 48px;
-}
-
-.contacts-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.contacts-list__item {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  font-family: var(--font-body);
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 28px;
-  color: var(--fg-secondary);
-  text-decoration: none;
-}
-
-.contacts-list__item:hover {
-  color: var(--brand-primary);
-}
-
-.contacts-list__icon {
-  flex-shrink: 0;
-  display: block;
-}
-
-.contacts-list__label {
-  flex: 1;
-}
-
-/* Иконка открытия скрыта на десктопе, видна на планшете и телефоне */
-.contacts-list__open {
-  display: none;
-  flex-shrink: 0;
-}
-
-
 /* ========== БЛОК: планшет + телефон (≤ 1024px) ========== */
 @media (max-width: 1024px) {
   /* Сбрасываем фиксированные ширины описаний кейсов */
@@ -1013,51 +933,6 @@ body.home-code-spotlight--on.home-code-spotlight--main-empty .home-code-spotligh
   .dock-wrap {
     flex-wrap: nowrap;
   }
-
-  /* ── Страница контактов по макету Figma (узел 121:2127 Tablet) ── */
-
-  /* Обёртка страницы контактов: сужаем контент до 456px (как в Figma) */
-  .page-contacts .main-area {
-    max-width: calc(456px + 64px); /* 456px контент + 32px*2 padding */
-  }
-
-  /* Список: только отступ между карточками, без общего фона */
-  .contacts-list {
-    gap: 8px;
-    padding: 0;
-    background: none;
-    border-radius: 0;
-  }
-
-  /* Каждая карточка — своя серая плашка с иконкой по центру */
-  .contacts-list__item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    min-height: 80px;
-    width: 100%;
-    background: var(--bg-surface-secondary);
-    border-radius: 12px;
-    text-decoration: none;
-  }
-
-  .contacts-list__item:hover {
-    background: var(--fg-gray-transparent-quaternary);
-  }
-
-  /* Текст и стрелка скрыты — только иконка */
-  .contacts-list__label,
-  .contacts-list__open {
-    display: none;
-  }
-
-  /* Явно фиксируем размер иконки как в Figma */
-  .contacts-list__icon {
-    width: 24px;
-    height: 24px;
-  }
-
 }
 
 /* ========== БЛОК: кнопка «Назад» на кейсах — только мобильная версия ========== */
@@ -1151,20 +1026,8 @@ body.home-code-spotlight--on.home-code-spotlight--main-empty .home-code-spotligh
   }
 }
 
-/* ========== БЛОК: страница контактов — мобильные правки (≤ 768px) ========== */
+/* ========== БЛОК: только телефон (≤ 768px) — кнопка «Подробнее» ========== */
 @media (max-width: 768px) {
-  /* Мобайл-фрейм в Figma: контент начинается на 16px от краёв и 162px сверху */
-  .page-contacts .main-area {
-    max-width: none;
-    padding-top: 160px;
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
-  .contacts-bio {
-    line-height: 26px;
-  }
-
   .btn-secondary {
     padding: 12px 16px;
   }
