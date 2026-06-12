@@ -1458,6 +1458,13 @@ body.home-code-spotlight--on.home-code-spotlight--main-empty .home-code-spotligh
     line-height: 22px;
   }
 
+  .edu-row__name,
+  .course-row__name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   .work-row__date {
     font-size: 11px;
   }
@@ -1465,7 +1472,7 @@ body.home-code-spotlight--on.home-code-spotlight--main-empty .home-code-spotligh
   .edu-row {
     flex-wrap: wrap;
     align-items: flex-start;
-    gap: 2px 8px;
+    gap: 2px 4px;
   }
 
   .edu-row__name {
@@ -1474,6 +1481,7 @@ body.home-code-spotlight--on.home-code-spotlight--main-empty .home-code-spotligh
 
   .edu-row__date {
     order: 2;
+    margin-left: 12px;
   }
 
   .edu-row__inst {
@@ -1484,5 +1492,9 @@ body.home-code-spotlight--on.home-code-spotlight--main-empty .home-code-spotligh
 
   .edu-row__sep {
     display: none;
+  }
+
+  .course-row__provider {
+    margin-left: 12px;
   }
 }
