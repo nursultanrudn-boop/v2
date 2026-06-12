@@ -1120,7 +1120,7 @@ body.home-code-spotlight--on.home-code-spotlight--main-empty .home-code-spotligh
 }
 
 .home-list__item {
-  padding: 12px 0;
+  padding: 4px 0;
 }
 
 /* ========== БЛОК: cases-body — автолейаут кейсов ========== */
@@ -1325,6 +1325,7 @@ body.home-code-spotlight--on.home-code-spotlight--main-empty .home-code-spotligh
 
 .course-row__name {
   flex: 1;
+  min-width: 0;
   margin-left: 4px;
   font-family: var(--font-body);
   font-size: 16px;
@@ -1481,19 +1482,7 @@ body.home-code-spotlight--on.home-code-spotlight--main-empty .home-code-spotligh
     padding-left: 32px;
   }
 
-  .edu-row__sep,
-  .course-row__sep {
+  .edu-row__sep {
     display: none;
-  }
-
-  .course-row {
-    flex-wrap: wrap;
-  }
-
-  .course-row__name {
-    width: 100%;
-    flex-basis: 100%;
-    margin-left: 0;
-    order: -1;
   }
 }
