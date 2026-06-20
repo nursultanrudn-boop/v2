@@ -1235,6 +1235,7 @@ body.home-code-spotlight--on.home-code-spotlight--main-empty .home-code-spotligh
 
 .work-row__name {
   flex: 1;
+  min-width: 0;
   font-family: var(--font-body);
   font-size: 16px;
   font-weight: 400;
@@ -1439,11 +1440,11 @@ body.home-code-spotlight--on.home-code-spotlight--main-empty .home-code-spotligh
   }
 
   .case-row__slide {
-    display: none;
+    overflow: visible;
   }
 
   .case-row__platform {
-    font-weight: 400;
+    display: none;
   }
 
   .case-row:hover .case-row__platform,
@@ -1458,6 +1459,7 @@ body.home-code-spotlight--on.home-code-spotlight--main-empty .home-code-spotligh
     line-height: 22px;
   }
 
+  .work-row__name,
   .edu-row__name,
   .course-row__name {
     white-space: nowrap;
@@ -1495,6 +1497,6 @@ body.home-code-spotlight--on.home-code-spotlight--main-empty .home-code-spotligh
   }
 
   .course-row__provider {
-    margin-left: 12px;
+    margin-left: 4px;
   }
 }
