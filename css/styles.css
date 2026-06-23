@@ -818,6 +818,11 @@ body.home-code-spotlight--on.home-code-spotlight--main-empty .home-code-spotligh
   z-index: 5;
 }
 
+/* Кейс v2: больше пунктов навигации и более длинные подписи */
+body.case2 .case-sidebar {
+  width: 200px;
+}
+
 .case-sidebar__link {
   display: block;
   padding: 4px 0;
@@ -854,6 +859,13 @@ body.home-code-spotlight--on.home-code-spotlight--main-empty .home-code-spotligh
 .page-case .case-sidebar__link:nth-child(2) { animation-delay: 0.20s; }
 .page-case .case-sidebar__link:nth-child(3) { animation-delay: 0.28s; }
 .page-case .case-sidebar__link:nth-child(4) { animation-delay: 0.36s; }
+.page-case .case-sidebar__link:nth-child(5) { animation-delay: 0.44s; }
+.page-case .case-sidebar__link:nth-child(6) { animation-delay: 0.52s; }
+.page-case .case-sidebar__link:nth-child(7) { animation-delay: 0.60s; }
+.page-case .case-sidebar__link:nth-child(8) { animation-delay: 0.68s; }
+.page-case .case-sidebar__link:nth-child(9) { animation-delay: 0.76s; }
+.page-case .case-sidebar__link:nth-child(10) { animation-delay: 0.84s; }
+.page-case .case-sidebar__link:nth-child(11) { animation-delay: 0.92s; }
 
 .case-sidebar__link:hover {
   color: var(--brand-tertiary);
@@ -1498,5 +1510,310 @@ body.home-code-spotlight--on.home-code-spotlight--main-empty .home-code-spotligh
 
   .course-row__provider {
     margin-left: 4px;
+  }
+}
+
+/* ==========================================================================
+   КЕЙС v2 — «Раздел настройки нотации» (макет из Figma, node 496:7231)
+   Узкая читаемая колонка 588px, карточки-плашки и галереи.
+   ========================================================================== */
+
+/* Колонка контента под ширину макета (588px + 2×16px боковых отступов) */
+body.case2 .main-area {
+  max-width: 620px;
+}
+
+/* Равномерный вертикальный ритм 48px между всеми блоками кейса */
+body.case2 .main-area > * + * {
+  margin-top: 48px;
+}
+
+/* Герой: изображение в серой карточке, как в макете */
+.case2-hero {
+  display: flex;
+  justify-content: center;
+  background: #f9fafb;
+  border-radius: 16px;
+  padding: 24px clamp(16px, 8%, 49px);
+}
+
+.case2-hero img {
+  display: block;
+  width: 100%;
+  max-width: 490px;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Заголовок кейса */
+.case2__title {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: 0.6px;
+  color: #000000;
+}
+
+/* Секция: метка + контент, внутренний шаг 8px */
+.case2__block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  scroll-margin-top: 40px;
+}
+
+/* Серая метка-надзаголовок */
+.case2__label {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  color: #7a7a7a;
+}
+
+/* Абзац основного текста */
+.case2__text {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--fg-primary);
+}
+
+/* Карточка-список из белых плашек на сером фоне */
+.case2-card {
+  margin: 0;
+  padding: 16px;
+  list-style: none;
+  background: #f9fafb;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.case2-card__row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: #ffffff;
+  border-radius: 8px;
+}
+
+.case2-card__text {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #000000;
+}
+
+/* Маркер-точка */
+.case2-card__bullet {
+  flex-shrink: 0;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #000000;
+}
+
+/* Эмодзи-иконка в плашке */
+.case2-card__icon {
+  flex-shrink: 0;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+/* Номер гипотезы */
+.case2-card__num {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--brand-surface);
+  color: var(--brand-primary);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* Простой список «—» (Задачи, Результат) */
+.case2-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.case2-list li {
+  position: relative;
+  padding-left: 20px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: var(--fg-primary);
+}
+
+.case2-list li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--fg-tertiary);
+}
+
+.case2-list li b {
+  font-weight: 600;
+}
+
+/* Галерея аудита: серая карточка с лентой скриншотов */
+.case2-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 24px;
+  background: #f9fafb;
+  border-radius: 16px;
+}
+
+.case2-gallery img {
+  display: block;
+  height: 200px;
+  width: auto;
+  max-width: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+/* Пара «До / После» — два серых медиа-блока */
+.case2-prepost {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.case2-prepost + .case2-prepost {
+  margin-top: 16px;
+}
+
+.case2-media {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px clamp(16px, 8%, 49px);
+  background: #f9fafb;
+  border-radius: 16px;
+}
+
+.case2-media__label {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  color: #7a7a7a;
+}
+
+.case2-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Другие кейсы — строки-ссылки */
+.case2-more {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.case2-more__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: background 0.18s ease;
+}
+
+.case2-more__item:hover {
+  background: #f9fafb;
+}
+
+.case2-more__tag {
+  flex-shrink: 0;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: var(--brand-surface);
+  color: var(--brand-primary);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+}
+
+.case2-more__title {
+  flex: 1 1 auto;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: var(--fg-primary);
+}
+
+.case2-more__meta {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--fg-tertiary);
+}
+
+.case2-more__meta img {
+  display: block;
+  width: 16px;
+  height: 16px;
+  opacity: 0.6;
+}
+
+/* ===== Телефон (≤ 768px) ===== */
+@media (max-width: 768px) {
+  body.case2 .main-area > * + * {
+    margin-top: 36px;
+  }
+
+  .case2__text,
+  .case2-card__text,
+  .case2-list li,
+  .case2-more__title {
+    font-size: 17px;
+  }
+
+  .case2-gallery img {
+    height: 150px;
+  }
+
+  .case2-hero,
+  .case2-media {
+    padding: 16px;
   }
 }

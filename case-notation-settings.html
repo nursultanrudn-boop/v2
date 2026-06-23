@@ -1,16 +1,16 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru" class="page-case">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Раздел настройки нотации — Султан</title>
+    <title>Раздел «Настройки нотации» — Султан</title>
     <link rel="icon" href="favicon.png" type="image/png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/styles.css?v=3" />
   </head>
-  <body class="has-case-back">
+  <body class="has-case-back case2">
     <!-- Десктоп: текстура «код» + спотлайт (js/home-code-spotlight.js) -->
     <div class="home-code-spotlight" hidden aria-hidden="true">
       <canvas class="home-code-spotlight__canvas"></canvas>
@@ -22,9 +22,16 @@
         <img src="images/icons/icon-undo.svg" alt="" width="16" height="16" />
         Назад
       </a>
-      <a href="#section-task" class="case-sidebar__link">Задача</a>
-      <a href="#section-did" class="case-sidebar__link">Что я сделал</a>
+      <a href="#section-context" class="case-sidebar__link">Контекст</a>
+      <a href="#section-role" class="case-sidebar__link">Моя роль</a>
+      <a href="#section-goal" class="case-sidebar__link">Цель</a>
+      <a href="#section-tasks" class="case-sidebar__link">Задачи</a>
+      <a href="#section-problem" class="case-sidebar__link">Проблема пользователей</a>
+      <a href="#section-audit" class="case-sidebar__link">Аудит системы</a>
+      <a href="#section-hypotheses" class="case-sidebar__link">Гипотезы</a>
+      <a href="#section-interface" class="case-sidebar__link">Интерфейс</a>
       <a href="#section-result" class="case-sidebar__link">Результат</a>
+      <a href="#section-retro" class="case-sidebar__link">Рефлексия</a>
     </nav>
 
     <a href="index.html" class="case-back-mobile" aria-label="Назад к кейсам">
@@ -35,126 +42,234 @@
     <main class="main-area">
 
       <!-- ========== БЛОК: герой-изображение ========== -->
-      <div class="case-hero">
+      <div class="case2-hero">
         <img
           src="images/cases/notation-settings/case-ns-hero.png"
-          alt="Раздел настройки нотации — интерфейс"
+          alt="Раздел «Настройки нотации» — интерфейс"
           fetchpriority="high"
           decoding="async"
         />
       </div>
 
-      <!-- ========== БЛОК: инфо-секция ========== -->
-      <div class="case-info">
-        <h1 class="case-info__title">Раздел настройки нотации</h1>
+      <h1 class="case2__title">Раздел «Настройки нотации»</h1>
 
-        <section id="section-task" class="case-section">
-          <h2 class="case-section__label">Задача</h2>
-          <ul class="case-section__list">
-            <li>— Снизить когнитивную нагрузку при&nbsp;настройке сложных системных нотаций</li>
-            <li>— Сократить время на&nbsp;подготовку системы к&nbsp;работе (Time-to-Value)</li>
-            <li>— Улучшить визуальное восприятие и&nbsp;иерархию данных в&nbsp;настройках</li>
-            <li>— Обеспечить масштабируемость таблиц под&nbsp;растущие параметры системы</li>
-          </ul>
-        </section>
+      <!-- ========== БЛОК: контекст ========== -->
+      <section id="section-context" class="case2__block">
+        <p class="case2__label">Контекст</p>
+        <p class="case2__text">«Настройки нотаций» — это этап подготовки системы к&nbsp;работе. На&nbsp;нём пользователь выбирает нотации, определяет, какие элементы будут использоваться, какими свойствами они будут обладать и&nbsp;будут ли отображаться в&nbsp;иерархии уровней при отрисовке бизнес-процессов. Раздел позволяет гибко адаптировать логику и&nbsp;структуру платформы под стандарты любого бизнеса.</p>
+      </section>
 
-        <section id="section-did" class="case-section">
-          <h2 class="case-section__label">Что я сделал</h2>
-          <ul class="case-section__list">
-            <li>— Провёл аудит текущего процесса настройки и&nbsp;выявил критические точки: отсутствие массового редактирования и&nbsp;сложность оценки конфигурации</li>
-            <li>— Сформулировал гипотезы, на&nbsp;основе них самостоятельно провёл качественное исследование UX</li>
-            <li>— Разработал и&nbsp;внедрил инструменты массового редактирования (Bulk actions), исключающие монотонное заполнение сотен однотипных полей</li>
-            <li>— Спроектировал новую визуальную иерархию и&nbsp;структуру данных для&nbsp;раздела «Настройки нотаций»</li>
-            <li>— Обновил дизайн страниц в&nbsp;соответствии с&nbsp;актуальной дизайн-системой, упростив отображение ключевых функций</li>
-            <li>— Инициировал и&nbsp;внедрил паттерн «панели элементов» для&nbsp;работы с&nbsp;элементами — решение было реализовано в&nbsp;продукте раньше аналогичных паттернов в&nbsp;индустрии</li>
-          </ul>
-        </section>
+      <!-- ========== БЛОК: моя роль ========== -->
+      <section id="section-role" class="case2__block">
+        <p class="case2__label">Моя роль</p>
+        <p class="case2__text">Я&nbsp;вёл продуктовый дизайн раздела полностью: от&nbsp;исследования и&nbsp;информационной архитектуры до&nbsp;финальных экранов и&nbsp;работы с&nbsp;дизайн-системой.</p>
+        <ul class="case2-card">
+          <li class="case2-card__row">
+            <span class="case2-card__bullet" aria-hidden="true"></span>
+            <span class="case2-card__text">Исследование и&nbsp;аудит легаси-интерфейса</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__bullet" aria-hidden="true"></span>
+            <span class="case2-card__text">Информационная архитектура и&nbsp;визуальная иерархия данных</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__bullet" aria-hidden="true"></span>
+            <span class="case2-card__text">Проектирование решения и&nbsp;ключевых паттернов (Bulk actions, панель элементов)</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__bullet" aria-hidden="true"></span>
+            <span class="case2-card__text">Приведение к&nbsp;единой дизайн-системе и&nbsp;передача в&nbsp;разработку</span>
+          </li>
+        </ul>
+      </section>
 
-        <section id="section-result" class="case-section">
-          <h2 class="case-section__label">Результат</h2>
-          <ul class="case-section__list">
-            <li>— <b>Ускорил цикл подготовки системы:</b> внедрение Bulk actions значительно сократило время на&nbsp;первичную настройку нотаций</li>
-            <li>— <b>Снизил когнитивную нагрузку</b> за&nbsp;счёт перехода к&nbsp;структурированному отображению данных и&nbsp;упрощённой навигации</li>
-            <li>— <b>Повысил точность настройки:</b> оптимизация процесса ввода данных минимизировала вероятность человеческой ошибки</li>
-            <li>— <b>Сделал интерфейс масштабируемым:</b> новая архитектура таблицы позволяет легко добавлять новые системные параметры без&nbsp;потери читаемости</li>
-            <li>— <b>100% положительный отклик (5 из&nbsp;5 компаний):</b> по&nbsp;результатам финального тестирования все участники подтвердили высокую ценность и&nbsp;удобство обновлённого интерфейса</li>
-          </ul>
-        </section>
-      </div>
+      <!-- ========== БЛОК: цель ========== -->
+      <section id="section-goal" class="case2__block">
+        <p class="case2__label">Цель</p>
+        <p class="case2__text">Обновить дизайн раздела «Настройки нотаций», оптимизировать пользовательский путь, улучшить восприятие интерфейса и&nbsp;упростить отображение функций.</p>
+      </section>
 
-      <!-- ========== БЛОК: витрина дизайна ========== -->
-      <div class="case-design">
+      <!-- ========== БЛОК: задачи ========== -->
+      <section id="section-tasks" class="case2__block">
+        <p class="case2__label">Задачи</p>
+        <ul class="case2-list">
+          <li>Снизить когнитивную нагрузку при&nbsp;работе со&nbsp;сложными схемами</li>
+          <li>Повысить скорость выполнения ключевых сценариев (создание и&nbsp;редактирование процессов)</li>
+          <li>Сделать интерфейс масштабируемым для&nbsp;роста функциональности</li>
+          <li>Унифицировать UX и&nbsp;привести его к&nbsp;единой дизайн-системе</li>
+        </ul>
+      </section>
 
-        <div class="case-design__pair">
-          <div class="case-design__group">
-            <span class="case-design__label">До</span>
-            <img
-              class="case-design__img"
-              src="images/cases/notation-settings/case-ns-before-1.png"
-              alt="Настройки нотации до редизайна — вид 1"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-          <div class="case-design__group">
-            <span class="case-design__label">После</span>
-            <img
-              class="case-design__img"
-              src="images/cases/notation-settings/case-ns-after-1.png"
-              alt="Настройки нотации после редизайна — вид 1"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
+      <!-- ========== БЛОК: проблема пользователей ========== -->
+      <section id="section-problem" class="case2__block">
+        <p class="case2__label">Проблема пользователей</p>
+        <ul class="case2-card">
+          <li class="case2-card__row">
+            <span class="case2-card__icon" aria-hidden="true">❗️</span>
+            <span class="case2-card__text">Отсутствие инструментов массового редактирования</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__icon" aria-hidden="true">❗️</span>
+            <span class="case2-card__text">Высокий риск ошибок при&nbsp;заполнении сотен однотипных полей</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__icon" aria-hidden="true">❗️</span>
+            <span class="case2-card__text">Отсутствие визуальной иерархии и&nbsp;структуры в&nbsp;данных</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__icon" aria-hidden="true">❗️</span>
+            <span class="case2-card__text">Длительный цикл настройки (TTV) из-за монотонности</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__icon" aria-hidden="true">❗️</span>
+            <span class="case2-card__text">Сложность в&nbsp;оценке общей конфигурации «одним взглядом»</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__icon" aria-hidden="true">❗️</span>
+            <span class="case2-card__text">Низкая масштабируемость таблиц под&nbsp;новые параметры системы</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ========== БЛОК: аудит системы ========== -->
+      <section id="section-audit" class="case2__block">
+        <p class="case2__label">Аудит системы</p>
+        <p class="case2__text">Провёл аудит текущего UX и&nbsp;выявил ключевые проблемы: перегруженность интерфейса, сложность управления отображаемыми свойствами элемента, дублирование и&nbsp;высокий порог входа.</p>
+        <div class="case2-gallery">
+          <img src="images/cases/notation-settings/case-ns-audit-1.png" alt="Аудит интерфейса — экран 1" loading="lazy" decoding="async" />
+          <img src="images/cases/notation-settings/case-ns-audit-2.png" alt="Аудит интерфейса — экран 2" loading="lazy" decoding="async" />
+          <img src="images/cases/notation-settings/case-ns-audit-3.png" alt="Аудит интерфейса — экран 3" loading="lazy" decoding="async" />
+          <img src="images/cases/notation-settings/case-ns-audit-4.png" alt="Аудит интерфейса — экран 4" loading="lazy" decoding="async" />
+          <img src="images/cases/notation-settings/case-ns-audit-5.png" alt="Аудит интерфейса — экран 5" loading="lazy" decoding="async" />
+        </div>
+      </section>
+
+      <!-- ========== БЛОК: гипотезы ========== -->
+      <section id="section-hypotheses" class="case2__block">
+        <p class="case2__label">Гипотезы</p>
+        <p class="case2__text">Сформулировал гипотезы, на&nbsp;основе них самостоятельно провёл качественное исследование UX.</p>
+        <ul class="case2-card">
+          <li class="case2-card__row">
+            <span class="case2-card__num" aria-hidden="true">1</span>
+            <span class="case2-card__text">Массовое управление свойствами элементов упростит работу</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__num" aria-hidden="true">2</span>
+            <span class="case2-card__text">Возможность массового включения и&nbsp;выключения свойств востребована</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__num" aria-hidden="true">3</span>
+            <span class="case2-card__text">Свойства часто повторяются у&nbsp;разных элементов и&nbsp;на&nbsp;разных уровнях</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__num" aria-hidden="true">4</span>
+            <span class="case2-card__text">Свойства элементов повторяются на&nbsp;всех уровнях — необходимость в&nbsp;уровнях может быть поставлена под&nbsp;сомнение</span>
+          </li>
+        </ul>
+        <p class="case2__text">Проверка гипотез уберегла проект от&nbsp;критической ошибки. Исследование опровергло идею о&nbsp;дублировании свойств: выяснилось, что настройки на&nbsp;уровнях почти всегда уникальны. Сохранение этой автономности позволило оставить систему гибкой для&nbsp;аналитиков.</p>
+        <ul class="case2-card">
+          <li class="case2-card__row">
+            <span class="case2-card__icon" aria-hidden="true">✅</span>
+            <span class="case2-card__text">Массовое управление свойствами элементов упростит работу</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__icon" aria-hidden="true">✅</span>
+            <span class="case2-card__text">Возможность массового включения и&nbsp;выключения свойств востребована</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__icon" aria-hidden="true">✅</span>
+            <span class="case2-card__text">Свойства часто повторяются у&nbsp;разных элементов и&nbsp;на&nbsp;разных уровнях</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__icon" aria-hidden="true">💔</span>
+            <span class="case2-card__text">Свойства элементов повторяются на&nbsp;всех уровнях — необходимость в&nbsp;уровнях может быть поставлена под&nbsp;сомнение</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ========== БЛОК: интерфейс До / После ========== -->
+      <section id="section-interface" class="case2__block">
+        <p class="case2__label">Интерфейс До/После</p>
+
+        <div class="case2-prepost">
+          <figure class="case2-media">
+            <figcaption class="case2-media__label">До</figcaption>
+            <img src="images/cases/notation-settings/case-ns-before-1.png" alt="Настройки нотации до редизайна — вид 1" loading="lazy" decoding="async" />
+          </figure>
+          <figure class="case2-media">
+            <figcaption class="case2-media__label">После</figcaption>
+            <img src="images/cases/notation-settings/case-ns-after-1.png" alt="Настройки нотации после редизайна — вид 1" loading="lazy" decoding="async" />
+          </figure>
         </div>
 
-        <div class="case-design__pair">
-          <div class="case-design__group">
-            <span class="case-design__label">До</span>
-            <img
-              class="case-design__img"
-              src="images/cases/notation-settings/case-ns-before-2.png"
-              alt="Настройки нотации до редизайна — вид 2"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-          <div class="case-design__group">
-            <span class="case-design__label">После</span>
-            <img
-              class="case-design__img"
-              src="images/cases/notation-settings/case-ns-after-2.png"
-              alt="Настройки нотации после редизайна — вид 2"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
+        <div class="case2-prepost">
+          <figure class="case2-media">
+            <figcaption class="case2-media__label">До</figcaption>
+            <img src="images/cases/notation-settings/case-ns-before-2.png" alt="Настройки нотации до редизайна — вид 2" loading="lazy" decoding="async" />
+          </figure>
+          <figure class="case2-media">
+            <figcaption class="case2-media__label">После</figcaption>
+            <img src="images/cases/notation-settings/case-ns-after-2.png" alt="Настройки нотации после редизайна — вид 2" loading="lazy" decoding="async" />
+          </figure>
         </div>
 
-        <div class="case-design__pair">
-          <div class="case-design__group">
-            <span class="case-design__label">До</span>
-            <img
-              class="case-design__img"
-              src="images/cases/notation-settings/case-ns-before-3.png"
-              alt="Настройки нотации до редизайна — вид 3"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-          <div class="case-design__group">
-            <span class="case-design__label">После</span>
-            <img
-              class="case-design__img"
-              src="images/cases/notation-settings/case-ns-after-3.png"
-              alt="Настройки нотации после редизайна — вид 3"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
+        <div class="case2-prepost">
+          <figure class="case2-media">
+            <figcaption class="case2-media__label">До</figcaption>
+            <img src="images/cases/notation-settings/case-ns-before-3.png" alt="Настройки нотации до редизайна — вид 3" loading="lazy" decoding="async" />
+          </figure>
+          <figure class="case2-media">
+            <figcaption class="case2-media__label">После</figcaption>
+            <img src="images/cases/notation-settings/case-ns-after-3.png" alt="Настройки нотации после редизайна — вид 3" loading="lazy" decoding="async" />
+          </figure>
         </div>
+      </section>
 
-      </div>
+      <!-- ========== БЛОК: результат ========== -->
+      <section id="section-result" class="case2__block">
+        <p class="case2__label">Результат</p>
+        <ul class="case2-list">
+          <li><b>Ускорил цикл подготовки системы:</b> внедрение инструментов массового редактирования значительно сократило время на&nbsp;первичную настройку нотаций</li>
+          <li><b>Снизил когнитивную нагрузку</b> за&nbsp;счёт перехода к&nbsp;структурированному отображению данных и&nbsp;упрощённой навигации</li>
+          <li><b>Повысил точность настройки:</b> оптимизация процесса ввода данных минимизировала вероятность человеческой ошибки</li>
+          <li><b>Сделал интерфейс масштабируемым:</b> новая архитектура таблицы позволяет легко добавлять новые системные параметры без&nbsp;потери читаемости</li>
+          <li><b>Положительный отклик по&nbsp;итогам тестирования:</b> провёл юзабилити-тестирование с&nbsp;5&nbsp;компаниями — все участники самостоятельно прошли сценарий первичной настройки нотаций и&nbsp;подтвердили удобство обновлённого интерфейса</li>
+        </ul>
+      </section>
+
+      <!-- ========== БЛОК: ретроспектива ========== -->
+      <section id="section-retro" class="case2__block">
+        <p class="case2__label">Ретроспектива</p>
+        <p class="case2__text">Главный вывод: непроверенная гипотеза дорожает вниз по&nbsp;воронке. Я&nbsp;заходил с&nbsp;идеей убрать уровни как избыточную сущность, но&nbsp;исследование показало обратное: настройки на&nbsp;уровнях почти всегда уникальны, и&nbsp;их схлопывание лишило бы&nbsp;аналитиков гибкости. Чем дороже откат, тем раньше нужно валидировать.</p>
+      </section>
+
+      <!-- ========== БЛОК: другие кейсы ========== -->
+      <section class="case2__block">
+        <p class="case2__label">Другие кейсы</p>
+        <nav class="case2-more" aria-label="Другие кейсы">
+          <a class="case2-more__item" href="case-process-map.html">
+            <span class="case2-more__tag">B2B</span>
+            <span class="case2-more__title">Раздел «Карта процессов»</span>
+            <span class="case2-more__meta">Web
+              <img src="images/icons/icon-open.svg" width="16" height="16" alt="" aria-hidden="true" />
+            </span>
+          </a>
+          <a class="case2-more__item" href="case-lct-hackathon.html">
+            <span class="case2-more__tag">B2C</span>
+            <span class="case2-more__title">Хакатон ЛЦТ</span>
+            <span class="case2-more__meta">mobile
+              <img src="images/icons/icon-open.svg" width="16" height="16" alt="" aria-hidden="true" />
+            </span>
+          </a>
+          <a class="case2-more__item" href="case-licenses.html">
+            <span class="case2-more__tag">B2B</span>
+            <span class="case2-more__title">Раздел «Лицензии и права»</span>
+            <span class="case2-more__meta">Web
+              <img src="images/icons/icon-open.svg" width="16" height="16" alt="" aria-hidden="true" />
+            </span>
+          </a>
+        </nav>
+      </section>
 
     </main>
 
