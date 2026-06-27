@@ -897,11 +897,29 @@ body.case2 .case-sidebar {
   flex-shrink: 0;
 }
 
-/* Показываем сайдбар только когда есть достаточно места слева от контента:
-   920px + 2*(42px gap + 106px nav) = 1216px → порог 1220px */
-@media (min-width: 1220px) {
+/* Порог 1280px: при ширине ≥ 1280px показываем боковое меню кейса
+   (в нём есть «Назад»), и нижняя панель — как на главной (соцсети + «Резюме»). */
+@media (min-width: 1280px) {
   .case-sidebar {
     display: flex;
+  }
+}
+
+/* < 1280px: бокового меню нет, поэтому единственный способ вернуться —
+   нижняя кнопка «Вернуться на главную». Скрываем соцсети и «Резюме». */
+@media (max-width: 1279.98px) {
+  .has-case-back .dock-wrap--home > .dock {
+    display: none;
+  }
+
+  .has-case-back .dock-wrap--home > .case-home-dock {
+    display: flex;
+  }
+
+  /* Единственная кнопка — по центру (перебиваем space-between,
+     который раскидывает элементы дока главной на ≤440px) */
+  .has-case-back .dock-wrap--home {
+    justify-content: center;
   }
 }
 
@@ -1009,13 +1027,11 @@ body.case2 .case-sidebar {
     right: 16px;
   }
 
-  /* На кейс-страницах: показываем кнопку «Назад» и скрываем угловую подпись */
+  /* На кейс-страницах: скрываем угловую подпись.
+     Верхняя кнопка «Назад» больше не нужна — её роль выполняет
+     нижняя кнопка «Вернуться на главную» (без дублирования). */
   .has-case-back .corner-label--tl {
     display: none;
-  }
-
-  .has-case-back .case-back-mobile {
-    display: inline-flex;
   }
 
   /* Страница кейса: уменьшаем отступы и padding дизайн-блока */
@@ -1411,6 +1427,12 @@ body.case2 .case-sidebar {
 /* Контейнер дока главной: без wrap, всегда одна строка */
 .dock-wrap--home {
   flex-wrap: nowrap;
+}
+
+/* Кнопка «Вернуться на главную» — только в моб. версии кейса.
+   На десктопе скрыта (там соцсети + «Резюме»). */
+.case-home-dock {
+  display: none;
 }
 
 .page-home .dock-wrap--home {
