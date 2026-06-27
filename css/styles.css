@@ -827,6 +827,10 @@ body.case2 .case-sidebar {
 
 .case-sidebar__link {
   display: block;
+  /* Кликабельная зона обтягивает контент, а не всю ширину колонки:
+     в flex-column по умолчанию align-items: stretch растягивал пункт */
+  align-self: flex-start;
+  width: fit-content;
   padding: 4px 0;
   font-family: var(--font-body);
   font-size: 12px;
