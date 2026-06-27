@@ -135,13 +135,10 @@
       <section id="section-audit" class="case2__block">
         <p class="case2__label">Аудит системы</p>
         <p class="case2__text">Провёл аудит текущего UX и&nbsp;выявил ключевые проблемы: перегруженность интерфейса, сложность управления отображаемыми свойствами элемента, дублирование и&nbsp;высокий порог входа.</p>
-        <div class="case2-gallery">
-          <img src="images/cases/notation-settings/case-ns-audit-1.png" alt="Аудит интерфейса — экран 1" loading="lazy" decoding="async" />
-          <img src="images/cases/notation-settings/case-ns-audit-2.png" alt="Аудит интерфейса — экран 2" loading="lazy" decoding="async" />
-          <img src="images/cases/notation-settings/case-ns-audit-3.png" alt="Аудит интерфейса — экран 3" loading="lazy" decoding="async" />
-          <img src="images/cases/notation-settings/case-ns-audit-4.png" alt="Аудит интерфейса — экран 4" loading="lazy" decoding="async" />
-          <img src="images/cases/notation-settings/case-ns-audit-5.png" alt="Аудит интерфейса — экран 5" loading="lazy" decoding="async" />
-        </div>
+        <picture class="case2-audit">
+          <source media="(max-width: 768px)" srcset="images/cases/notation-settings/case-ns-audit-mobile.jpg" />
+          <img src="images/cases/notation-settings/case-ns-audit-desktop.png" alt="Аудит интерфейса — рукописные заметки и схемы" loading="lazy" decoding="async" />
+        </picture>
       </section>
 
       <!-- ========== БЛОК: гипотезы ========== -->
@@ -246,29 +243,38 @@
       <!-- ========== БЛОК: другие кейсы ========== -->
       <section class="case2__block">
         <p class="case2__label">Другие кейсы</p>
-        <nav class="case2-more" aria-label="Другие кейсы">
-          <a class="case2-more__item" href="case-process-map.html">
-            <span class="case2-more__tag">B2B</span>
-            <span class="case2-more__title">Раздел «Карта процессов»</span>
-            <span class="case2-more__meta">Web
-              <img src="images/icons/icon-open.svg" width="16" height="16" alt="" aria-hidden="true" />
-            </span>
-          </a>
-          <a class="case2-more__item" href="case-lct-hackathon.html">
-            <span class="case2-more__tag">B2C</span>
-            <span class="case2-more__title">Хакатон ЛЦТ</span>
-            <span class="case2-more__meta">mobile
-              <img src="images/icons/icon-open.svg" width="16" height="16" alt="" aria-hidden="true" />
-            </span>
-          </a>
-          <a class="case2-more__item" href="case-licenses.html">
-            <span class="case2-more__tag">B2B</span>
-            <span class="case2-more__title">Раздел «Лицензии и права»</span>
-            <span class="case2-more__meta">Web
-              <img src="images/icons/icon-open.svg" width="16" height="16" alt="" aria-hidden="true" />
-            </span>
-          </a>
-        </nav>
+        <ul class="home-list cases-body" role="list" aria-label="Другие кейсы">
+          <li class="home-list__item">
+            <a class="case-row" href="case-process-map.html">
+              <span class="case-row__tag">B2B</span>
+              <span class="case-row__name">Раздел «Карта процессов»</span>
+              <span class="case-row__slide">
+                <span class="case-row__platform">Web</span>
+                <span class="case-row__arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </span>
+            </a>
+          </li>
+          <li class="home-list__item">
+            <a class="case-row" href="case-lct-hackathon.html">
+              <span class="case-row__tag">B2C</span>
+              <span class="case-row__name">Хакатон ЛЦТ</span>
+              <span class="case-row__slide">
+                <span class="case-row__platform">Mobile</span>
+                <span class="case-row__arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </span>
+            </a>
+          </li>
+          <li class="home-list__item">
+            <a class="case-row" href="case-licenses.html">
+              <span class="case-row__tag">B2B</span>
+              <span class="case-row__name">Раздел «Лицензии и права»</span>
+              <span class="case-row__slide">
+                <span class="case-row__platform">Web</span>
+                <span class="case-row__arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </span>
+            </a>
+          </li>
+        </ul>
       </section>
 
     </main>
@@ -335,5 +341,6 @@
 
     <script src="js/main.js" defer></script>
     <script src="js/home-code-spotlight.js" defer></script>
+    <script src="js/lightbox.js" defer></script>
   </body>
 </html>

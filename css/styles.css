@@ -42,6 +42,8 @@
   --z-dock-progressive-blur: 9;
   /* Панель дока и фиксированные подписи — над слоем блюра */
   --z-dock-chrome: 11;
+  /* Лайтбокс — поверх всего интерфейса */
+  --z-lightbox: 100;
   --status-active: #1ac43c;
 }
 
@@ -1629,21 +1631,20 @@ body.case2 .main-area > * + * {
   line-height: 20px;
 }
 
+/* Строки с номером или эмодзи-иконкой — выравнивание по верху */
+.case2-card__row:has(.case2-card__num),
+.case2-card__row:has(.case2-card__icon) {
+  align-items: flex-start;
+}
+
 /* Номер гипотезы */
 .case2-card__num {
   flex-shrink: 0;
-  width: 20px;
-  height: 20px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: var(--brand-surface);
-  color: var(--brand-primary);
   font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 600;
-  line-height: 1;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #000000;
 }
 
 /* Простой список «—» (Задачи, Результат) */
@@ -1678,24 +1679,15 @@ body.case2 .main-area > * + * {
 }
 
 /* Галерея аудита: серая карточка с лентой скриншотов */
-.case2-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  padding: 24px;
-  background: #f9fafb;
-  border-radius: 16px;
+.case2-audit {
+  display: block;
 }
 
-.case2-gallery img {
+.case2-audit img {
   display: block;
-  height: 200px;
-  width: auto;
-  max-width: 100%;
+  width: 100%;
+  height: auto;
   border-radius: 16px;
-  object-fit: cover;
 }
 
 /* Пара «До / После» — два серых медиа-блока */
@@ -1808,12 +1800,167 @@ body.case2 .main-area > * + * {
     font-size: 17px;
   }
 
-  .case2-gallery img {
-    height: 150px;
-  }
-
   .case2-hero,
   .case2-media {
     padding: 16px;
+  }
+}
+
+/* ========== БЛОК: лайтбокс контентных изображений ========== */
+
+/* Кликабельные контентные фото */
+.case2-hero img,
+.case2-audit img,
+.case2-media img,
+.case-hero img,
+.case-design img,
+.case-photos img {
+  cursor: zoom-in;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-lightbox);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(15, 17, 21, 0.82);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.lightbox.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Сцена несёт анимацию появления (scale + opacity), чтобы
+ * transform самого изображения остался свободным под зум/панораму. */
+.lightbox__stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  max-height: 100%;
+  transform: scale(0.96);
+  opacity: 0;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.lightbox.is-open .lightbox__stage {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.lightbox__img {
+  display: block;
+  max-width: min(92vw, 1400px);
+  max-height: 88vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+  transform: translate(0, 0) scale(1);
+  transform-origin: center center;
+  transition: transform 0.18s ease;
+  cursor: zoom-in;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+  will-change: transform;
+}
+
+/* Когда фото приближено, следующий клик его отдалит — лупа с «−» */
+.lightbox__img.is-zoomed {
+  cursor: zoom-out;
+}
+
+/* Во время перетаскивания / пинча — без перехода и курсор «grabbing» */
+.lightbox__img.is-panning {
+  transition: none;
+  cursor: grabbing;
+}
+
+/* Кнопки управления */
+.lightbox__btn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  transition: background 0.15s ease, transform 0.15s ease;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.lightbox__btn:hover {
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.lightbox__btn:active {
+  transform: scale(0.94);
+}
+
+.lightbox__btn svg {
+  display: block;
+}
+
+.lightbox__close {
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+}
+
+/* Панель управления зумом (−/сброс/+) — по центру внизу, в одну линию */
+.lightbox__zoom {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.lightbox__zoom .lightbox__btn {
+  position: static;
+  width: 40px;
+  height: 40px;
+}
+
+/* Телефон */
+@media (max-width: 768px) {
+  .lightbox {
+    padding: 12px;
+  }
+
+  .lightbox__img {
+    max-width: 94vw;
+    max-height: 84vh;
+  }
+
+  .lightbox__close {
+    top: 12px;
+    right: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lightbox,
+  .lightbox__img {
+    transition: none;
   }
 }
