@@ -1,16 +1,16 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru" class="page-case">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Редизайн раздела карта процессов — Султан</title>
+    <title>Раздел «Карта процессов» — Султан</title>
     <link rel="icon" href="favicon.png" type="image/png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/styles.css?v=3" />
   </head>
-  <body class="has-case-back">
+  <body class="has-case-back case2">
     <!-- Десктоп: текстура «код» + спотлайт (js/home-code-spotlight.js) -->
     <div class="home-code-spotlight" hidden aria-hidden="true">
       <canvas class="home-code-spotlight__canvas"></canvas>
@@ -22,9 +22,16 @@
         <img src="images/icons/icon-undo.svg" alt="" width="16" height="16" />
         Назад
       </a>
-      <a href="#section-task" class="case-sidebar__link">Задача</a>
-      <a href="#section-did" class="case-sidebar__link">Что я сделал</a>
+      <a href="#section-context" class="case-sidebar__link">Контекст</a>
+      <a href="#section-role" class="case-sidebar__link">Моя роль</a>
+      <a href="#section-goal" class="case-sidebar__link">Цель</a>
+      <a href="#section-tasks" class="case-sidebar__link">Задачи</a>
+      <a href="#section-problem" class="case-sidebar__link">Проблема пользователей</a>
+      <a href="#section-audit" class="case-sidebar__link">Аудит системы</a>
+      <a href="#section-hypotheses" class="case-sidebar__link">Гипотезы</a>
+      <a href="#section-before" class="case-sidebar__link">Интерфейс</a>
       <a href="#section-result" class="case-sidebar__link">Результат</a>
+      <a href="#section-retro" class="case-sidebar__link">Рефлексия</a>
     </nav>
 
     <a href="index.html" class="case-back-mobile" aria-label="Назад к кейсам">
@@ -35,102 +42,250 @@
     <main class="main-area">
 
       <!-- ========== БЛОК: герой-изображение ========== -->
-      <div class="case-hero">
+      <div class="case2-hero">
         <img
-          src="images/cases/process-map/case-pm-hero-full.png"
-          alt="Редизайн раздела карта процессов — интерфейс"
-          width="1840"
-          height="1104"
+          src="images/cases/process-map/case-pm-hero.png"
+          alt="Раздел «Карта процессов» — обновлённый редактор схем"
           fetchpriority="high"
           decoding="async"
         />
       </div>
 
-      <!-- ========== БЛОК: инфо-секция ========== -->
-      <div class="case-info">
-        <h1 class="case-info__title">Редизайн раздела карта процессов</h1>
+      <h1 class="case2__title">Раздел «Карта процессов»</h1>
 
-        <section id="section-task" class="case-section">
-          <h2 class="case-section__label">Задача</h2>
-          <ul class="case-section__list">
-            <li>— Снизить когнитивную нагрузку при&nbsp;работе со&nbsp;сложными схемами</li>
-            <li>— Повысить скорость выполнения ключевых сценариев (создание и&nbsp;редактирование процессов)</li>
-            <li>— Сделать интерфейс масштабируемым для&nbsp;роста функциональности</li>
-            <li>— Унифицировать UX и&nbsp;привести его к&nbsp;единой дизайн-системе</li>
-          </ul>
-        </section>
+      <!-- ========== БЛОК: контекст ========== -->
+      <section id="section-context" class="case2__block">
+        <p class="case2__label">Контекст</p>
+        <p class="case2__text">«Карта процессов»&nbsp;— основное рабочее пространство платформы, где пользователь создаёт, связывает и&nbsp;редактирует бизнес-процессы в&nbsp;виде схем. Здесь сходится вся логика, подготовленная в&nbsp;«Настройках нотаций»: элементы, свойства и&nbsp;уровни оживают в&nbsp;реальных диаграммах. От&nbsp;удобства этого раздела напрямую зависит скорость работы аналитика и&nbsp;качество описанных процессов.</p>
+      </section>
 
-        <section id="section-did" class="case-section">
-          <h2 class="case-section__label">Что я сделал</h2>
-          <ul class="case-section__list">
-            <li>— Провёл аудит текущего UX и&nbsp;выявил ключевые проблемы: перегруженность интерфейса, сложность навигации и&nbsp;высокий порог входа</li>
-            <li>— Сформулировал гипотезы, на&nbsp;основе них самостоятельно провёл качественное исследование UX</li>
-            <li>— Подготовил подробные спецификации и&nbsp;взаимодействовал с&nbsp;разработкой на&nbsp;всех этапах реализации</li>
-            <li>— Обновил пользовательский интерфейс страниц в&nbsp;соответствии с&nbsp;обновлённой дизайн-системой</li>
-            <li>— Инициировал и&nbsp;внедрил паттерн «панели элементов» для&nbsp;работы с&nbsp;элементами — решение было реализовано в&nbsp;продукте раньше аналогичных паттернов в&nbsp;индустрии</li>
-          </ul>
-        </section>
+      <!-- ========== БЛОК: моя роль ========== -->
+      <section id="section-role" class="case2__block">
+        <p class="case2__label">Моя роль</p>
+        <p class="case2__text">Я&nbsp;вёл продуктовый дизайн раздела полностью: от&nbsp;исследования и&nbsp;аудита легаси до&nbsp;финальных экранов и&nbsp;передачи в&nbsp;разработку.</p>
+        <ul class="case2-card">
+          <li class="case2-card__row">
+            <span class="case2-card__bullet" aria-hidden="true"></span>
+            <span class="case2-card__text">Исследование и&nbsp;аудит легаси-интерфейса</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__bullet" aria-hidden="true"></span>
+            <span class="case2-card__text">Проведение интервью с&nbsp;пользователями и&nbsp;проверка гипотез</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__bullet" aria-hidden="true"></span>
+            <span class="case2-card__text">Информационная архитектура и&nbsp;визуальная иерархия рабочей области</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__bullet" aria-hidden="true"></span>
+            <span class="case2-card__text">Проектирование решения и&nbsp;ключевого паттерна «панель элементов»</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__bullet" aria-hidden="true"></span>
+            <span class="case2-card__text">Приведение к&nbsp;единой дизайн-системе и&nbsp;взаимодействие с&nbsp;разработкой на&nbsp;всех этапах</span>
+          </li>
+        </ul>
+      </section>
 
-        <section id="section-result" class="case-section">
-          <h2 class="case-section__label">Результат</h2>
-          <ul class="case-section__list">
-            <li>— <b>Упростил пользовательский интерфейс:</b> избавился от&nbsp;перегруженной структуры и&nbsp;сфокусировал внимание пользователя на&nbsp;рабочей области</li>
-            <li>— <b>Снизил когнитивную нагрузку</b> за&nbsp;счёт перехода к&nbsp;контекстным действиям и&nbsp;упрощённой навигации</li>
-            <li>— <b>Ускорил работу с&nbsp;процессами:</b> ключевые действия стали выполняться быстрее за&nbsp;счёт нового UX взаимодействия</li>
-            <li>— <b>Повысил удобство редактирования схем</b> благодаря&nbsp;внедрению «панели элементов»</li>
-            <li>— <b>Сделал интерфейс масштабируемым</b> — новая структура позволяет проще добавлять функциональность</li>
-            <li>— <b>Привёл интерфейс к&nbsp;единой дизайн-системе</b>, что&nbsp;улучшило консистентность продукта</li>
-          </ul>
-        </section>
-      </div>
+      <!-- ========== БЛОК: цель ========== -->
+      <section id="section-goal" class="case2__block">
+        <p class="case2__label">Цель</p>
+        <p class="case2__text">Переосмыслить интерфейс раздела «Карта процессов»: разгрузить рабочую область, ускорить ключевые сценарии и&nbsp;сделать структуру масштабируемой под&nbsp;рост функциональности.</p>
+      </section>
 
-      <!-- ========== БЛОК: витрина дизайна ========== -->
-      <div class="case-design">
+      <!-- ========== БЛОК: задачи ========== -->
+      <section id="section-tasks" class="case2__block">
+        <p class="case2__label">Задачи</p>
+        <ul class="case2-list">
+          <li>Снизить когнитивную нагрузку при&nbsp;работе со&nbsp;сложными схемами</li>
+          <li>Повысить скорость выполнения ключевых сценариев (создание и&nbsp;редактирование процессов)</li>
+          <li>Сделать интерфейс масштабируемым для&nbsp;роста функциональности</li>
+          <li>Унифицировать UX и&nbsp;привести его к&nbsp;единой дизайн-системе</li>
+        </ul>
+      </section>
 
-        <div class="case-design__group">
-          <span class="case-design__label">До</span>
-          <img
-            class="case-design__img"
-            src="images/cases/process-map/case-pm-before.png"
-            alt="Интерфейс до редизайна"
-            loading="lazy"
-            decoding="async"
-          />
+      <!-- ========== БЛОК: проблема пользователей ========== -->
+      <section id="section-problem" class="case2__block">
+        <p class="case2__label">Проблема пользователей</p>
+        <ul class="case2-card">
+          <li class="case2-card__row">
+            <span class="case2-card__icon" aria-hidden="true">❗️</span>
+            <span class="case2-card__text">Холст ограничен рамкой листа&nbsp;— сложные схемы не&nbsp;помещаются и&nbsp;приходится «впихивать» процесс в&nbsp;границы</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__icon" aria-hidden="true">❗️</span>
+            <span class="case2-card__text">Статичная вертикальная панель инструментов и&nbsp;служебная разметка отвлекают от&nbsp;схемы</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__icon" aria-hidden="true">❗️</span>
+            <span class="case2-card__text">Нет быстрого доступа к&nbsp;действиям над&nbsp;элементом: правая панель отвечает только за&nbsp;свойства, а&nbsp;визуальные изменения доступны лишь через ЛКМ по&nbsp;фигуре&nbsp;— частые операции разбросаны и&nbsp;неочевидны</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__icon" aria-hidden="true">❗️</span>
+            <span class="case2-card__text">Правая панель всегда раскрыта и&nbsp;забита полями&nbsp;— высокий визуальный шум</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__icon" aria-hidden="true">❗️</span>
+            <span class="case2-card__text">Нет отмены действий&nbsp;— высокий страх ошибки, пользователь работает осторожно и&nbsp;медленно</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__icon" aria-hidden="true">❗️</span>
+            <span class="case2-card__text">Высокий порог входа: дерево без&nbsp;поиска, сложная навигация</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ========== БЛОК: аудит системы ========== -->
+      <section id="section-audit" class="case2__block">
+        <p class="case2__label">Аудит системы</p>
+        <p class="case2__text">Провёл аудит текущего UX и&nbsp;выявил ключевые проблемы: ограниченный рамкой холст, перегруженность служебными элементами, постоянно раскрытую панель свойств, статичную панель инструментов, отсутствие отмены действий и&nbsp;высокий порог входа.</p>
+      </section>
+
+      <!-- ========== БЛОК: гипотезы ========== -->
+      <section id="section-hypotheses" class="case2__block">
+        <p class="case2__label">Гипотезы</p>
+        <p class="case2__text">Сформулировал гипотезы, на&nbsp;их основе самостоятельно провёл качественное исследование UX и&nbsp;серию интервью с&nbsp;пользователями.</p>
+        <ul class="case2-card">
+          <li class="case2-card__row">
+            <span class="case2-card__num" aria-hidden="true">1</span>
+            <span class="case2-card__text">Неограниченный холст снимет барьер при&nbsp;работе со&nbsp;сложными схемами&nbsp;— процесс не&nbsp;придётся «впихивать» в&nbsp;рамки листа</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__num" aria-hidden="true">2</span>
+            <span class="case2-card__text">Перенос панели элементов вниз освободит рабочую область и&nbsp;приблизит интерфейс к&nbsp;привычным паттернам редакторов</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__num" aria-hidden="true">3</span>
+            <span class="case2-card__text">Отмена и&nbsp;повтор действий снизят страх ошибки и&nbsp;ускорят редактирование&nbsp;— пользователь будет экспериментировать смелее</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__num" aria-hidden="true">4</span>
+            <span class="case2-card__text">Контекстная панель над&nbsp;фигурой соберёт частые действия в&nbsp;одном месте&nbsp;— вместо того чтобы вызывать их через ЛКМ, а&nbsp;свойства искать в&nbsp;правой панели</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__num" aria-hidden="true">5</span>
+            <span class="case2-card__text">Группировка свойств в&nbsp;аккордеоны уберёт визуальный шум&nbsp;— все поля сразу нужны редко</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__num" aria-hidden="true">6</span>
+            <span class="case2-card__text">Поиск по&nbsp;процессам снизит порог входа при&nbsp;работе с&nbsp;большим деревом</span>
+          </li>
+        </ul>
+        <p class="case2__text">Главным открытием стали интервью: пользователи прямо проговорили, что им не&nbsp;хватает комментирования прямо на&nbsp;схеме и&nbsp;истории изменений. В&nbsp;легаси-интерфейсе любое обсуждение и&nbsp;контроль версий уходили во&nbsp;внешние каналы&nbsp;— переписки, созвоны, отдельные файлы. Это был не&nbsp;наш домысел из&nbsp;аудита, а&nbsp;живой запрос команды, работающей над&nbsp;процессами совместно.</p>
+        <ul class="case2-card">
+          <li class="case2-card__row">
+            <span class="case2-card__icon" aria-hidden="true">✅</span>
+            <span class="case2-card__text">Неограниченный холст снимает барьер при&nbsp;работе со&nbsp;сложными схемами</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__icon" aria-hidden="true">✅</span>
+            <span class="case2-card__text">Перенос панели элементов вниз освобождает рабочую область</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__icon" aria-hidden="true">✅</span>
+            <span class="case2-card__text">Отмена и&nbsp;повтор действий снижают страх ошибки</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__icon" aria-hidden="true">✅</span>
+            <span class="case2-card__text">Контекстная панель над&nbsp;фигурой собирает частые действия в&nbsp;одном месте</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__icon" aria-hidden="true">✅</span>
+            <span class="case2-card__text">Группировка свойств в&nbsp;аккордеоны убирает визуальный шум</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__icon" aria-hidden="true">✅</span>
+            <span class="case2-card__text">Поиск по&nbsp;процессам снижает порог входа</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__icon" aria-hidden="true">💬</span>
+            <span class="case2-card__text">Комментирование и&nbsp;история изменений&nbsp;— пришли не&nbsp;из&nbsp;гипотез, а&nbsp;напрямую из&nbsp;интервью: пользователи сами назвали их недостающими</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ========== БЛОК: интерфейс до ========== -->
+      <section id="section-before" class="case2__block">
+        <p class="case2__label">Интерфейс до</p>
+        <div class="case2-hero">
+          <img src="images/cases/process-map/case-pm-before.png" alt="Карта процессов до редизайна — холст в рамке листа и раскрытая панель свойств" loading="lazy" decoding="async" />
         </div>
+      </section>
 
-        <div class="case-design__group">
-          <span class="case-design__label">После</span>
-          <img
-            class="case-design__img"
-            src="images/cases/process-map/case-pm-after-1.png"
-            alt="После редизайна — вид 1"
-            loading="lazy"
-            decoding="async"
-          />
-          <img
-            class="case-design__img"
-            src="images/cases/process-map/case-pm-after-2.png"
-            alt="После редизайна — вид 2"
-            loading="lazy"
-            decoding="async"
-          />
-          <img
-            class="case-design__img"
-            src="images/cases/process-map/case-pm-after-3.png"
-            alt="После редизайна — вид 3"
-            loading="lazy"
-            decoding="async"
-          />
-          <img
-            class="case-design__img"
-            src="images/cases/process-map/case-pm-after-4.png"
-            alt="После редизайна — вид 4"
-            loading="lazy"
-            decoding="async"
-          />
+      <!-- ========== БЛОК: интерфейс после ========== -->
+      <section id="section-after" class="case2__block">
+        <p class="case2__label">Интерфейс после</p>
+        <div class="case2-hero">
+          <img src="images/cases/process-map/case-pm-after-1.png" alt="Карта процессов после редизайна — вид 1" loading="lazy" decoding="async" />
         </div>
+        <div class="case2-hero">
+          <img src="images/cases/process-map/case-pm-after-2.png" alt="Карта процессов после редизайна — вид 2" loading="lazy" decoding="async" />
+        </div>
+        <div class="case2-hero">
+          <img src="images/cases/process-map/case-pm-after-3.png" alt="Карта процессов после редизайна — вид 3" loading="lazy" decoding="async" />
+        </div>
+        <div class="case2-hero">
+          <img src="images/cases/process-map/case-pm-after-4.png" alt="Карта процессов после редизайна — вид 4" loading="lazy" decoding="async" />
+        </div>
+      </section>
 
-      </div>
+      <!-- ========== БЛОК: результат ========== -->
+      <section id="section-result" class="case2__block">
+        <p class="case2__label">Результат</p>
+        <ul class="case2-list">
+          <li><b>Снял ограничения рабочей области:</b> бесконечный холст позволяет строить схемы любой сложности без&nbsp;«впихивания» в&nbsp;рамки</li>
+          <li><b>Упростил рабочую область:</b> убрал служебную разметку и&nbsp;перенёс инструменты вниз, сфокусировав внимание на&nbsp;схеме</li>
+          <li><b>Ускорил редактирование:</b> «панель элементов» собирает частые действия прямо у&nbsp;выбранной фигуры&nbsp;— раньше они были разнесены между ЛКМ и&nbsp;правой панелью</li>
+          <li><b>Снизил страх ошибки:</b> отмена и&nbsp;повтор действий позволяют свободно экспериментировать</li>
+          <li><b>Снизил когнитивную нагрузку:</b> свойства свёрнуты по&nbsp;группам, навигация упрощена, добавлен поиск</li>
+          <li><b>Закрыл прямой запрос пользователей:</b> добавил комментирование на&nbsp;схеме и&nbsp;историю изменений&nbsp;— то, чего им явно не&nbsp;хватало по&nbsp;итогам интервью</li>
+          <li><b>Сделал интерфейс масштабируемым</b> и&nbsp;привёл к&nbsp;единой дизайн-системе</li>
+          <li><b>Инициировал отраслевой паттерн:</b> «панель элементов» появилась в&nbsp;продукте раньше аналогичных решений в&nbsp;индустрии</li>
+        </ul>
+      </section>
+
+      <!-- ========== БЛОК: рефлексия ========== -->
+      <section id="section-retro" class="case2__block">
+        <p class="case2__label">Рефлексия</p>
+        <p class="case2__text">Главный вывод: самые ценные решения часто не&nbsp;выводятся из&nbsp;аудита&nbsp;— их называют сами пользователи. Я&nbsp;заходил в&nbsp;проект с&nbsp;гипотезами про холст, панель инструментов и&nbsp;отмену действий, и&nbsp;они подтвердились. Но&nbsp;по-настоящему сильным раздел сделали комментирование и&nbsp;история изменений&nbsp;— то, что всплыло только на&nbsp;интервью. Аудит показывает, где интерфейс неудобен; разговор с&nbsp;пользователем показывает, чего в&nbsp;нём вообще нет.</p>
+      </section>
+
+      <!-- ========== БЛОК: другие кейсы ========== -->
+      <section class="case2__block">
+        <p class="case2__label">Другие кейсы</p>
+        <ul class="home-list cases-body" role="list" aria-label="Другие кейсы">
+          <li class="home-list__item">
+            <a class="case-row" href="case-lct-hackathon.html">
+              <span class="case-row__tag">B2C</span>
+              <span class="case-row__name">Хакатон ЛЦТ</span>
+              <span class="case-row__slide">
+                <span class="case-row__platform">Mobile</span>
+                <span class="case-row__arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </span>
+            </a>
+          </li>
+          <li class="home-list__item">
+            <a class="case-row" href="case-notation-settings.html">
+              <span class="case-row__tag">B2B</span>
+              <span class="case-row__name">Раздел «Настройки нотации»</span>
+              <span class="case-row__slide">
+                <span class="case-row__platform">Web</span>
+                <span class="case-row__arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </span>
+            </a>
+          </li>
+          <li class="home-list__item">
+            <a class="case-row" href="case-licenses.html">
+              <span class="case-row__tag">B2B</span>
+              <span class="case-row__name">Раздел «Лицензии и права»</span>
+              <span class="case-row__slide">
+                <span class="case-row__platform">Web</span>
+                <span class="case-row__arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </section>
 
     </main>
 
