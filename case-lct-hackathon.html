@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru" class="page-case">
   <head>
     <meta charset="UTF-8" />
@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/styles.css?v=3" />
   </head>
-  <body class="has-case-back">
+  <body class="has-case-back case2">
     <!-- Десктоп: текстура «код» + спотлайт (js/home-code-spotlight.js) -->
     <div class="home-code-spotlight" hidden aria-hidden="true">
       <canvas class="home-code-spotlight__canvas"></canvas>
@@ -22,9 +22,16 @@
         <img src="images/icons/icon-undo.svg" alt="" width="16" height="16" />
         Назад
       </a>
-      <a href="#section-task" class="case-sidebar__link">Задача</a>
+      <a href="#section-context" class="case-sidebar__link">Контекст</a>
+      <a href="#section-role" class="case-sidebar__link">Моя роль</a>
+      <a href="#section-goal" class="case-sidebar__link">Цель</a>
+      <a href="#section-bet" class="case-sidebar__link">Ключевая ставка</a>
+      <a href="#section-tasks" class="case-sidebar__link">Задачи</a>
+      <a href="#section-problem" class="case-sidebar__link">Проблема пользователей</a>
       <a href="#section-did" class="case-sidebar__link">Что я сделал</a>
+      <a href="#section-interface" class="case-sidebar__link">Интерфейс</a>
       <a href="#section-result" class="case-sidebar__link">Результат</a>
+      <a href="#section-retro" class="case-sidebar__link">Ретроспектива</a>
     </nav>
 
     <a href="index.html" class="case-back-mobile" aria-label="Назад к кейсам">
@@ -35,93 +42,209 @@
     <main class="main-area">
 
       <!-- ========== БЛОК: герой-изображение ========== -->
-      <div class="case-hero">
+      <div class="case2-phone">
         <img
-          src="images/cases/lct-hackathon/case-lct-hero-full.png"
-          alt="Хакатон ЛЦТ — геймификация для приложения Газпромбанк"
+          src="images/cases/lct-hackathon/case-lct-hero.png"
+          alt="«Газета» — экран приветствия в приложении Газпромбанк"
           fetchpriority="high"
           decoding="async"
         />
       </div>
 
-      <!-- ========== БЛОК: инфо-секция ========== -->
-      <div class="case-info">
-        <h1 class="case-info__title">Хакатон ЛЦТ</h1>
+      <h1 class="case2__title">Хакатон ЛЦТ</h1>
 
-        <section id="section-task" class="case-section">
-          <h2 class="case-section__label">Задача</h2>
-          <ul class="case-section__list">
-            <li>— Разработать концепцию геймификации для&nbsp;мобильного приложения «Газпромбанк» в&nbsp;рамках хакатона ЛЦТ</li>
-            <li>— Создать с&nbsp;нуля новый, эмоционально вовлекающий раздел для&nbsp;молодёжной аудитории, обучающий финансовой грамотности</li>
-            <li>— Спроектировать интуитивно понятный и&nbsp;визуально привлекательный интерфейс для&nbsp;ежедневного взаимодействия (Daily Hook)</li>
-            <li>— Повысить лояльность пользователей к&nbsp;бренду через игровые механики и&nbsp;систему вознаграждений</li>
-          </ul>
-        </section>
+      <!-- ========== БЛОК: контекст ========== -->
+      <section id="section-context" class="case2__block">
+        <p class="case2__label">Контекст</p>
+        <p class="case2__text">«Газета»&nbsp;— ежедневный игровой раздел мобильного приложения «Газпромбанк», созданный с&nbsp;нуля в&nbsp;рамках хакатона ЛЦТ&nbsp;2025. Это пространство, где загадки, мини-игры и&nbsp;призы от&nbsp;партнёров формируют привычку заходить в&nbsp;приложение каждый день (Daily&nbsp;Hook). Раздел решает две задачи одновременно: обучает молодую аудиторию финансовой грамотности и&nbsp;конвертирует игровые достижения в&nbsp;реальные банковские бонусы.</p>
+      </section>
 
-        <section id="section-did" class="case-section">
-          <h2 class="case-section__label">Что я сделал</h2>
-          <ul class="case-section__list">
-            <li>— Совместно с&nbsp;командой разработал концепцию «Газеты» — ежедневного раздела с&nbsp;загадками, играми и&nbsp;призами от&nbsp;партнёров</li>
-            <li>— Спроектировал пользовательский флоу (User Flow) от&nbsp;момента онбординга до&nbsp;получения реального банковского бонуса</li>
-            <li>— Разработал кастомный дизайн элементов ввода: уникальную визуальную клавиатуру и&nbsp;механику открытия букв</li>
-            <li>— Визуализировал игровые механики (мини-игры, «барабан удачи»), интегрировав их в&nbsp;экосистему банковского приложения</li>
-            <li>— Создал систему баннеров и&nbsp;карточек для&nbsp;спецпредложений партнёров (например, «Вкусно&nbsp;— и&nbsp;точка»), соблюдая баланс между игрой и&nbsp;маркетингом</li>
-            <li>— <b>Технологический прорыв:</b> совместно с&nbsp;командой использовал AI-инструменты для&nbsp;автоматической вёрстки готового прототипа в&nbsp;работающий код — жюри оценили реальный продукт</li>
-          </ul>
-        </section>
+      <!-- ========== БЛОК: моя роль ========== -->
+      <section id="section-role" class="case2__block">
+        <p class="case2__label">Моя роль</p>
+        <p class="case2__text">Я&nbsp;вёл продуктовый и&nbsp;визуальный дизайн раздела: от&nbsp;пользовательского флоу до&nbsp;кастомных элементов интерфейса и&nbsp;передачи прототипа в&nbsp;код.</p>
+        <ul class="case2-card">
+          <li class="case2-card__row">
+            <span class="case2-card__bullet" aria-hidden="true"></span>
+            <span class="case2-card__text">Проектирование User&nbsp;Flow от&nbsp;онбординга до&nbsp;получения реального бонуса</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__bullet" aria-hidden="true"></span>
+            <span class="case2-card__text">Дизайн кастомных механик ввода: визуальная клавиатура и&nbsp;механика открытия букв</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__bullet" aria-hidden="true"></span>
+            <span class="case2-card__text">Визуализация игровых механик (мини-игры, «барабан удачи»)</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__bullet" aria-hidden="true"></span>
+            <span class="case2-card__text">Система баннеров и&nbsp;карточек для&nbsp;спецпредложений партнёров</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__bullet" aria-hidden="true"></span>
+            <span class="case2-card__text">Использование AI-инструментов для&nbsp;верстки прототипа в&nbsp;рабочий код</span>
+          </li>
+        </ul>
+      </section>
 
-        <section id="section-result" class="case-section">
-          <h2 class="case-section__label">Результат</h2>
-          <ul class="case-section__list">
-            <li>— <b>Признание экспертов:</b> проект вошёл в&nbsp;топ-10 лучших решений среди 50&nbsp;команд на&nbsp;хакатоне ЛЦТ 2025</li>
-            <li>— <b>Эмоциональная вовлечённость:</b> за&nbsp;счёт яркого «живого» дизайна и&nbsp;игровых механик («открой букву», «крути барабан») удалось создать сценарий, мотивирующий пользователя заходить в&nbsp;приложение каждый день</li>
-            <li>— <b>Высокая технологичность:</b> сдача не&nbsp;просто макетов, а&nbsp;рабочей вёрстки через AI показала жюри готовность решения к&nbsp;быстрому пилотированию</li>
-            <li>— <b>Бизнес-ценность:</b> разработана механика конвертации игровых достижений в&nbsp;реальные банковские бонусы и&nbsp;предложения партнёров, что&nbsp;напрямую влияет на&nbsp;транзакционную активность</li>
-          </ul>
-        </section>
-      </div>
+      <!-- ========== БЛОК: цель ========== -->
+      <section id="section-goal" class="case2__block">
+        <p class="case2__label">Цель</p>
+        <p class="case2__text">Создать эмоционально вовлекающий раздел для&nbsp;молодёжной аудитории, который повышает лояльность к&nbsp;бренду через игровые механики и&nbsp;систему вознаграждений, оставаясь при&nbsp;этом частью банковской экосистемы.</p>
+      </section>
 
-      <!-- ========== БЛОК: фотографии кейса — десктоп и планшет ========== -->
-      <div class="case-photos hide-mobile">
+      <!-- ========== БЛОК: ключевая ставка ========== -->
+      <section id="section-bet" class="case2__block">
+        <p class="case2__label">Ключевая ставка</p>
+        <p class="case2__text">Мы&nbsp;предположили, что молодёжь вернётся в&nbsp;банковское приложение не&nbsp;ради финансов, а&nbsp;ради ежедневной игры&nbsp;— и&nbsp;уже сформированная привычка приведёт к&nbsp;транзакционной активности. Концепцию «Газеты» строили вокруг этой гипотезы: сначала зацепить эмоцией и&nbsp;игрой, затем нативно встроить обучение и&nbsp;бонусы.</p>
+      </section>
 
-        <img
-          class="case-photos__img"
-          src="images/cases/lct-hackathon/case-lct-screens.png"
-          alt="Экраны приложения Газпромбанк — геймификация"
-          loading="lazy"
-          decoding="async"
-        />
+      <!-- ========== БЛОК: задачи ========== -->
+      <section id="section-tasks" class="case2__block">
+        <p class="case2__label">Задачи</p>
+        <ul class="case2-list">
+          <li>Сформировать привычку ежедневного захода в&nbsp;приложение (Daily&nbsp;Hook)</li>
+          <li>Сделать обучение финансовой грамотности нативным и&nbsp;ненавязчивым</li>
+          <li>Спроектировать интуитивный интерфейс с&nbsp;низким порогом входа</li>
+          <li>Связать игровые достижения с&nbsp;реальными бонусами и&nbsp;предложениями партнёров</li>
+          <li>Соблюсти баланс между игрой и&nbsp;маркетингом</li>
+        </ul>
+      </section>
 
-        <img
-          class="case-photos__img"
-          src="images/cases/lct-hackathon/case-lct-diploma.png"
-          alt="Диплом финалиста хакатона ЛЦТ 2025 — Нурсултан Гаджиев"
-          loading="lazy"
-          decoding="async"
-        />
+      <!-- ========== БЛОК: проблема пользователей ========== -->
+      <section id="section-problem" class="case2__block">
+        <p class="case2__label">Проблема пользователей</p>
+        <ul class="case2-card">
+          <li class="case2-card__row">
+            <span class="case2-card__icon" aria-hidden="true">❗️</span>
+            <span class="case2-card__text">Молодёжная аудитория слабо вовлечена в&nbsp;банковское приложение вне транзакций</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__icon" aria-hidden="true">❗️</span>
+            <span class="case2-card__text">Финансовая грамотность воспринимается как скучный, «обязательный» контент</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__icon" aria-hidden="true">❗️</span>
+            <span class="case2-card__text">Нет ежедневного триггера, мотивирующего открыть приложение</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__icon" aria-hidden="true">❗️</span>
+            <span class="case2-card__text">Маркетинговые предложения партнёров не&nbsp;интегрированы в&nbsp;пользовательский опыт</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__icon" aria-hidden="true">❗️</span>
+            <span class="case2-card__text">Высокий порог входа в&nbsp;обучающие форматы</span>
+          </li>
+        </ul>
+      </section>
 
-      </div>
+      <!-- ========== БЛОК: что я сделал ========== -->
+      <section id="section-did" class="case2__block">
+        <p class="case2__label">Что я сделал</p>
+        <p class="case2__text">Совместно с&nbsp;командой разработал концепцию «Газеты»&nbsp;— ежедневного раздела с&nbsp;загадками, играми и&nbsp;призами от&nbsp;партнёров. Спроектировал полный пользовательский путь от&nbsp;онбординга до&nbsp;получения реального банковского бонуса.</p>
+        <p class="case2__text">Разработал кастомный дизайн элементов ввода: уникальную визуальную клавиатуру и&nbsp;механику открытия букв. Визуализировал игровые механики («открой букву», «крути барабан»), интегрировав их&nbsp;в&nbsp;экосистему банковского приложения. Создал систему баннеров и&nbsp;карточек для&nbsp;спецпредложений партнёров (например, «Вкусно&nbsp;— и&nbsp;точка»), удерживая баланс между игрой и&nbsp;маркетингом.</p>
+        <p class="case2__text"><b>Технологический прорыв:</b> совместно с&nbsp;командой использовал AI-инструменты для&nbsp;автоматической верстки готового прототипа в&nbsp;работающий код&nbsp;— это позволило жюри пощупать реальный продукт, а&nbsp;не&nbsp;статичные макеты.</p>
+      </section>
 
-      <!-- ========== БЛОК: фотографии кейса — мобильная версия ========== -->
-      <div class="case-photos hide-desktop">
+      <!-- ========== БЛОК: баннер ========== -->
+      <section id="section-banner" class="case2__block">
+        <p class="case2__label">Баннер</p>
+        <p class="case2__text">Пользователи заходили в&nbsp;игру через баннер</p>
+        <div class="case2-hero">
+          <img
+            src="images/cases/lct-hackathon/case-lct-banner.png"
+            alt="Баннер «Разгадал загадку? Забирай приз!»"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </section>
 
-        <img
-          class="case-photos__img"
-          src="images/cases/lct-hackathon/case-lct-screens-mobile.png"
-          alt="Экраны приложения Газпромбанк — мобильная версия"
-          loading="lazy"
-          decoding="async"
-        />
+      <!-- ========== БЛОК: интерфейс ========== -->
+      <section id="section-interface" class="case2__block">
+        <p class="case2__label">Интерфейс</p>
 
-        <img
-          class="case-photos__img"
-          src="images/cases/lct-hackathon/case-lct-diploma.png"
-          alt="Диплом финалиста хакатона ЛЦТ 2025 — Нурсултан Гаджиев"
-          loading="lazy"
-          decoding="async"
-        />
+        <div class="case2-phone">
+          <img src="images/cases/lct-hackathon/case-lct-screen-1.png" alt="Экран геймификации Газпромбанк — приветствие «Газеты»" loading="lazy" decoding="async" />
+        </div>
+        <div class="case2-phone">
+          <img src="images/cases/lct-hackathon/case-lct-screen-2.png" alt="Экран геймификации Газпромбанк — загадка дня" loading="lazy" decoding="async" />
+        </div>
+        <div class="case2-phone">
+          <img src="images/cases/lct-hackathon/case-lct-screen-3.png" alt="Экран геймификации Газпромбанк — визуальная клавиатура" loading="lazy" decoding="async" />
+        </div>
+        <div class="case2-phone">
+          <img src="images/cases/lct-hackathon/case-lct-screen-4.png" alt="Экран геймификации Газпромбанк — разгаданное слово" loading="lazy" decoding="async" />
+        </div>
+        <div class="case2-phone">
+          <img src="images/cases/lct-hackathon/case-lct-screen-5.png" alt="Экран геймификации Газпромбанк — барабан удачи" loading="lazy" decoding="async" />
+        </div>
+        <div class="case2-phone">
+          <img src="images/cases/lct-hackathon/case-lct-screen-6.png" alt="Экран геймификации Газпромбанк — приз от партнёра" loading="lazy" decoding="async" />
+        </div>
+      </section>
 
-      </div>
+      <!-- ========== БЛОК: результат ========== -->
+      <section id="section-result" class="case2__block">
+        <p class="case2__label">Результат</p>
+        <ul class="case2-list">
+          <li><b>Признание экспертов:</b> проект вошёл в&nbsp;топ-10 решений среди 50&nbsp;команд на&nbsp;хакатоне ЛЦТ&nbsp;2025</li>
+          <li><b>Эмоциональная вовлечённость:</b> яркий «живой» дизайн и&nbsp;игровые механики сформировали сценарий ежедневного возврата в&nbsp;приложение</li>
+          <li><b>Высокая технологичность:</b> сдача рабочей верстки через AI показала жюри готовность решения к&nbsp;быстрому пилотированию</li>
+          <li><b>Бизнес-ценность:</b> механика конвертации игровых достижений в&nbsp;банковские бонусы и&nbsp;предложения партнёров напрямую влияет на&nbsp;транзакционную активность</li>
+        </ul>
+        <div class="case2-audit">
+          <img
+            src="images/cases/lct-hackathon/case-lct-result.png"
+            alt="Диплом финалиста хакатона ЛЦТ 2025 — Нурсултан Гаджиев"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </section>
+
+      <!-- ========== БЛОК: ретроспектива ========== -->
+      <section id="section-retro" class="case2__block">
+        <p class="case2__label">Ретроспектива</p>
+        <p class="case2__text">Главный вывод: в&nbsp;формате хакатона решает не&nbsp;идея, а&nbsp;доказательство. Команды с&nbsp;красивыми макетами проигрывали тем, кто давал жюри потрогать продукт. Связка «эмоциональный дизайн&nbsp;+ рабочая верстка через AI» сместила восприятие проекта из&nbsp;«концепции» в&nbsp;«почти готовый пилот»&nbsp;— и&nbsp;именно это вывело нас в&nbsp;топ-10.</p>
+      </section>
+
+      <!-- ========== БЛОК: другие кейсы ========== -->
+      <section class="case2__block">
+        <p class="case2__label">Другие кейсы</p>
+        <ul class="home-list cases-body" role="list" aria-label="Другие кейсы">
+          <li class="home-list__item">
+            <a class="case-row" href="case-process-map.html">
+              <span class="case-row__tag">B2B</span>
+              <span class="case-row__name">Раздел «Карта процессов»</span>
+              <span class="case-row__slide">
+                <span class="case-row__platform">Web</span>
+                <span class="case-row__arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </span>
+            </a>
+          </li>
+          <li class="home-list__item">
+            <a class="case-row" href="case-notation-settings.html">
+              <span class="case-row__tag">B2B</span>
+              <span class="case-row__name">Раздел «Настройки нотации»</span>
+              <span class="case-row__slide">
+                <span class="case-row__platform">Web</span>
+                <span class="case-row__arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </span>
+            </a>
+          </li>
+          <li class="home-list__item">
+            <a class="case-row" href="case-licenses.html">
+              <span class="case-row__tag">B2B</span>
+              <span class="case-row__name">Раздел «Лицензии и права»</span>
+              <span class="case-row__slide">
+                <span class="case-row__platform">Web</span>
+                <span class="case-row__arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </section>
 
     </main>
 

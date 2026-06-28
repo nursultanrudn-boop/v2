@@ -1,16 +1,16 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru" class="page-case">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Раздел лицензии и права — Султан</title>
+    <title>Раздел «Лицензии и права» — Султан</title>
     <link rel="icon" href="favicon.png" type="image/png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="css/styles.css?v=3" />
   </head>
-  <body class="has-case-back">
+  <body class="has-case-back case2">
     <!-- Десктоп: текстура «код» + спотлайт (js/home-code-spotlight.js) -->
     <div class="home-code-spotlight" hidden aria-hidden="true">
       <canvas class="home-code-spotlight__canvas"></canvas>
@@ -22,9 +22,16 @@
         <img src="images/icons/icon-undo.svg" alt="" width="16" height="16" />
         Назад
       </a>
-      <a href="#section-task" class="case-sidebar__link">Задача</a>
-      <a href="#section-did" class="case-sidebar__link">Что я сделал</a>
+      <a href="#section-context" class="case-sidebar__link">Контекст</a>
+      <a href="#section-role" class="case-sidebar__link">Моя роль</a>
+      <a href="#section-goal" class="case-sidebar__link">Цель</a>
+      <a href="#section-tasks" class="case-sidebar__link">Задачи</a>
+      <a href="#section-problem" class="case-sidebar__link">Проблема пользователей</a>
+      <a href="#section-audit" class="case-sidebar__link">Аудит системы</a>
+      <a href="#section-hypotheses" class="case-sidebar__link">Гипотезы</a>
+      <a href="#section-before" class="case-sidebar__link">Интерфейс</a>
       <a href="#section-result" class="case-sidebar__link">Результат</a>
+      <a href="#section-retro" class="case-sidebar__link">Рефлексия</a>
     </nav>
 
     <a href="index.html" class="case-back-mobile" aria-label="Назад к кейсам">
@@ -35,93 +42,213 @@
     <main class="main-area">
 
       <!-- ========== БЛОК: герой-изображение ========== -->
-      <div class="case-hero">
+      <div class="case2-hero">
         <img
-          src="images/cases/licenses/case-lic-hero-full.png"
-          alt="Раздел лицензии и права — интерфейс"
-          width="1840"
-          height="1104"
+          src="images/cases/licenses/case-lic-hero.png"
+          alt="Раздел «Лицензии и права» — интерфейс администрирования"
           fetchpriority="high"
           decoding="async"
         />
       </div>
 
-      <!-- ========== БЛОК: инфо-секция ========== -->
-      <div class="case-info">
-        <h1 class="case-info__title">Раздел лицензии и права</h1>
+      <h1 class="case2__title">Раздел «Лицензии и права»</h1>
 
-        <section id="section-task" class="case-section">
-          <h2 class="case-section__label">Задача</h2>
-          <ul class="case-section__list">
-            <li>— Унифицировать управление разными типами лицензий (Процессы&nbsp;/ Задачи&nbsp;/ Аналитика) в&nbsp;едином интерфейсе</li>
-            <li>— Снизить риск ошибок планирования за&nbsp;счёт прозрачности лимитов в&nbsp;реальном времени</li>
-            <li>— Улучшить наблюдаемость: сделать статусы и&nbsp;историю лицензий прозрачными для&nbsp;пользователя</li>
-            <li>— Ускорить администрирование прав и&nbsp;доступов для&nbsp;новых сотрудников</li>
-          </ul>
-        </section>
+      <!-- ========== БЛОК: контекст ========== -->
+      <section id="section-context" class="case2__block">
+        <p class="case2__label">Контекст</p>
+        <p class="case2__text">«Лицензии и&nbsp;права»&nbsp;— раздел администрирования, в&nbsp;котором управляются разные типы лицензий (Процессы&nbsp;/ Задачи&nbsp;/ Аналитика), права и&nbsp;доступы сотрудников. От&nbsp;его прозрачности напрямую зависит планирование ресурсов: администратор должен в&nbsp;реальном времени видеть лимиты, статусы и&nbsp;историю активаций, чтобы не&nbsp;допускать ошибок в&nbsp;бизнес-процессах. Раздел объединяет разрозненные сценарии управления доступами в&nbsp;единый интерфейс.</p>
+      </section>
 
-        <section id="section-did" class="case-section">
-          <h2 class="case-section__label">Что я сделал</h2>
-          <ul class="case-section__list">
-            <li>— Провёл аудит и&nbsp;выявил «слепые зоны» в&nbsp;истории активаций и&nbsp;навигации, которые приводили к&nbsp;путанице в&nbsp;бизнес-процессах</li>
-            <li>— Сформулировал и&nbsp;проверил гипотезы о&nbsp;массовом назначении прав и&nbsp;прозрачности лимитов</li>
-            <li>— Прошёл путь от&nbsp;быстрых логических скетчей до&nbsp;High-fidelity макетов, готовых к&nbsp;разработке</li>
-            <li>— Самостоятельно провёл юзабилити-тестирование, которое вскрыло критическую проблему: пользователи ожидали замены лицензии, а&nbsp;не&nbsp;её дополнения</li>
-            <li>— Оперативно изменил механику продукта на&nbsp;понятную людям модель «сброс и&nbsp;замена», предотвратив будущие ошибки в&nbsp;логике системы</li>
-          </ul>
-        </section>
+      <!-- ========== БЛОК: моя роль ========== -->
+      <section id="section-role" class="case2__block">
+        <p class="case2__label">Моя роль</p>
+        <p class="case2__text">Я&nbsp;вёл продуктовый дизайн раздела полностью: от&nbsp;аудита и&nbsp;проверки гипотез до&nbsp;High-fidelity макетов и&nbsp;передачи в&nbsp;разработку.</p>
+        <ul class="case2-card">
+          <li class="case2-card__row">
+            <span class="case2-card__bullet" aria-hidden="true"></span>
+            <span class="case2-card__text">Аудит легаси-интерфейса и&nbsp;выявление «слепых зон» в&nbsp;истории активаций и&nbsp;навигации</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__bullet" aria-hidden="true"></span>
+            <span class="case2-card__text">Формулирование и&nbsp;проверка гипотез о&nbsp;массовом назначении прав и&nbsp;прозрачности лимитов</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__bullet" aria-hidden="true"></span>
+            <span class="case2-card__text">Проектирование решения от&nbsp;логических скетчей до&nbsp;финальных экранов</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__bullet" aria-hidden="true"></span>
+            <span class="case2-card__text">Юзабилити-тестирование и&nbsp;пересмотр ключевой механики продукта</span>
+          </li>
+        </ul>
+      </section>
 
-        <section id="section-result" class="case-section">
-          <h2 class="case-section__label">Результат</h2>
-          <ul class="case-section__list">
-            <li>— <b>Ускорил администрирование:</b> за&nbsp;счёт единого интерфейса и&nbsp;внедрения механики массового назначения прав</li>
-            <li>— <b>Исключил критические ошибки:</b> новая логика «сброса и&nbsp;замены» сделала процесс изменения прав безопасным и&nbsp;интуитивно понятным</li>
-            <li>— <b>Обеспечил прозрачность ресурсов:</b> актуальные лимиты теперь видны в&nbsp;реальном времени, что&nbsp;упростило планирование для&nbsp;бизнеса</li>
-            <li>— <b>Снизил порог входа:</b> унификация паттернов взаимодействия позволила новым администраторам быстрее осваивать систему без&nbsp;долгого обучения</li>
-          </ul>
-        </section>
-      </div>
+      <!-- ========== БЛОК: цель ========== -->
+      <section id="section-goal" class="case2__block">
+        <p class="case2__label">Цель</p>
+        <p class="case2__text">Унифицировать управление разными типами лицензий в&nbsp;едином интерфейсе, снизить риск ошибок планирования и&nbsp;сделать администрирование прав быстрым и&nbsp;прозрачным.</p>
+      </section>
 
-      <!-- ========== БЛОК: витрина дизайна ========== -->
-      <div class="case-design">
+      <!-- ========== БЛОК: задачи ========== -->
+      <section id="section-tasks" class="case2__block">
+        <p class="case2__label">Задачи</p>
+        <ul class="case2-list">
+          <li>Унифицировать управление типами лицензий (Процессы&nbsp;/ Задачи&nbsp;/ Аналитика) в&nbsp;одном интерфейсе</li>
+          <li>Снизить риск ошибок планирования за&nbsp;счёт прозрачности лимитов в&nbsp;реальном времени</li>
+          <li>Улучшить наблюдаемость: сделать статусы и&nbsp;историю лицензий прозрачными для&nbsp;пользователя</li>
+          <li>Ускорить администрирование прав и&nbsp;доступов для&nbsp;новых сотрудников</li>
+        </ul>
+      </section>
 
-        <div class="case-design__group">
-          <span class="case-design__label">До</span>
-          <img
-            class="case-design__img"
-            src="images/cases/licenses/case-lic-before.png"
-            alt="Интерфейс до редизайна"
-            loading="lazy"
-            decoding="async"
-          />
+      <!-- ========== БЛОК: проблема пользователей ========== -->
+      <section id="section-problem" class="case2__block">
+        <p class="case2__label">Проблема пользователей</p>
+        <ul class="case2-card">
+          <li class="case2-card__row">
+            <span class="case2-card__icon" aria-hidden="true">❗️</span>
+            <span class="case2-card__text">Разные типы лицензий управляются разрозненно, нет единого интерфейса</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__icon" aria-hidden="true">❗️</span>
+            <span class="case2-card__text">«Слепые зоны» в&nbsp;истории активаций приводят к&nbsp;путанице в&nbsp;бизнес-процессах</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__icon" aria-hidden="true">❗️</span>
+            <span class="case2-card__text">Лимиты непрозрачны&nbsp;— ошибки планирования всплывают постфактум</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__icon" aria-hidden="true">❗️</span>
+            <span class="case2-card__text">Высокий риск ошибок при&nbsp;ручном назначении прав сотрудникам</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__icon" aria-hidden="true">❗️</span>
+            <span class="case2-card__text">Высокий порог входа для&nbsp;новых администраторов</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ========== БЛОК: аудит системы ========== -->
+      <section id="section-audit" class="case2__block">
+        <p class="case2__label">Аудит системы</p>
+        <p class="case2__text">Провёл аудит текущего UX и&nbsp;выявил ключевые проблемы: непрозрачную историю активаций, запутанную навигацию и&nbsp;«слепые зоны», из-за которых администраторы теряли контроль над&nbsp;тем, какие права и&nbsp;лимиты реально активны.</p>
+      </section>
+
+      <!-- ========== БЛОК: гипотезы ========== -->
+      <section id="section-hypotheses" class="case2__block">
+        <p class="case2__label">Гипотезы</p>
+        <p class="case2__text">Сформулировал гипотезы и&nbsp;проверил их&nbsp;в&nbsp;ходе юзабилити-тестирования, которое я&nbsp;провёл самостоятельно.</p>
+        <ul class="case2-card">
+          <li class="case2-card__row">
+            <span class="case2-card__num" aria-hidden="true">1</span>
+            <span class="case2-card__text">Массовое назначение прав ускорит администрирование</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__num" aria-hidden="true">2</span>
+            <span class="case2-card__text">Прозрачность лимитов в&nbsp;реальном времени снизит ошибки планирования</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__num" aria-hidden="true">3</span>
+            <span class="case2-card__text">Пользователи воспринимают изменение лицензии как&nbsp;её дополнение к&nbsp;текущей</span>
+          </li>
+        </ul>
+        <p class="case2__text">Юзабилити-тест вскрыл критическую проблему и&nbsp;опроверг третью гипотезу: пользователи ожидали замены лицензии, а&nbsp;не&nbsp;её дополнения. Текущая логика приводила бы&nbsp;к&nbsp;систематическим ошибкам в&nbsp;правах. Я&nbsp;оперативно переработал механику в&nbsp;понятную людям модель «сброс и&nbsp;замена», предотвратив будущие ошибки в&nbsp;логике системы ещё до&nbsp;разработки.</p>
+        <ul class="case2-card">
+          <li class="case2-card__row">
+            <span class="case2-card__icon" aria-hidden="true">✅</span>
+            <span class="case2-card__text">Массовое назначение прав ускорит администрирование</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__icon" aria-hidden="true">✅</span>
+            <span class="case2-card__text">Прозрачность лимитов в&nbsp;реальном времени снизит ошибки планирования</span>
+          </li>
+          <li class="case2-card__row">
+            <span class="case2-card__icon" aria-hidden="true">💔</span>
+            <span class="case2-card__text">Пользователи воспринимают изменение лицензии как&nbsp;её дополнение</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ========== БЛОК: интерфейс до ========== -->
+      <section id="section-before" class="case2__block">
+        <p class="case2__label">Интерфейс до</p>
+        <div class="case2-hero">
+          <img src="images/cases/licenses/case-lic-before-1.png" alt="Интерфейс лицензий до редизайна — вид 1" loading="lazy" decoding="async" />
         </div>
-
-        <div class="case-design__group">
-          <span class="case-design__label">После</span>
-          <img
-            class="case-design__img"
-            src="images/cases/licenses/case-lic-after-1.png"
-            alt="После редизайна — вид 1"
-            loading="lazy"
-            decoding="async"
-          />
-          <img
-            class="case-design__img"
-            src="images/cases/licenses/case-lic-after-2.png"
-            alt="После редизайна — вид 2"
-            loading="lazy"
-            decoding="async"
-          />
-          <img
-            class="case-design__img"
-            src="images/cases/licenses/case-lic-after-3.png"
-            alt="После редизайна — вид 3"
-            loading="lazy"
-            decoding="async"
-          />
+        <div class="case2-hero">
+          <img src="images/cases/licenses/case-lic-before-2.png" alt="Интерфейс лицензий до редизайна — вид 2" loading="lazy" decoding="async" />
         </div>
+        <div class="case2-hero">
+          <img src="images/cases/licenses/case-lic-before-3.png" alt="Интерфейс лицензий до редизайна — вид 3" loading="lazy" decoding="async" />
+        </div>
+      </section>
 
-      </div>
+      <!-- ========== БЛОК: интерфейс после ========== -->
+      <section id="section-after" class="case2__block">
+        <p class="case2__label">Интерфейс после</p>
+        <div class="case2-hero">
+          <img src="images/cases/licenses/case-lic-after-1.png" alt="Интерфейс лицензий после редизайна — вид 1" loading="lazy" decoding="async" />
+        </div>
+        <div class="case2-hero">
+          <img src="images/cases/licenses/case-lic-after-2.png" alt="Интерфейс лицензий после редизайна — вид 2" loading="lazy" decoding="async" />
+        </div>
+        <div class="case2-hero">
+          <img src="images/cases/licenses/case-lic-after-3.png" alt="Интерфейс лицензий после редизайна — вид 3" loading="lazy" decoding="async" />
+        </div>
+      </section>
+
+      <!-- ========== БЛОК: результат ========== -->
+      <section id="section-result" class="case2__block">
+        <p class="case2__label">Результат</p>
+        <ul class="case2-list">
+          <li><b>Ускорил администрирование:</b> за&nbsp;счёт единого интерфейса и&nbsp;механики массового назначения прав</li>
+          <li><b>Исключил критические ошибки:</b> новая логика «сброса и&nbsp;замены» сделала процесс изменения прав безопасным и&nbsp;интуитивно понятным</li>
+          <li><b>Обеспечил прозрачность ресурсов:</b> актуальные лимиты теперь видны в&nbsp;реальном времени, что&nbsp;упростило планирование для&nbsp;бизнеса</li>
+          <li><b>Снизил порог входа:</b> унификация паттернов взаимодействия позволила новым администраторам быстрее осваивать систему без&nbsp;долгого обучения</li>
+        </ul>
+      </section>
+
+      <!-- ========== БЛОК: рефлексия ========== -->
+      <section id="section-retro" class="case2__block">
+        <p class="case2__label">Рефлексия</p>
+        <p class="case2__text">Работая над&nbsp;этим разделом, я&nbsp;лучше всего почувствовал, что продуктовый дизайн&nbsp;— это не&nbsp;про экраны, а&nbsp;про то, как люди думают. Я&nbsp;придумал стройную логику «лицензия дополняется», и&nbsp;она была мне дорога&nbsp;— но&nbsp;именно к&nbsp;таким «дорогим» решениям и&nbsp;нужно относиться с&nbsp;подозрением. Юзабилити-тест развернул меня: пользователи ждали замены, а&nbsp;не&nbsp;накопления, и&nbsp;моя элегантная модель сломала бы&nbsp;им логику работы. Этот момент научил меня держать в&nbsp;голове не&nbsp;свою картину системы, а&nbsp;чужую&nbsp;— и&nbsp;проверять её раньше, чем она станет стоить дорого.</p>
+      </section>
+
+      <!-- ========== БЛОК: другие кейсы ========== -->
+      <section class="case2__block">
+        <p class="case2__label">Другие кейсы</p>
+        <ul class="home-list cases-body" role="list" aria-label="Другие кейсы">
+          <li class="home-list__item">
+            <a class="case-row" href="case-process-map.html">
+              <span class="case-row__tag">B2B</span>
+              <span class="case-row__name">Раздел «Карта процессов»</span>
+              <span class="case-row__slide">
+                <span class="case-row__platform">Web</span>
+                <span class="case-row__arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </span>
+            </a>
+          </li>
+          <li class="home-list__item">
+            <a class="case-row" href="case-lct-hackathon.html">
+              <span class="case-row__tag">B2C</span>
+              <span class="case-row__name">Хакатон ЛЦТ</span>
+              <span class="case-row__slide">
+                <span class="case-row__platform">Mobile</span>
+                <span class="case-row__arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </span>
+            </a>
+          </li>
+          <li class="home-list__item">
+            <a class="case-row" href="case-notation-settings.html">
+              <span class="case-row__tag">B2B</span>
+              <span class="case-row__name">Раздел «Настройки нотации»</span>
+              <span class="case-row__slide">
+                <span class="case-row__platform">Web</span>
+                <span class="case-row__arrow" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </span>
+            </a>
+          </li>
+        </ul>
+      </section>
 
     </main>
 

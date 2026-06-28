@@ -1573,6 +1573,22 @@ body.case2 .main-area > * + * {
   border-radius: 8px;
 }
 
+/* Карточка с вертикальным макетом телефона: узкий мокап по центру серой плашки */
+.case2-phone {
+  display: flex;
+  justify-content: center;
+  background: #f9fafb;
+  border-radius: 16px;
+  padding: 72px 16px;
+}
+
+.case2-phone img {
+  display: block;
+  width: 224px;
+  max-width: 65%;
+  height: auto;
+}
+
 /* Заголовок кейса */
 .case2__title {
   margin: 0;
@@ -1641,11 +1657,12 @@ body.case2 .main-area > * + * {
   color: #000000;
 }
 
-/* Маркер-точка */
+/* Маркер-точка — отступ сверху сажает точку на первую строку текста */
 .case2-card__bullet {
   flex-shrink: 0;
   width: 4px;
   height: 4px;
+  margin-top: 8px;
   border-radius: 50%;
   background: #000000;
 }
@@ -1657,7 +1674,8 @@ body.case2 .main-area > * + * {
   line-height: 20px;
 }
 
-/* Строки с номером или эмодзи-иконкой — выравнивание по верху */
+/* Строки с маркером, номером или эмодзи-иконкой — выравнивание по верху */
+.case2-card__row:has(.case2-card__bullet),
 .case2-card__row:has(.case2-card__num),
 .case2-card__row:has(.case2-card__icon) {
   align-items: flex-start;
@@ -1830,12 +1848,17 @@ body.case2 .main-area > * + * {
   .case2-media {
     padding: 16px;
   }
+
+  .case2-phone {
+    padding: 40px 16px;
+  }
 }
 
 /* ========== БЛОК: лайтбокс контентных изображений ========== */
 
 /* Кликабельные контентные фото */
 .case2-hero img,
+.case2-phone img,
 .case2-audit img,
 .case2-media img,
 .case-hero img,

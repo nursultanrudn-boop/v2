@@ -12,6 +12,7 @@
   // Контейнеры с контентными фото (обе дизайн-системы кейсов)
   const CONTENT_SELECTOR = [
     ".case2-hero img",
+    ".case2-phone img",
     ".case2-audit img",
     ".case2-media img",
     ".case-hero img",
