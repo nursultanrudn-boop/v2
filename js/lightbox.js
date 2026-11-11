@@ -98,7 +98,7 @@
 
   overlay.appendChild(closeBtn);
   overlay.appendChild(stage);
-  overlay.appendChild(zoomControls);
+  // Кнопки зума скрыты (zoomControls не добавляется в overlay); зум работает колесом, кликом и щипком
   document.body.appendChild(overlay);
 
   // ---- Состояние ----

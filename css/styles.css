@@ -1688,6 +1688,12 @@ body.case2 .main-area > * + * {
   color: #7a7a7a;
 }
 
+/* Ритм внутри секции: метка → контент 8px, между самими элементами контента 16px
+   (абзац ↔ плашки, плашки ↔ абзац, карточка ↔ карточка) */
+.case2__block > :not(.case2__label) + * {
+  margin-top: 8px;
+}
+
 /* Абзац основного текста */
 .case2__text {
   margin: 0;
@@ -1698,13 +1704,11 @@ body.case2 .main-area > * + * {
   color: var(--fg-primary);
 }
 
-/* Карточка-список из белых плашек на сером фоне */
+/* Список серых плашек без внешнего контейнера */
 .case2-card {
   margin: 0;
-  padding: 16px;
+  padding: 0;
   list-style: none;
-  background: #f9fafb;
-  border-radius: 16px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -1715,7 +1719,7 @@ body.case2 .main-area > * + * {
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  background: #ffffff;
+  background: #f9fafb;
   border-radius: 8px;
 }
 
