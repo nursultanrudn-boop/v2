@@ -1245,6 +1245,76 @@ body.case2 .case-sidebar {
   transform: translateY(-100%);
 }
 
+/* ========== БЛОК: карточки кейсов на главной ========== */
+.home-cases {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.home-cases .home-list__item {
+  padding: 0;
+}
+
+.home-case {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.home-case__image {
+  display: block;
+  overflow: hidden;
+  border-radius: 16px;
+  aspect-ratio: 588 / 324;
+}
+
+.home-case__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-out;
+}
+
+.home-case:hover .home-case__image img {
+  transform: scale(1.02);
+}
+
+.home-case__text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.home-case__name {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--fg-primary);
+}
+
+.home-case__meta {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #949494;
+}
+
+@media (max-width: 768px) {
+  .home-cases {
+    gap: 24px;
+  }
+
+  .home-case__image {
+    aspect-ratio: 343 / 200;
+  }
+}
+
 /* ========== БЛОК: строка опыта работы ========== */
 .work-row {
   display: flex;
