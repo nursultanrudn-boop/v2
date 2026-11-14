@@ -1304,9 +1304,9 @@ body.case2 .case-sidebar {
 
 .home-case__meta {
   font-family: var(--font-body);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 400;
-  line-height: 16px;
+  line-height: 20px;
   color: #949494;
 }
 
