@@ -12,6 +12,7 @@
   // Контейнеры с контентными фото (обе дизайн-системы кейсов)
   const CONTENT_SELECTOR = [
     ".case2-hero img",
+    ".case2-hero video",
     ".case2-phone img",
     ".case2-audit img",
     ".case2-media img",
@@ -75,11 +76,25 @@
   const stage = document.createElement("div");
   stage.className = "lightbox__stage";
 
-  const img = document.createElement("img");
-  img.className = "lightbox__img";
-  img.alt = "";
-  img.setAttribute("draggable", "false");
-  stage.appendChild(img);
+  const imgEl = document.createElement("img");
+  imgEl.className = "lightbox__img";
+  imgEl.alt = "";
+  imgEl.setAttribute("draggable", "false");
+  stage.appendChild(imgEl);
+
+  // Видео в лайтбоксе: тот же зум, что и у фото
+  const vidEl = document.createElement("video");
+  vidEl.className = "lightbox__img";
+  vidEl.muted = true;
+  vidEl.loop = true;
+  vidEl.autoplay = true;
+  vidEl.playsInline = true;
+  vidEl.setAttribute("draggable", "false");
+  vidEl.hidden = true;
+  stage.appendChild(vidEl);
+
+  // Активный элемент (фото или видео), к которому применяются зум и pan
+  let img = imgEl;
 
   // Панель зума: отдалить / сбросить / приблизить — по центру внизу
   const zoomOutBtn = button("", "Отдалить", ["M5 12h14"]);
@@ -185,8 +200,18 @@
   }
 
   function show(el) {
+    const isVideo = el.tagName === "VIDEO";
+    img = isVideo ? vidEl : imgEl;
+    imgEl.hidden = isVideo;
+    vidEl.hidden = !isVideo;
     img.src = fullSrc(el);
-    img.alt = el.alt || "";
+    if (isVideo) {
+      vidEl.currentTime = el.currentTime || 0;
+      const pr = vidEl.play();
+      if (pr && pr.catch) pr.catch(() => {});
+    } else {
+      imgEl.alt = el.alt || "";
+    }
     resetZoom(true); // открываем всегда в исходном масштабе
   }
 
@@ -226,7 +251,9 @@
     // Сбрасываем src и масштаб после анимации затухания
     window.setTimeout(() => {
       if (!isOpen()) {
-        img.removeAttribute("src");
+        vidEl.pause();
+        vidEl.removeAttribute("src");
+        imgEl.removeAttribute("src");
         resetZoom(true);
       }
     }, 300);
@@ -270,7 +297,7 @@
   // Одиночный клик — тогглер: приблизить в точку / вернуть исходный масштаб.
   // suppressClick гасит клик, оставшийся после перетаскивания (drag), чтобы
   // тащить приближённое фото можно было без ложного отдаления.
-  img.addEventListener("click", (e) => {
+  [imgEl, vidEl].forEach((m) => m.addEventListener("click", (e) => {
     if (suppressClick) return;
     e.preventDefault();
     if (scale > 1.001) {
@@ -278,7 +305,7 @@
     } else {
       zoomTo(CLICK_SCALE, e.clientX, e.clientY);
     }
-  });
+  }));
 
   // ---- Перетаскивание мышью (pan) ----
   let dragging = false;
@@ -289,7 +316,7 @@
   let dragTx = 0;
   let dragTy = 0;
 
-  img.addEventListener("mousedown", (e) => {
+  [imgEl, vidEl].forEach((m) => m.addEventListener("mousedown", (e) => {
     if (e.button !== 0 || scale <= 1.001) return;
     e.preventDefault();
     dragging = true;
@@ -299,7 +326,7 @@
     dragTx = tx;
     dragTy = ty;
     img.classList.add("is-panning");
-  });
+  }));
 
   window.addEventListener("mousemove", (e) => {
     if (!dragging) return;

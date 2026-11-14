@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="css/styles.css?v=5" />
+    <link rel="stylesheet" href="css/styles.css?v=11" />
   </head>
   <body class="has-case-back case2">
     <!-- Десктоп: текстура «код» + спотлайт (js/home-code-spotlight.js) -->
@@ -42,13 +42,27 @@
     <main class="main-area">
 
       <!-- ========== БЛОК: герой-изображение ========== -->
-      <div class="case2-hero">
-        <img
-          src="images/cases/licenses/case-lic-after-2.png"
-          alt="Раздел «Лицензии и права» — интерфейс администрирования"
-          fetchpriority="high"
-          decoding="async"
-        />
+      <div class="case2-hero case2-hero--plain">
+        <video
+          src="videos/case-licenses.mp4?v=1"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+          aria-label="Раздел «Лицензии и права» — интерфейс администрирования"
+          class="media-desktop"
+        ></video>
+        <video
+          src="videos/case-licenses-mobile.mp4?v=1"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+          aria-label="Раздел «Лицензии и права» — интерфейс администрирования"
+          class="media-mobile"
+        ></video>
       </div>
 
       <h1 class="case2__title">Раздел «Лицензии и права»</h1>
@@ -324,7 +338,7 @@
 
     <script src="js/main.js" defer></script>
     <script src="js/home-code-spotlight.js" defer></script>
-    <script src="js/lightbox.js" defer></script>
+    <script src="js/lightbox.js?v=2" defer></script>
   <script data-goatcounter="https://sultan-gadzhiev.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
   </body>
 </html>

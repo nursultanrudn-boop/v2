@@ -360,7 +360,9 @@ body.home-code-spotlight--on.home-code-spotlight--main-empty .home-code-spotligh
 .intro__bold,
 .intro__bold b {
   font-family: var(--font-body);
-  font-weight: 450 !important;
+  font-weight: 400 !important;
+  font-size: inherit;
+  line-height: inherit;
   font-style: normal;
   color: var(--fg-primary);
 }
@@ -950,7 +952,8 @@ body.case2 .case-sidebar {
   .intro p,
   .intro__bold,
   .intro__bold b {
-    line-height: 26px;
+    font-size: 16px;
+    line-height: 24px;
   }
 }
 
@@ -1271,7 +1274,8 @@ body.case2 .case-sidebar {
   aspect-ratio: 588 / 324;
 }
 
-.home-case__image img {
+.home-case__image img,
+.home-case__image video {
   display: block;
   width: 100%;
   height: 100%;
@@ -1279,7 +1283,8 @@ body.case2 .case-sidebar {
   transition: transform 0.3s ease-out;
 }
 
-.home-case:hover .home-case__image img {
+.home-case:hover .home-case__image img,
+.home-case:hover .home-case__image video {
   transform: scale(1.02);
 }
 
@@ -1303,6 +1308,32 @@ body.case2 .case-sidebar {
   font-weight: 400;
   line-height: 16px;
   color: #949494;
+}
+
+/* Переключение десктопного / мобильного видео */
+.media-mobile {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .media-desktop {
+    display: none !important;
+  }
+
+  .media-mobile {
+    display: block !important;
+  }
+
+  .case2-hero.case2-hero--plain {
+    padding: 0;
+  }
+
+  .case2-hero.case2-hero--plain video.media-mobile {
+    width: 100%;
+    height: auto;
+    max-width: none;
+    aspect-ratio: 343 / 200;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1641,6 +1672,35 @@ body.case2 .main-area > * + * {
   max-width: 490px;
   height: auto;
   border-radius: 8px;
+}
+
+/* Без серой плашки: видео/изображение внутри уже со своим фоном */
+.case2-hero--plain {
+  background: none;
+  padding: 0;
+}
+
+.case2-hero.case2-hero--plain video,
+.case2-hero.case2-hero--plain img {
+  max-width: 100%;
+}
+
+/* Видео героя: на всю ширину контента, высота растёт пропорционально */
+.case2-hero.case2-hero--plain video {
+  width: 100%;
+  max-width: none;
+  height: auto;
+  aspect-ratio: 1176 / 648;
+}
+
+.case2-hero video {
+  cursor: zoom-in;
+  display: block;
+  width: 100%;
+  max-width: 490px;
+  aspect-ratio: 1600 / 822;
+  border-radius: 8px;
+  object-fit: contain;
 }
 
 /* Карточка с вертикальным макетом телефона: узкий мокап по центру серой плашки */
@@ -2001,6 +2061,10 @@ body.case2 .main-area > * + * {
 }
 
 /* Когда фото приближено, следующий клик его отдалит — лупа с «−» */
+.lightbox__img[hidden] {
+  display: none;
+}
+
 .lightbox__img.is-zoomed {
   cursor: zoom-out;
 }
