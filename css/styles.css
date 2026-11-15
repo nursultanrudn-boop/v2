@@ -2180,3 +2180,19 @@ body.case2 .main-area > * + * {
     transition: none;
   }
 }
+
+/* ========== БЛОК: высота кнопок нижней панели — 44px (удобная зона нажатия) ========== */
+/* Соцсети и «Резюме» на главной — только телефон */
+@media (max-width: 768px) {
+  .dock-wrap--home .dock__icon-btn,
+  .dock-wrap--home .btn-resume {
+    height: 44px;
+  }
+}
+
+/* «Вернуться на главную» в кейсе — везде, где она показывается (< 1280px) */
+@media (max-width: 1279.98px) {
+  .has-case-back .case-home-dock .btn-resume {
+    height: 44px;
+  }
+}
