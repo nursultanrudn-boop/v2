@@ -1772,7 +1772,7 @@ body.case2 .main-area > * + * {
   margin: 0;
   font-family: var(--font-body);
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 17px;
   color: #7a7a7a;
 }
