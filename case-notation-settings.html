@@ -8,7 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="css/styles.css?v=9" />
+    <link rel="stylesheet" href="css/styles.css?v=15" />
+    <script src="js/zoom-init.js"></script>
   </head>
   <body class="has-case-back case2">
     <!-- Десктоп: текстура «код» + спотлайт (js/home-code-spotlight.js) -->
@@ -22,16 +23,16 @@
         <img src="images/icons/icon-undo.svg" alt="" width="16" height="16" />
         Назад
       </a>
+      <a href="#section-summary" class="case-sidebar__link">Кратко</a>
       <a href="#section-context" class="case-sidebar__link">Контекст</a>
       <a href="#section-role" class="case-sidebar__link">Моя роль</a>
       <a href="#section-goal" class="case-sidebar__link">Цель</a>
-      <a href="#section-tasks" class="case-sidebar__link">Задачи</a>
-      <a href="#section-problem" class="case-sidebar__link">Проблема пользователей</a>
+      <a href="#section-problem" class="case-sidebar__link">Проблемы пользователей</a>
       <a href="#section-audit" class="case-sidebar__link">Аудит системы</a>
-      <a href="#section-hypotheses" class="case-sidebar__link">Гипотезы</a>
-      <a href="#section-interface" class="case-sidebar__link">Интерфейс</a>
+      <a href="#section-hypotheses" class="case-sidebar__link">Проверка гипотез</a>
+      <a href="#section-interface" class="case-sidebar__link">Интерфейс До/После</a>
       <a href="#section-result" class="case-sidebar__link">Результат</a>
-      <a href="#section-retro" class="case-sidebar__link">Рефлексия</a>
+      <a href="#section-retro" class="case-sidebar__link">Главный вывод</a>
     </nav>
 
     <a href="index.html" class="case-back-mobile" aria-label="Назад к кейсам">
@@ -67,88 +68,42 @@
 
       <h1 class="case2__title">Раздел «Настройки нотации»</h1>
 
+      <!-- ========== БЛОК: кратко ========== -->
+      <section id="section-summary" class="case2__block">
+        <p class="case2__label">Кратко</p>
+        <p class="case2__text">Редизайн настройки нотаций в&nbsp;B2B-платформе PIX Процессы.</p>
+        <p class="case2__text">Роль: продуктовый дизайнер, от&nbsp;исследования до&nbsp;передачи в&nbsp;разработку.</p>
+        <p class="case2__text">Добавил массовое редактирование&nbsp;— настройка стала быстрее на&nbsp;50%</p>
+      </section>
+
       <!-- ========== БЛОК: контекст ========== -->
       <section id="section-context" class="case2__block">
         <p class="case2__label">Контекст</p>
-        <p class="case2__text">«Настройки нотаций» — это этап подготовки системы к&nbsp;работе. На&nbsp;нём пользователь выбирает нотации, определяет, какие элементы будут использоваться, какими свойствами они будут обладать и&nbsp;будут ли отображаться в&nbsp;иерархии уровней при отрисовке бизнес-процессов. Раздел позволяет гибко адаптировать логику и&nbsp;структуру платформы под стандарты любого бизнеса.</p>
+        <p class="case2__text">Здесь аналитики выбирают нотации для бизнес-процессов, настраивают элементы, их свойства и&nbsp;отображение на&nbsp;уровнях.</p>
       </section>
 
       <!-- ========== БЛОК: моя роль ========== -->
       <section id="section-role" class="case2__block">
         <p class="case2__label">Моя роль</p>
-        <p class="case2__text">Я&nbsp;вёл продуктовый дизайн раздела полностью: от&nbsp;исследования и&nbsp;информационной архитектуры до&nbsp;финальных экранов и&nbsp;работы с&nbsp;дизайн-системой.</p>
-        <ul class="case2-card">
-          <li class="case2-card__row">
-            <span class="case2-card__bullet" aria-hidden="true"></span>
-            <span class="case2-card__text">Исследование и&nbsp;аудит легаси-интерфейса</span>
-          </li>
-          <li class="case2-card__row">
-            <span class="case2-card__bullet" aria-hidden="true"></span>
-            <span class="case2-card__text">Информационная архитектура и&nbsp;визуальная иерархия данных</span>
-          </li>
-          <li class="case2-card__row">
-            <span class="case2-card__bullet" aria-hidden="true"></span>
-            <span class="case2-card__text">Проектирование решения и&nbsp;ключевых паттернов (Bulk actions, панель элементов)</span>
-          </li>
-          <li class="case2-card__row">
-            <span class="case2-card__bullet" aria-hidden="true"></span>
-            <span class="case2-card__text">Приведение к&nbsp;единой дизайн-системе и&nbsp;передача в&nbsp;разработку</span>
-          </li>
-        </ul>
+        <p class="case2__text">Работа охватывает исследование и&nbsp;аудит интерфейса, выстраивание архитектуры и&nbsp;иерархии данных, проработку массовых действий и&nbsp;панели элементов, создание дизайн-системы и&nbsp;передачу в&nbsp;разработку.</p>
       </section>
 
       <!-- ========== БЛОК: цель ========== -->
       <section id="section-goal" class="case2__block">
         <p class="case2__label">Цель</p>
-        <p class="case2__text">Обновить дизайн раздела «Настройки нотаций», оптимизировать пользовательский путь, улучшить восприятие интерфейса и&nbsp;упростить отображение функций.</p>
-      </section>
-
-      <!-- ========== БЛОК: задачи ========== -->
-      <section id="section-tasks" class="case2__block">
-        <p class="case2__label">Задачи</p>
-        <ul class="case2-list">
-          <li>Снизить когнитивную нагрузку при&nbsp;работе со&nbsp;сложными схемами</li>
-          <li>Повысить скорость выполнения ключевых сценариев (создание и&nbsp;редактирование процессов)</li>
-          <li>Сделать интерфейс масштабируемым для&nbsp;роста функциональности</li>
-          <li>Унифицировать UX и&nbsp;привести его к&nbsp;единой дизайн-системе</li>
-        </ul>
+        <p class="case2__text">Ускорить настройку нотаций, снизить риск ошибок и&nbsp;подготовить интерфейс к&nbsp;новым параметрам.</p>
       </section>
 
       <!-- ========== БЛОК: проблема пользователей ========== -->
       <section id="section-problem" class="case2__block">
-        <p class="case2__label">Проблема пользователей</p>
-        <ul class="case2-card">
-          <li class="case2-card__row">
-            <span class="case2-card__icon" aria-hidden="true">❗️</span>
-            <span class="case2-card__text">Отсутствие инструментов массового редактирования</span>
-          </li>
-          <li class="case2-card__row">
-            <span class="case2-card__icon" aria-hidden="true">❗️</span>
-            <span class="case2-card__text">Высокий риск ошибок при&nbsp;заполнении сотен однотипных полей</span>
-          </li>
-          <li class="case2-card__row">
-            <span class="case2-card__icon" aria-hidden="true">❗️</span>
-            <span class="case2-card__text">Отсутствие визуальной иерархии и&nbsp;структуры в&nbsp;данных</span>
-          </li>
-          <li class="case2-card__row">
-            <span class="case2-card__icon" aria-hidden="true">❗️</span>
-            <span class="case2-card__text">Длительный цикл настройки (TTV) из-за монотонности</span>
-          </li>
-          <li class="case2-card__row">
-            <span class="case2-card__icon" aria-hidden="true">❗️</span>
-            <span class="case2-card__text">Сложность в&nbsp;оценке общей конфигурации «одним взглядом»</span>
-          </li>
-          <li class="case2-card__row">
-            <span class="case2-card__icon" aria-hidden="true">❗️</span>
-            <span class="case2-card__text">Низкая масштабируемость таблиц под&nbsp;новые параметры системы</span>
-          </li>
-        </ul>
+        <p class="case2__label">Проблемы пользователей</p>
+        <p class="case2__text">Ручной ввод и&nbsp;отсутствие массового редактирования замедляют настройку и&nbsp;повышают риск ошибок. Без иерархии сложно увидеть общую картину, а&nbsp;табличный формат затрудняет добавление новых параметров.</p>
       </section>
 
       <!-- ========== БЛОК: аудит системы ========== -->
       <section id="section-audit" class="case2__block">
         <p class="case2__label">Аудит системы</p>
-        <p class="case2__text">Провёл аудит текущего UX и&nbsp;выявил ключевые проблемы: перегруженность интерфейса, сложность управления отображаемыми свойствами элемента, дублирование и&nbsp;высокий порог входа.</p>
+        <p class="case2__text">Аудит выявил перегруженный интерфейс, дублирование и&nbsp;сложное управление свойствами.</p>
         <picture class="case2-audit">
           <source media="(max-width: 768px)" srcset="images/cases/notation-settings/case-ns-audit-mobile.jpg" />
           <img src="images/cases/notation-settings/case-ns-audit-desktop.png" alt="Аудит интерфейса — рукописные заметки и схемы" loading="lazy" decoding="async" />
@@ -157,45 +112,8 @@
 
       <!-- ========== БЛОК: гипотезы ========== -->
       <section id="section-hypotheses" class="case2__block">
-        <p class="case2__label">Гипотезы</p>
-        <p class="case2__text">Сформулировал гипотезы, на&nbsp;основе них самостоятельно провёл качественное исследование UX.</p>
-        <ul class="case2-card">
-          <li class="case2-card__row">
-            <span class="case2-card__num" aria-hidden="true">1</span>
-            <span class="case2-card__text">Массовое управление свойствами элементов упростит работу</span>
-          </li>
-          <li class="case2-card__row">
-            <span class="case2-card__num" aria-hidden="true">2</span>
-            <span class="case2-card__text">Возможность массового включения и&nbsp;выключения свойств востребована</span>
-          </li>
-          <li class="case2-card__row">
-            <span class="case2-card__num" aria-hidden="true">3</span>
-            <span class="case2-card__text">Свойства часто повторяются у&nbsp;разных элементов и&nbsp;на&nbsp;разных уровнях</span>
-          </li>
-          <li class="case2-card__row">
-            <span class="case2-card__num" aria-hidden="true">4</span>
-            <span class="case2-card__text">Свойства элементов повторяются на&nbsp;всех уровнях — необходимость в&nbsp;уровнях может быть поставлена под&nbsp;сомнение</span>
-          </li>
-        </ul>
-        <p class="case2__text">Проверка гипотез уберегла проект от&nbsp;критической ошибки. Исследование опровергло идею о&nbsp;дублировании свойств: выяснилось, что настройки на&nbsp;уровнях почти всегда уникальны. Сохранение этой автономности позволило оставить систему гибкой для&nbsp;аналитиков.</p>
-        <ul class="case2-card">
-          <li class="case2-card__row">
-            <span class="case2-card__icon" aria-hidden="true">✅</span>
-            <span class="case2-card__text">Массовое управление свойствами элементов упростит работу</span>
-          </li>
-          <li class="case2-card__row">
-            <span class="case2-card__icon" aria-hidden="true">✅</span>
-            <span class="case2-card__text">Возможность массового включения и&nbsp;выключения свойств востребована</span>
-          </li>
-          <li class="case2-card__row">
-            <span class="case2-card__icon" aria-hidden="true">✅</span>
-            <span class="case2-card__text">Свойства часто повторяются у&nbsp;разных элементов и&nbsp;на&nbsp;разных уровнях</span>
-          </li>
-          <li class="case2-card__row">
-            <span class="case2-card__icon" aria-hidden="true">💔</span>
-            <span class="case2-card__text">Свойства элементов повторяются на&nbsp;всех уровнях — необходимость в&nbsp;уровнях может быть поставлена под&nbsp;сомнение</span>
-          </li>
-        </ul>
+        <p class="case2__label">Проверка гипотез</p>
+        <p class="case2__text">Проверил необходимость массовых действий и&nbsp;отдельных настроек на&nbsp;уровнях. Массовое редактирование упрощает работу с&nbsp;повторяющимися свойствами, в&nbsp;том числе их включение и&nbsp;выключение. Убрать уровни нельзя: настройки на&nbsp;них почти всегда уникальны, поэтому сохранил их независимость.</p>
       </section>
 
       <!-- ========== БЛОК: интерфейс До / После ========== -->
@@ -240,18 +158,18 @@
       <section id="section-result" class="case2__block">
         <p class="case2__label">Результат</p>
         <ul class="case2-list">
-          <li><b>Ускорил цикл подготовки системы:</b> внедрение инструментов массового редактирования значительно сократило время на&nbsp;первичную настройку нотаций</li>
-          <li><b>Снизил когнитивную нагрузку</b> за&nbsp;счёт перехода к&nbsp;структурированному отображению данных и&nbsp;упрощённой навигации</li>
-          <li><b>Повысил точность настройки:</b> оптимизация процесса ввода данных минимизировала вероятность человеческой ошибки</li>
-          <li><b>Сделал интерфейс масштабируемым:</b> новая архитектура таблицы позволяет легко добавлять новые системные параметры без&nbsp;потери читаемости</li>
-          <li><b>Положительный отклик по&nbsp;итогам тестирования:</b> провёл юзабилити-тестирование с&nbsp;5&nbsp;компаниями — все участники самостоятельно прошли сценарий первичной настройки нотаций и&nbsp;подтвердили удобство обновлённого интерфейса</li>
+          <li>Массовое редактирование сократило время настройки.</li>
+          <li>Структура данных и&nbsp;навигация стали проще.</li>
+          <li>Обновлённый ввод снизил риск ошибок.</li>
+          <li>В&nbsp;таблицу можно добавлять новые параметры.</li>
+          <li>Все участники тестирования из&nbsp;5 компаний прошли первичную настройку без помощи и&nbsp;отметили удобство интерфейса.</li>
         </ul>
       </section>
 
       <!-- ========== БЛОК: ретроспектива ========== -->
       <section id="section-retro" class="case2__block">
-        <p class="case2__label">Ретроспектива</p>
-        <p class="case2__text">Главный вывод: непроверенная гипотеза дорожает вниз по&nbsp;воронке. Я&nbsp;заходил с&nbsp;идеей убрать уровни как избыточную сущность, но&nbsp;исследование показало обратное: настройки на&nbsp;уровнях почти всегда уникальны, и&nbsp;их схлопывание лишило бы&nbsp;аналитиков гибкости. Чем дороже откат, тем раньше нужно валидировать.</p>
+        <p class="case2__label">Главный вывод</p>
+        <p class="case2__text">Проверять гипотезы до&nbsp;проектирования: отказ от&nbsp;уровней лишил бы аналитиков нужных настроек.</p>
       </section>
 
       <!-- ========== БЛОК: другие кейсы ========== -->

@@ -1,20 +1,4 @@
 (function () {
-  const ZOOM_KEY = "portfolio_zoom_dpr";
-
-  const saved = parseFloat(sessionStorage.getItem(ZOOM_KEY) || "0");
-  const current = window.devicePixelRatio;
-
-  if (saved && Math.abs(saved - current) > 0.02) {
-    document.documentElement.style.zoom = (saved / current).toFixed(4);
-  }
-
-  window.addEventListener("beforeunload", () => {
-    const cssZoom = parseFloat(document.documentElement.style.zoom || "1");
-    sessionStorage.setItem(ZOOM_KEY, String(current * cssZoom));
-  });
-})();
-
-(function () {
   const DOCK_INTRO_SEEN_KEY = "portfolio_dock_intro_seen";
 
   const wrap = document.querySelector(".dock-wrap");

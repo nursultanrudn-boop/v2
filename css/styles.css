@@ -857,10 +857,27 @@ body.case2 .case-sidebar {
   }
 }
 
+/* Боковая панель — на своём слое композитинга: тяжёлая анимация контента
+   (blur на видео/картинках) не должна дёргать появление пунктов */
+.page-case .case-sidebar {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
 .page-case .case-sidebar__link {
   opacity: 0;
   transform: translateY(8px);
+  will-change: opacity, transform;
   animation: case-nav-in 0.78s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Кейсы: анимируем только первые блоки (первый экран). Остальные — сразу видимы:
+   иначе десятки блоков с blur стартуют одновременно и страница подвисает */
+.page-case .main-area > *:nth-child(n + 7) {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  animation: none;
 }
 
 .page-case .case-sidebar__link:nth-child(1) { animation-delay: 0.12s; }
@@ -874,6 +891,9 @@ body.case2 .case-sidebar {
 .page-case .case-sidebar__link:nth-child(9) { animation-delay: 0.76s; }
 .page-case .case-sidebar__link:nth-child(10) { animation-delay: 0.84s; }
 .page-case .case-sidebar__link:nth-child(11) { animation-delay: 0.92s; }
+.page-case .case-sidebar__link:nth-child(12) { animation-delay: 1.00s; }
+.page-case .case-sidebar__link:nth-child(13) { animation-delay: 1.08s; }
+.page-case .case-sidebar__link:nth-child(14) { animation-delay: 1.16s; }
 
 .case-sidebar__link:hover {
   color: var(--brand-tertiary);
