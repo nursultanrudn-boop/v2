@@ -11,7 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/styles.css?v=12" />
+    <link rel="stylesheet" href="css/styles.css?v=13" />
   </head>
   <body class="page-home">
     <!-- Десктоп: текстура «код» + спотлайт у курсора -->
@@ -154,10 +154,30 @@
 
           <li class="home-list__item">
             <a class="home-case" href="case-lct-hackathon.html">
-              <picture class="home-case__image">
-                <source media="(max-width: 768px)" srcset="images/cases/home/case-lct-hackathon-mobile.jpg" />
-                <img src="images/cases/home/case-lct-hackathon-desktop.jpg" alt="Хакатон ЛЦТ" width="1176" height="648" loading="lazy" decoding="async" />
-              </picture>
+              <span class="home-case__image">
+                <video
+                  src="videos/case-lct-hackathon.mp4?v=1"
+                  poster="images/cases/home/case-lct-hackathon-desktop.jpg"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                  aria-hidden="true"
+                  class="media-desktop"
+                ></video>
+                <video
+                  src="videos/case-lct-hackathon-mobile.mp4?v=1"
+                  poster="images/cases/home/case-lct-hackathon-mobile.jpg"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                  aria-hidden="true"
+                  class="media-mobile"
+                ></video>
+              </span>
               <span class="home-case__text">
                 <span class="home-case__name">Хакатон ЛЦТ</span>
                 <span class="home-case__meta">B2C · Mobile · Геймификация для ГазпромБанка</span>

@@ -1328,6 +1328,10 @@ body.case2 .case-sidebar {
     padding: 0;
   }
 
+  .case2-hero.case2-hero--plain.case2-hero--tall video.media-mobile {
+    aspect-ratio: 686 / 1232;
+  }
+
   .case2-hero.case2-hero--plain video.media-mobile {
     width: 100%;
     height: auto;
@@ -1683,6 +1687,11 @@ body.case2 .main-area > * + * {
 .case2-hero.case2-hero--plain video,
 .case2-hero.case2-hero--plain img {
   max-width: 100%;
+}
+
+/* Высокое видео героя (кейс ЛЦТ): свои пропорции */
+.case2-hero.case2-hero--plain.case2-hero--tall video.media-desktop {
+  aspect-ratio: 1176 / 1448;
 }
 
 /* Видео героя: на всю ширину контента, высота растёт пропорционально */
