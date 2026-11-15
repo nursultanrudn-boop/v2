@@ -244,39 +244,85 @@
     el.style.backgroundPosition = `${-col * SIZE}px ${-row * SIZE}px`;
   }
 
+  // --- Поведение, когда курсор стоит на месте ---
+  // Через 2–3 секунды пингвин зевает и засыпает, потом просыпается («удивился»),
+  // немного сидит, чешется или осматривается, и снова ложится спать — по кругу.
+  let needNext = true;  // при новой остановке заново планируем первое действие
+  let nextAt = 0;       // на каком idleTime начнётся следующее действие
+  let idleLen = 0;      // длительность текущей анимации, в тиках
+  let sleptBefore = false;
+
+  function rand(a, b) {
+    return a + Math.floor(Math.random() * (b - a + 1));
+  }
+
   function resetIdle() {
     idleAnim = null;
     idleFrame = 0;
+    needNext = true;
+    sleptBefore = false;
+  }
+
+  function startIdleAnim(name, len) {
+    idleAnim = name;
+    idleLen = len;
+    idleFrame = 0;
+  }
+
+  function pickIdleAnim() {
+    // Первый раз после остановки — всегда засыпает
+    if (!sleptBefore) {
+      sleptBefore = true;
+      return startIdleAnim("sleeping", rand(60, 110)); // 6–11 секунд сна
+    }
+    const options = ["sleeping", "sleeping", "scratchSelf", "look"];
+    if (x < 32) options.push("scratchWallW");
+    if (y < 32) options.push("scratchWallN");
+    if (x > window.innerWidth - 32) options.push("scratchWallE");
+    if (y > window.innerHeight - 32) options.push("scratchWallS");
+    const name = options[Math.floor(Math.random() * options.length)];
+    if (name === "sleeping") startIdleAnim("sleeping", rand(60, 110));
+    else if (name === "look") startIdleAnim("look", rand(12, 20));
+    else startIdleAnim(name, rand(14, 24));
   }
 
   function idle() {
     idleTime += 1;
 
-    // Постояв секунду, изредка начинает случайную анимацию
-    if (idleTime > 10 && !idleAnim && Math.floor(Math.random() * 200) === 0) {
-      const options = ["sleeping", "scratchSelf"];
-      if (x < 32) options.push("scratchWallW");
-      if (y < 32) options.push("scratchWallN");
-      if (x > window.innerWidth - 32) options.push("scratchWallE");
-      if (y > window.innerHeight - 32) options.push("scratchWallS");
-      idleAnim = options[Math.floor(Math.random() * options.length)];
+    if (needNext) {
+      needNext = false;
+      nextAt = idleTime + rand(20, 30); // 2–3 секунды на месте
     }
 
-    if (idleAnim === "sleeping") {
-      if (idleFrame < 8) {
-        setSprite("tired", 0);            // сначала зевает
-      } else {
-        setSprite("sleeping", Math.floor(idleFrame / 4));
-      }
-      if (idleFrame > 192) resetIdle();   // спит около 19 секунд
-    } else if (idleAnim) {
-      setSprite(idleAnim, idleFrame);
-      if (idleFrame > 9) resetIdle();
-    } else {
+    if (!idleAnim && idleTime >= nextAt) pickIdleAnim();
+
+    if (!idleAnim) {
       setSprite("idle", 0);
       return;
     }
+
+    if (idleAnim === "sleeping") {
+      if (idleFrame < 8) setSprite("tired", 0);                 // зевает
+      else setSprite("sleeping", Math.floor(idleFrame / 4));    // спит
+    } else if (idleAnim === "wake") {
+      setSprite("alert", 0);                                    // проснулся
+    } else if (idleAnim === "look") {
+      // осматривается: то «удивился», то сидит
+      setSprite(Math.floor(idleFrame / 5) % 2 === 0 ? "alert" : "idle", 0);
+    } else {
+      setSprite(idleAnim, idleFrame);                           // чешется
+    }
+
     idleFrame += 1;
+    if (idleFrame >= idleLen) {
+      if (idleAnim === "sleeping") {
+        startIdleAnim("wake", 5);                               // просыпается
+      } else {
+        idleAnim = null;
+        idleFrame = 0;
+        nextAt = idleTime + rand(25, 50);                       // пауза 2.5–5 сек
+      }
+    }
   }
 
   function tick() {
