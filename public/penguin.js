@@ -138,20 +138,18 @@
   btn.addEventListener("mouseenter", () => { btn.style.color = "var(--fg-primary, #0a0c0f)"; });
   btn.addEventListener("mouseleave", () => { btn.style.color = "var(--fg-secondary, #435165)"; });
 
-  // Иконка-пингвин (контур) и она же зачёркнутая. Цвет берётся из currentColor.
-  const SVG_OPEN =
-    '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">';
-  const PENGUIN_SVG =
-    '<path d="M12 3C9 3 7.5 5.4 7.5 8.2c0 1.2-.5 2-1.4 3.4C5 13.3 4.5 15 5 16.6c.4 1.4 1.4 2.3 2.4 2.8L7 21h3.2l.8-1.5h2l.8 1.5H17l-.4-1.6c1-.5 2-1.4 2.4-2.8.5-1.6 0-3.3-1.1-5-.9-1.4-1.4-2.2-1.4-3.4C16.5 5.4 15 3 12 3z"/>' +
-    '<path d="M12 11c-1.7 0-2.8 1.5-2.8 3.3s1.1 3.2 2.8 3.2 2.8-1.4 2.8-3.2S13.7 11 12 11z"/>' +
-    '<circle cx="10.3" cy="7" r=".8" fill="currentColor" stroke="none"/>' +
-    '<circle cx="13.7" cy="7" r=".8" fill="currentColor" stroke="none"/>' +
-    '<path d="M10.9 8.6h2.2L12 10z" fill="currentColor"/>';
-  const ICON_ON = SVG_OPEN + PENGUIN_SVG + "</svg>";
+  // Иконки кнопки — наш пиксельный пингвин. Включён: сидит и смотрит.
+  // Выключен: спит на фоне горы (той же, что курсор).
+  const spriteDiv = (col, extra) =>
+    `<div style="position:absolute;width:${SIZE}px;height:${SIZE}px;image-rendering:pixelated;background-image:url('${SPRITE_URL}');background-position:${-col * SIZE}px 0;${extra}"></div>`;
+  // Тело пингвина в кадре лежит ниже центра клетки, поэтому поднимаем его на 2 px и чуть уменьшаем.
+  const ICON_ON =
+    '<div style="position:relative;width:32px;height:32px">' + spriteDiv(0, "left:0;top:-2px;transform:scale(.875);") + "</div>";
+  // Выключен: гора по центру, перед ней отдельно лежит спящий пингвин (чуть ниже и поверх).
   const ICON_OFF =
-    SVG_OPEN + PENGUIN_SVG +
-    '<path d="M4 4l16 16" stroke="var(--bg-accent, #fff)" stroke-width="4.5"/>' +
-    '<path d="M4 4l16 16"/></svg>';
+    '<div style="position:relative;width:32px;height:32px">' +
+    `<img src="${cursorBase}56.png" alt="" style="position:absolute;left:2px;top:1px;width:28px;height:28px">` +
+    spriteDiv(3, "left:0;top:-1px;transform:scale(.8);") + "</div>";
   document.body.appendChild(btn);
 
   // На узких экранах нижняя панель занимает всю ширину, поэтому кнопка встаёт над ней.
